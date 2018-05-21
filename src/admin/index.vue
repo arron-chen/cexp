@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div>xx
     </div>
 </template>
 <script>
   export default {}
 </script>
-<style>
+<style lang="less">
   @import '../assets/less/admin/index.less';
 </style>

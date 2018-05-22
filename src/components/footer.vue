@@ -1,5 +1,8 @@
 <template>
-    <div>
+    <div class="footer">
+      <div class="footer_cont commonWidth">
+          <p>&copy;版权所有</p>
+      </div>
     </div>
 </template>
 <script>
@@ -7,5 +10,6 @@
 
   }
 </script>
-<style>
+<style lang="less">
+  @import '../assets/less/default/footer.less';
 </style>

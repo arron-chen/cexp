@@ -21,12 +21,12 @@
       </section>
       <section class="countdown">
         <div class="countdown_cont commonWidth">
-          <Button @click="modal3 = true">No title bar</Button>
+         <!-- <Button @click="modal3 = true">No title bar</Button>
           <Modal v-model="modal3">
             <p>Content of dialog</p>
             <p>Content of dialog</p>
             <p>Content of dialog</p>
-          </Modal>
+          </Modal>-->
         </div>
       </section>
       <c-footer class="cfooter"></c-footer>

@@ -17,5 +17,4 @@
 </script>
 <style lang="less">
   @import '../assets/less/admin/index.less';
-  @import '../assets/less/admin/style.less';
 </style>

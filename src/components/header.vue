@@ -7,7 +7,7 @@
     </div>
     <div class="cheader">
       <div class="cheader_cont commonWidth">
-        <div class="fl">xx</div>
+        <div class="clogo fl"><img src="../../static/images/logo.png"></div>
         <div class="fr"><Input></Input></div>
       </div>
     </div>

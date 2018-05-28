@@ -2,7 +2,7 @@
   <div>
     <div class="ctop">
       <div class="ctop_cont commonWidth">
-        <div class="top_cont_r fr"><span class="c_login">登录</span>&nbsp;&nbsp;<span class="c_register">注册</span><i >|</i><i class="icon_weixin" ></i> <i class="icon_weibo"></i></div>
+        <div class="top_cont_r fr"><router-link  class="c_login" to="/login" tag="span">登录</router-link><router-link class="c_register" to="/login" tag="span">注册</router-link><i >|</i><i class="icon_weixin" ></i> <i class="icon_weibo"></i></div>
       </div>
     </div>
     <div class="cheader">

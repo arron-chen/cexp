@@ -56,7 +56,8 @@
         </div>
       </section>
       <c-footer class="cfooter"></c-footer>
-      <c-sidebar></c-sidebar>
+      <c-sidebar @isModal="openModal"></c-sidebar>
+
     </div>
 </template>
 <script>
@@ -68,7 +69,7 @@
   export default {
     data () {
       return {
-        modal3: false,
+        modal1: false,
         swiperOption: {
           autoplay:{
             delay: 3000,
@@ -108,6 +109,10 @@
     components:{cHeader,cFooter,cSidebar,swiper,
       swiperSlide},
     methods: {
+      openModal(val){
+          this.modal1=val;
+          console.log(this.modal1)
+      }
     },
     computed: {
       swiper() {

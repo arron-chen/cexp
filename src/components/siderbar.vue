@@ -251,7 +251,7 @@
         color: #fff;
         display: inline-block;
         text-align: center;
-        font-size: 16px;
+        font-size: 13px;
         padding: 6px;
         box-sizing: border-box;
       }

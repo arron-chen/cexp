@@ -47,12 +47,7 @@
       </section>
       <section class="countdown">
         <div class="countdown_cont commonWidth">
-         <!-- <Button @click="modal3 = true">No title bar</Button>
-          <Modal v-model="modal3">
-            <p>Content of dialog</p>
-            <p>Content of dialog</p>
-            <p>Content of dialog</p>
-          </Modal>-->
+          <span>体验倒计时：</span><count-down endTime="1527734695" :callback="callback" endText="已经结束了"></count-down>
         </div>
       </section>
       <c-footer class="cfooter"></c-footer>
@@ -64,6 +59,7 @@
   import cHeader from '../components/header';
   import cFooter from '../components/footer';
   import cSidebar from '../components/siderbar';
+  import countDown from '../components/countDown';
 
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
   export default {
@@ -107,11 +103,14 @@
       }
     },
     components:{cHeader,cFooter,cSidebar,swiper,
-      swiperSlide},
+      swiperSlide,countDown},
     methods: {
       openModal(val){
           this.modal1=val;
           console.log(this.modal1)
+      },
+      callback(){
+
       }
     },
     computed: {

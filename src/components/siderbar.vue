@@ -1,20 +1,21 @@
 <template>
   <div>
     <ul class="sidebar">
-      <li style="width:35px;height:120px;">
+     <!-- <li style="width:35px;height:120px;">
         <img src=".././../static/images/sidebar/phone-d8843c5a10.gif">
         <span>立即咨询</span>
       </li>
       <li style="width:35px;height:120px;">
         <img src=".././../static/images/sidebar/yijian-312c17668d.png">
         <span>在线评估</span>
+      </li>-->
+      <li style="width:25px;height:100px;" @click="login">
+        <img src=".././../static/images/sidebar/login_person.png">
+        <span>用户登陆</span>
       </li>
-      <li style="width:35px;height:40px;" @click="login">
-        <img src=".././../static/images/sidebar/geren-1e61592771.png">
-      </li>
-      <li style="width:35px;height:40px;" @click="toTop">
+     <!-- <li style="width:25px;height:40px;" @click="toTop">
         <img src=".././../static/images/sidebar/top-424820e783.png">
-      </li>
+      </li>-->
     </ul>
     <Modal
       v-model="modal1" width="420"
@@ -23,20 +24,20 @@
       <div class="loginCont">
         <div class="login_head"></div>
         <div class="loginWrap">
-          <div class="login_code"><span>验证码登陆</span></div>
+          <div class="login_code"><span>注册</span></div>
           <div class="login_form">
             <i-form :model="formCustom" :rules="ruleCustom">
               <Form-item  prop="passwd">
-                <i-input type="password" :value.sync="formCustom.passwd"  icon="iphone" placeholder="请输入手机号">
+                <i-input type="password" :value.sync="formCustom.passwd"  icon="iphone" placeholder="手机号码">
                 </i-input>
               </Form-item>
-              <Form-item  prop="passwdCheck">
+             <!-- <Form-item  prop="passwdCheck">
 
                 <i-input type="password" :value.sync="formCustom.passwdCheck" icon="compose" placeholder="请填写图形验证码"><i-input></i-input>
                 </i-input>
-              </Form-item>
+              </Form-item>-->
               <Form-item  prop="age">
-                <i-input type="text" :value.sync="formCustom.age" icon="chatbox-working" placeholder="请输入短信验证码"><i-input></i-input>
+                <i-input type="text" :value.sync="formCustom.age" icon="chatbox-working" placeholder="验证码"><i-input></i-input>
                 </i-input>
               </Form-item>
               <Form-item>
@@ -45,7 +46,7 @@
             </i-form>
           </div>
           <div> <Radio :checked.sync="single">我已经阅读并同意<a>体验中心用户使用协议</a></Radio></div>
-          <div class="other_login_tit"><div><i>社交账号登录</i></div></div>
+          <!--<div class="other_login_tit"><div><i>社交账号登录</i></div></div>-->
         </div>
       </div>
       <div slot="footer"></div>
@@ -161,6 +162,11 @@
     }
     .ivu-modal{
       top: 0;
+      .ivu-modal-content{
+        background: rgba(196,196,196,.9);
+        border-radius: 5px;
+        border:10px solid #686d71;
+      }
       .ivu-modal-body{
         padding:0;
       }
@@ -168,39 +174,38 @@
   }
   .loginCont{
     width:100%;
-    height:500px;
+    height:420px;
+    padding: 40px 50px;
     .login_head{
       width:100%;
       height:60px;
-      padding:10px 0;
-      background: url("../../static/images/logo.png") no-repeat center #c13232;
-      background-size: 50% 50%;
+      padding:5px 0;
+      background: url("../../static/images/logo.png") no-repeat center ;
+      background-size: 60% 60%;
     }
     .loginWrap{
-      padding:10px 40px;
+
       .login_code{
         width:100%;
         height:35px;
         line-height: 35px;
-        border-bottom:1px  solid #efefef;
-        padding:5px 0;
+        text-align: center;
         span{
           display: inline-block;
           font-size: 14px;
           height: 30px;
           color: #333;
-          border-bottom: 2px #c13232 solid;
+         font-weight: bold;
         }
       }
       .login_form{
-        margin:20px 0 0 0;
         .form_submit{
           width:100%;
-          height:40px;
-          background-color: #c13232;
+          height:35px;
           color: #fff;
-          border: 1px solid #c13232;
-          border-radius: 4px;
+          border: none;
+          border-radius:20px;
+          background: #358cf6;
         }
       }
       .other_login_tit{
@@ -225,34 +230,35 @@
 
   }
   .sidebar{
-    width:35px;
+    width:25px;
     height:350px;
     position: fixed;
     top:20%;
     right:5px;
     z-index:999;
     li{
-      border:1px solid #efefef;
+      border:2px solid #3e90fc;
+      border-radius: 5px;
       text-align: center;
-      background: #9a9a9a;
-      width:35px;
+      background: #fff;
+      width:25px;
       cursor: pointer;
       margin:3px 0;
       display: inline-block;
-      &:hover{
+     /* &:hover{
         background: #c13232;
-      }
+      }*/
       img{
-        width:26px;height:26px;
+        width:15px;height:15px;
         position: relative;
         top:5px;
       }
       span{
-        color: #fff;
+        color: #000;
         display: inline-block;
         text-align: center;
         font-size: 13px;
-        padding: 6px;
+        padding: 14px 0;
         box-sizing: border-box;
       }
     }

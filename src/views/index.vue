@@ -2,7 +2,7 @@
     <div class="wrap">
       <c-header></c-header>
       <section class="ctest">
-        <div class="ctest_cont commonWidth">
+        <div class="ctest_cont commonWidth" @click="turntoCampus">
           <div  class="ctest_text">
             <h2>测测你的理想院校?</h2>
           </div>
@@ -189,6 +189,9 @@
       },
       callback(){
 
+      },
+      turntoCampus(){
+        this.$router.push({path:'/test/campus'});
       }
     },
     computed: {

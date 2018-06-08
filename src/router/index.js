@@ -4,8 +4,13 @@ import guide from '@/views/guide';
 import index from '@/views/index';
 import admin from '@/admin/index';
 import login from '@/views/login';
+
 import campus from '@/views/test/campus';
-import character from '@/views/test/character';
+import video from '@/views/video';
+import course from '@/views/course';
+import develop from '@/views/develop';
+import template from '@/views/template';
+import info from '@/views/info';
 
 
 Vue.use(Router)
@@ -38,9 +43,29 @@ export default new Router({
       component: campus
     },
     {
-      path: '/test/character',
-      name: 'character',
-      component: character
+      path:'/video',
+      name:'video',
+      component:video
+    },
+    {
+      path:'/course',
+      name:'course',
+      component:course
+    },
+    {
+      path:'/develop',
+      name:'develop',
+      component:develop
+    },
+    {
+      path:'/template',
+      name:'template',
+      component:template
+    },
+    {
+      path:'/info',
+      name:'info',
+      component:info
     },
     /*{
       path: '*',

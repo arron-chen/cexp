@@ -324,7 +324,7 @@
     position:relative;
     .backto{
       position:absolute;
-      left:20px;
+      left:40px;
       top:20px;
       width:80px;height:35px;
       cursor: pointer;

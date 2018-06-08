@@ -3,7 +3,7 @@
       <div class="login_btn">
         <!--<router-link to="/login" tab="button">注册</router-link>-->
         <a @click="register">注册</a>
-        <a @click="login">注册</a>
+        <a @click="login">登录</a>
        <!-- <router-link to="/login" tab="button">登录</router-link>-->
       </div>
       <Modal

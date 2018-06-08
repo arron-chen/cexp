@@ -1,6 +1,51 @@
 <template>
     <div class="wrap">
-      <c-header></c-header>
+      <div class="module_wrap">
+        <div class="module module1">
+          <div class="module_box">
+            <img src="http://p9zd0n0di.bkt.clouddn.com/module/icon1.png">
+            <h3>MACL智能评估</h3>
+            <div class="box_btn"><router-link  to="/test/campus" tag="a">进入</router-link></div>
+          </div>
+
+        </div>
+        <div class="module module2">
+          <div class="module_box">
+          <img src="http://p9zd0n0di.bkt.clouddn.com/module/icon2.png">
+          <h3>360环球名校直播</h3>
+            <div class="box_btn"><router-link  to="/test" tag="a">进入</router-link></div>
+          </div>
+        </div>
+        <div class="module module3">
+          <div class="module_box">
+          <img src="http://p9zd0n0di.bkt.clouddn.com/module/icon3.png">
+          <h3>优能线上课堂</h3>
+            <div class="box_btn"><router-link  to="/test" tag="a">进入</router-link></div>
+          </div>
+        </div>
+        <div class="module module4">
+          <div class="module_box">
+          <img src="http://p9zd0n0di.bkt.clouddn.com/module/icon4.png">
+          <h3>个人背景突破</h3>
+            <div class="box_btn"><router-link  to="/test" tag="a">进入</router-link></div>
+          </div>
+        </div>
+        <div class="module module5">
+          <div class="module_box">
+          <img src="http://p9zd0n0di.bkt.clouddn.com/module/icon5.png">
+          <h3>留学智能模板</h3>
+            <div class="box_btn"><router-link  to="/test" tag="a">进入</router-link></div>
+          </div>
+        </div>
+        <div class="module module6">
+          <div class="module_box">
+          <img src="http://p9zd0n0di.bkt.clouddn.com/module/icon6.png">
+          <h3>SPI留学信息芯片</h3>
+            <div class="box_btn"><router-link  to="/test" tag="a">进入</router-link></div>
+          </div>
+        </div>
+      </div>
+     <!-- <c-header></c-header>
       <section class="ctest">
         <div class="ctest_cont commonWidth" @click="turntoCampus">
           <div  class="ctest_text">
@@ -9,7 +54,7 @@
 
         </div>
       </section>
-     <!-- <section class="cbanner">
+     &lt;!&ndash; <section class="cbanner">
         <div class="cbanner_cont commonWidth">
           <swiper :options="swiperOption" ref="mySwiper">
             &lt;!&ndash; slides &ndash;&gt;
@@ -20,18 +65,18 @@
             <div class="swiper-button-next" slot="button-next"></div>&ndash;&gt;
           </swiper>
         </div>
-      </section>-->
+      </section>&ndash;&gt;
 
       <section class="cvideo">
         <div class="cvideo_cont commonWidth">
-         <!-- <swiper :options="swiperOption1" ref="mySwiper1">
+         &lt;!&ndash; <swiper :options="swiperOption1" ref="mySwiper1">
             &lt;!&ndash; slides &ndash;&gt;
             <swiper-slide v-for="slide1 in swiperSlides1" v-bind:style="{ 'background': 'url(' + slide1 + ')no-repeat' ,'background-size':'cover' }" :key="slide1.id"></swiper-slide>
             &lt;!&ndash; Optional controls &ndash;&gt;
             <div class="swiper-pagination" slot="pagination"></div>
             &lt;!&ndash;   <div class="swiper-button-prev" slot="button-prev"></div>
                <div class="swiper-button-next" slot="button-next"></div>&ndash;&gt;
-          </swiper>-->
+          </swiper>&ndash;&gt;
           <div class="cvideo_title"></div>
           <div class="cvideo_contbox">
             <div class="cvideocont_l">
@@ -124,12 +169,12 @@
       </section>
       <section class="countdown">
         <div class="countdown_cont commonWidth">
-          <div class="count_tit"><span>--体验时长--</span></div>
+          <div class="count_tit"><span>&#45;&#45;体验时长&#45;&#45;</span></div>
           <count-down endTime="1627734695" :callback="callback" endText="已经结束了" class="time_spiner"></count-down>
         </div>
       </section>
       <c-footer class="cfooter"></c-footer>
-      <c-sidebar @isModal="openModal"></c-sidebar>
+      <c-sidebar @isModal="openModal"></c-sidebar>-->
 
     </div>
 </template>

@@ -1,6 +1,82 @@
 @import '../variable.less';
 .wrap{
+  width:100%;
+  height:100%;
+  background: url('http://p9zd0n0di.bkt.clouddn.com/module/module_bg.jpg')no-repeat center center;
+  background-size: 100% 100%;
+  min-width: 860px;
+  min-height: 650px;
+  .module_wrap{
+    width:50%;
+    height:50%;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    .module{
+      display: inline-block;
+      float:left;
+      width:33.3%;
+      height:50%;
+      background-size: 100% 100%;
+      background-color: #ebebeb;
+      position: relative;
+      padding:6% 5% 10% 5%;
+      text-align: center;
+      border:1px solid #ffffff;
+      min-width:140px;
+      min-height: 250px;
+      .module_box{
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        img{
+          width:70px;
+          height:70px;
+        }
+        h3{
+          width:100%;
+          font-size:20px;
+          font-weight: bold;
+          position: relative;
+          top:10px;
+        }
+        .box_btn{
+          display: none;
+          position: relative;
+          top: 40px;
+          a{
+            color:#000;
+            display: inline-block;
+            width:120px;
+            height:30px;
+            line-height: 30px;
+            background: #fff;
+            border-radius:8px;
+            cursor: pointer;
+            &:hover{
+              box-shadow: 3px 3px 10px #000;
+            }
+          }
+        }
+      }
 
+      &:hover{
+        transform: scale(1.2);
+        transition:all .3s ease-in-out;
+        background-color: #368cf8;
+        border:1px solid #368cf8;
+        z-index:5;
+        .box_btn{
+          display: block;
+        }
+
+      }
+    }
+
+
+  }
+/*
 .cbanner{
   width:100%;
   height:450px;
@@ -313,7 +389,7 @@
   padding:10px 0 10px 0;
   .countdown_cont{
     height:100%;
-    /*background: azure;*/
+    !*background: azure;*!
     text-align: center;
     .count_tit{
       font-size:12px;
@@ -328,5 +404,5 @@
   display: flex;
   justify-content:center;
   align-content: center;
-}
+}*/
 }

@@ -1,21 +1,47 @@
 <template>
-    <div class="wrap">
-      <div class="test_header">
+    <div class="testwrap">
+        <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/test/backto.png" @click="backto"></div>
+      <div class="question_wrap">
+        <Form v-model="form" ref="formValidate" :model="formValidate" :rules="ruleValidate">
+          <div v-for="(item,index) in questions" :key="item.id" v-show="item.id == itemIndex"  style="display: none">
+            <div class="question_tit">{{item.question}}</div>
+            <FormItem :prop="item.prop" class="answer_cont">
+              <RadioGroup v-model="item.model" v-on:on-change="changeRadio">
+                <Radio label="male"> {{item.answerA}}</Radio>
+                <Radio label="female"> {{item.answerB}}</Radio>
+              </RadioGroup>
+            </FormItem>
+            <div>
+              <Button v-show="!showSubmitBtn" :disabled="enableBtn" type="primary" size="small" @click="nextQuestion(item.id)">下一题</Button>
+              <Button v-show="showSubmitBtn" @click="handleSubmit('formValidate')">提交</Button>
+            </div>
+          </div>
+
+       <!--
+          <FormItem>
+            <Button type="primary" @click="handleSubmit('formValidate')">提交</Button>
+            <Button type="ghost" @click="handleReset('formValidate')" style="margin-left: 8px">重置</Button>
+          </FormItem>-->
+
+        </Form>
+
+      </div>
+     <!-- <div class="test_header">
         <div class="test_header_cont commonWidth">
 
         </div>
-      </div>
-      <div class="cam_wrap">
+      </div>-->
+      <!--<div class="cam_wrap">
         <div class="test_wrap_cont commonWidth">
-          <div class="test_nav">
+         &lt;!&ndash; <div class="test_nav">
             <ul>
               <li>性格测试</li>
               <li>职业测试</li>
               <li>英语测试</li>
               <li>学校测试</li>
             </ul>
-          </div>
-          <div class="test_content">
+          </div>&ndash;&gt;
+          &lt;!&ndash;<div class="test_content">
             <div class="test_title"><h3>理想学校测试</h3></div>
               <Form v-model="form" ref="formValidate" :model="formValidate" :rules="ruleValidate">
                 <div>1. 认识你的人倾向形容你为：</div>
@@ -220,13 +246,13 @@
                 </FormItem>
 
               </Form>
-          </div>
+          </div>&ndash;&gt;
         </div>
-      </div>
-      <div class="test_footer">
+      </div>-->
+     <!-- <div class="test_footer">
         <div class="test_footer_cont commonWidth">&copy; 天行者版权所有</div>
       </div>
-      <div class="sidebar_nav"></div>
+      <div class="sidebar_nav"></div>-->
     </div>
 </template>
 <script>
@@ -242,86 +268,91 @@
                 interest: [],
                 date: '',
                 time: '',
-                desc: ''
+                desc: '',
+                item1:true
               },
-              ruleValidate: {}
+              ruleValidate: {},
+              showItem:true,
+              itemIndex:1,
+              enableBtn:true,
+              showSubmitBtn:false,
+              questions:[
+                {id:1,prop:'gender',model:'formValidate.gender1',question:'Q1. 认识你的人倾向形容你为：',answerA:' A 与恋人到有很多人且社交活动频繁的地方。',answerB:' B 呆在家中与恋人做一些特别的事情，例如说观赏一部有趣的录影带并享用你最喜欢的外卖食物。'},
+                {id:2,prop:'gender',model:'formValidate.gender2',question:'Q2. 你倾向通过以下哪种方式收集信息：',answerA:' A 你对有可能发生之事的想像和期望。',answerB:' B 你对目前状况的实际认知。 '},
+                {id:3,prop:'gender',model:'formValidate.gender3',question:'Q3',answerA:'11',answerB:'22'},
+                {id:4,prop:'gender',model:'formValidate.gender4',question:'Q4',answerA:'333',answerB:'44'},
+              ]
             }
+        },
+      methods:{
+        backto(){
+          this.$router.push({
+            path:'/index'
+          })
+        },
+        changeRadio(e){
+          //console.log(e);
+          if(e){
+            this.enableBtn=false;
+          }
+        },
+        nextQuestion(ind){
+          //console.log(ind);
+          if(ind == this.questions.length){
+            this.showSubmitBtn=true;
+            this.itemIndex=ind;
+          }else{
+            this.itemIndex=ind+1;
+            this.enableBtn=true;
+          }
+        },
+        handleSubmit(){
+
         }
+      }
     }
 </script>
 <style lang="less">
-  @import '../../assets/less/variable';
-  .commonWidth{
-    width:@commonWidth;
+  .showItem{
+    display:block!important;
   }
-  .wrap{
-    display: flex;
-    flex-direction: column;
+  .testwrap{
     width:100%;
     height:100%;
-    .test_header{
-      width:100%;
-      height:300px;
-      display: flex;
-      justify-content:center;
-      .test_header_cont{
-        height:100%;
-        background: url(http://p95qjfixr.bkt.clouddn.com/web_bg.jpg) no-repeat;
-        background-size: 100% 100%;
+    background: url('http://p9zd0n0di.bkt.clouddn.com/test/test_bg.jpg') no-repeat center center;
+    background-size: 100% 100%;
+    position:relative;
+    .backto{
+      position:absolute;
+      left:20px;
+      top:20px;
+      width:80px;height:35px;
+      cursor: pointer;
+      img{
+        width:80px;height:35px;
       }
+    }
+    .question_wrap{
+      width:80%;
+      height:60%;
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+      text-align: left;
+      padding:10%;
+      .question_tit{
+        font-size:30px;
+        font-weight:bold;
+      }
+      .answer_cont{
+        margin-top:50px;
+        .ivu-radio-wrapper{
+          font-size:16px;
+        }
+      }
+    }
 
-    }
-    .cam_wrap{
-      width:100%;
-      flex:1;
-      display: flex;
-      justify-content:center;
-      .test_wrap_cont{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        text-align: left;
-        .test_title{
-          width: 100%;
-          height: 50px;
-          line-height: 50px;
-          margin:0 0 20px 0;
-          text-align: center;
-          h3{
-            font-size: 26px;
-          }
-
-        }
-        .test_nav{
-          width:80px;height:100%;
-          border:1px solid #efefef;
-          ul{
-            width:100%;height:100%;
-            list-style: none;
-            li{
-              line-height: 35px;
-              border-bottom:1px solid #efefef;
-              cursor: pointer;
-              text-align: center;
-            }
-          }
-        }
-        .test_content{
-          flex:1;
-          margin:0 0 0 50px;
-        }
-      }
-    }
-    .test_footer{
-      width:100%;
-      display: flex;
-      height:25px;
-      line-height: 25px;
-      justify-content:center;
-      .test_footer_cont{
-          text-align: center;
-      }
-    }
   }
 
 </style>

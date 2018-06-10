@@ -17,19 +17,18 @@
             <div class="login_code"><span>注册</span></div>
             <div class="login_form">
               <i-form :model="formCustom" :rules="ruleCustom">
-                <Form-item  prop="passwd">
-                  <i-input type="password" :value.sync="formCustom.passwd"  icon="iphone" placeholder="手机号码">
+                <Form-item  prop="phone">
+                  <i-input type="text" v-model="formCustom.phone"  icon="iphone" placeholder="手机号码">
                   </i-input>
                 </Form-item>
-                <!-- <Form-item  prop="passwdCheck">
-
-                   <i-input type="password" :value.sync="formCustom.passwdCheck" icon="compose" placeholder="请填写图形验证码"><i-input></i-input>
+                 <Form-item  prop="vcode">
+                   <i-input type="password"  v-model="formCustom.vcode" icon="compose" placeholder="请填写图形验证码"><i-input></i-input>
                    </i-input>
-                 </Form-item>-->
-                <Form-item  prop="age">
-                  <i-input type="text" :value.sync="formCustom.age" icon="chatbox-working" placeholder="验证码"><i-input></i-input>
+                 </Form-item>
+               <!-- <Form-item  prop="age">
+                  <i-input type="text" :value.sync="formCustom.vcode" icon="chatbox-working" placeholder="验证码"><i-input></i-input>
                   </i-input>
-                </Form-item>
+                </Form-item>-->
                 <Form-item>
                   <i-button class="form_submit" @click="handleSubmit('formCustom')">注册</i-button>
                 </Form-item>
@@ -52,17 +51,12 @@
             <div class="login_code"><span>登录</span></div>
             <div class="login_form">
               <i-form :model="formCustom" :rules="ruleCustom">
-                <Form-item  prop="passwd">
-                  <i-input type="password" :value.sync="formCustom.passwd"  icon="iphone" placeholder="手机号码">
+                <Form-item  prop="phone">
+                  <i-input type="text" v-model="formCustom.phone"   icon="iphone" placeholder="手机号码">
                   </i-input>
                 </Form-item>
-                <!-- <Form-item  prop="passwdCheck">
-
-                   <i-input type="password" :value.sync="formCustom.passwdCheck" icon="compose" placeholder="请填写图形验证码"><i-input></i-input>
-                   </i-input>
-                 </Form-item>-->
-                <Form-item  prop="age">
-                  <i-input type="text" :value.sync="formCustom.age" icon="chatbox-working" placeholder="验证码"><i-input></i-input>
+                <Form-item  prop="vcode">
+                  <i-input type="text" v-model="formCustom.vcode"  icon="chatbox-working" placeholder="验证码"><i-input></i-input>
                   </i-input>
                 </Form-item>
                 <Form-item>
@@ -87,56 +81,54 @@
         } else {
           if (this.formCustom.passwdCheck !== '') {
             // 对第二个密码框单独验证
-            this.$refs.formCustom.validateField('passwdCheck');
+            //this.$refs.formCustom.validateField('passwdCheck');
           }
           callback();
         }
       };
-      const validatePassCheck = (rule, value, callback) => {
+      const validatePhone = (rule, value, callback) => {
         if (value === '') {
-          callback(new Error('请再次输入密码'));
-        } else if (value !== this.formCustom.passwd) {
-          callback(new Error('两次输入密码不一致!'));
+          callback(new Error('请输入手机号'));
         } else {
+          /*if (this.formCustom.phone !== '') {
+
+          }*/
           callback();
         }
       };
-      const validateAge = (rule, value, callback) => {
-        if (!value) {
-          return callback(new Error('年龄不能为空'));
-        }
-        // 模拟异步验证效果
-        setTimeout(() => {
-          if (!Number.isInteger(value)) {
-            callback(new Error('请输入数字值'));
-          } else {
-            if (value < 18) {
-              callback(new Error('必须年满18岁'));
-            } else {
-              callback();
-            }
+      const validateCode = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入验证码'));
+        } else {
+          if (this.formCustom.vcode !== '') {
+
           }
-        }, 1000);
+          callback();
+        }
       };
+
+
+
+
       return {
         modal1:false,
         modal2:false,
         single:false,
         formCustom: {
+          phone:'',
+          vcode:'',
           passwd: '',
-          passwdCheck: '',
-          age: ''
         },
         ruleCustom: {
-          passwd: [
+          phone: [
+            { validator: validatePhone, trigger: 'blur' }
+          ],
+          vcode:[
+            {validator: validateCode, trigger: 'blur'}
+            ],
+          passwdCheck: [
             { validator: validatePass, trigger: 'blur' }
           ],
-          passwdCheck: [
-            { validator: validatePassCheck, trigger: 'blur' }
-          ],
-          age: [
-            { validator: validateAge, trigger: 'blur' }
-          ]
         }
       }
     },

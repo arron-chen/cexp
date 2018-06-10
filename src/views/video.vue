@@ -64,6 +64,9 @@
         width:66%;
         height:100%;
         border:1px solid #ffffff;margin-right:10px;
+        background:url("http://p9zd0n0di.bkt.clouddn.com/video/playicon.png") no-repeat center center #000;
+        background-size:70px 70px;
+        cursor: pointer;
         video{
           width:100%;
           height: 100%;

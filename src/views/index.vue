@@ -45,143 +45,11 @@
           </div>
         </div>
       </div>
-     <!-- <c-header></c-header>
-      <section class="ctest">
-        <div class="ctest_cont commonWidth" @click="turntoCampus">
-          <div  class="ctest_text">
-            <h2>测测你的理想院校?</h2>
-          </div>
-
-        </div>
-      </section>
-     &lt;!&ndash; <section class="cbanner">
-        <div class="cbanner_cont commonWidth">
-          <swiper :options="swiperOption" ref="mySwiper">
-            &lt;!&ndash; slides &ndash;&gt;
-            <swiper-slide v-for="slide in swiperSlides" v-bind:style="{ 'background': 'url(' + slide + ') no-repeat' ,'background-size':'cover'}" :key="slide.id" ></swiper-slide>
-            &lt;!&ndash; Optional controls &ndash;&gt;
-            <div class="swiper-pagination" slot="pagination"></div>
-         &lt;!&ndash;   <div class="swiper-button-prev" slot="button-prev"></div>
-            <div class="swiper-button-next" slot="button-next"></div>&ndash;&gt;
-          </swiper>
-        </div>
-      </section>&ndash;&gt;
-
-      <section class="cvideo">
-        <div class="cvideo_cont commonWidth">
-         &lt;!&ndash; <swiper :options="swiperOption1" ref="mySwiper1">
-            &lt;!&ndash; slides &ndash;&gt;
-            <swiper-slide v-for="slide1 in swiperSlides1" v-bind:style="{ 'background': 'url(' + slide1 + ')no-repeat' ,'background-size':'cover' }" :key="slide1.id"></swiper-slide>
-            &lt;!&ndash; Optional controls &ndash;&gt;
-            <div class="swiper-pagination" slot="pagination"></div>
-            &lt;!&ndash;   <div class="swiper-button-prev" slot="button-prev"></div>
-               <div class="swiper-button-next" slot="button-next"></div>&ndash;&gt;
-          </swiper>&ndash;&gt;
-          <div class="cvideo_title"></div>
-          <div class="cvideo_contbox">
-            <div class="cvideocont_l">
-              <video></video>
-            </div>
-            <div class="cvideocont_r">
-              <div class="r_title"><span>精彩视频</span></div>
-              <ul class="r_list">
-                <li><img src="../../static/images/video/video.png"><span>多伦多大学</span></li>
-                <li><img src="../../static/images/video/video.png"><span>多伦多大学</span></li>
-                <li><img src="../../static/images/video/video.png"><span>多伦多大学</span></li>
-                <li><img src="../../static/images/video/video.png"><span>多伦多大学</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="ctemplate">
-        <div class="ctemplate_cont commonWidth">
-          <div class="template_tit"><h3>申请模板</h3></div>
-          <div class="template_box">
-            <ul>
-              <li>
-                <img src="../../static/images/template/word.png">
-                <h4>文书</h4>
-              </li>
-              <li>
-                <img src="../../static/images/template/word.png">
-                <h4>推荐信</h4>
-              </li>
-              <li>
-                <img src="../../static/images/template/word.png">
-                <h4>offer</h4>
-              </li>
-              <li>
-                <img src="../../static/images/template/word.png">
-                <h4>合同</h4>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-      <section class="conline">
-        <div class="conline_cont commonWidth">
-          <div class="online_box"><video></video></div>
-        </div>
-      </section>
-      <section class="cdevelop">
-        <div class="cdevelop_cont commonWidth">
-          <div class="develop">
-            <div class="develop_l"><img src="../../static/images/develop.png"></div>
-            <div class="develop_r">
-              <div class="dev_r_title"><h3>背景提升</h3>
-              </div>
-              <h5>作品集</h5>
-              <h5>实习展示</h5>
-              <div class="work_list">
-                <h3>万思聪</h3>
-                <h5>录取院校：多伦多大学</h5>
-                <h5>专业：包装设计</h5>
-              </div>
-            </div>
-          </div>
-          <div class="develop_nav">
-            <ul>
-              <li>全部</li>
-              <li>服装设计</li>
-              <li>平面设计</li>
-              <li>工业设计</li>
-              <li>建筑设计</li>
-              <li>插画</li>
-              <li>纯艺术</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-      <section class="netStroage">
-        <div class="netStroage_cont commonWidth">
-          <div class="net_cont_l">
-            <div>
-              <img src="../../static/images/person.png">
-              <p>18688754662<br>网盘</p>
-            </div>
-
-          </div>
-          <div class="net_cont_r">
-            <textarea></textarea>
-          </div>
-        </div>
-      </section>
-      <section class="countdown">
-        <div class="countdown_cont commonWidth">
-          <div class="count_tit"><span>&#45;&#45;体验时长&#45;&#45;</span></div>
-          <count-down endTime="1627734695" :callback="callback" endText="已经结束了" class="time_spiner"></count-down>
-        </div>
-      </section>
-      <c-footer class="cfooter"></c-footer>
-      <c-sidebar @isModal="openModal"></c-sidebar>-->
 
     </div>
 </template>
 <script>
-  import cHeader from '../components/header';
-  import cFooter from '../components/footer';
-  import cSidebar from '../components/siderbar';
+
   import countDown from '../components/countDown';
 
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
@@ -225,8 +93,7 @@
         swiperSlides1: ['../../static/images/video/1.jpg', '../../static/images/video/2.jpg']
       }
     },
-    components:{cHeader,cFooter,cSidebar,swiper,
-      swiperSlide,countDown},
+    components:{swiper, swiperSlide,countDown},
     methods: {
       openModal(val){
           this.modal1=val;

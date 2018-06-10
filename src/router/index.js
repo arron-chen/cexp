@@ -6,7 +6,11 @@ import admin from '@/admin/index';
 import login from '@/views/login';
 
 import campus from '@/views/test/campus';
-import result from '@/views/test/result';
+import character from '@/views/test/character';
+import work from '@/views/test/work';
+import willing from '@/views/test/willing';
+
+import result1 from '@/views/test/result1';
 import video from '@/views/video';
 import course from '@/views/course';
 import develop from '@/views/develop';
@@ -43,10 +47,26 @@ export default new Router({
       name: 'campus',
       component: campus
     },
+
     {
-      path: '/test/result',
-      name: 'result',
-      component: result
+      path: '/test/character',
+      name: 'character',
+      component: character
+    },
+    {
+      path: '/test/work',
+      name: 'work',
+      component: work
+    },
+    {
+      path: '/test/willing',
+      name: 'willing',
+      component: willing
+    },
+    {
+      path: '/test/result1',
+      name: 'result1',
+      component: result1
     },
     {
       path:'/video',

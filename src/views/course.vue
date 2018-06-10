@@ -9,7 +9,7 @@
       </div>
       <div class="cvideocont_r">
         <ul class="r_list">
-          <li @click="handleClickItem"><span>英语</span>      <a href='#' target="_blank"> </a> </li>
+          <li @click="handleClickItem"><span>英语</span>      <a href='file:///D://%E7%BE%8E%E5%9B%BD%E5%A4%A7%E5%AD%A6/123.mp4' target="_blank"> c:\\test.txt</a> </li>
           <li><span>法语</span></li>
           <li><span>德语</span></li>
           <li><span>韩文</span></li>

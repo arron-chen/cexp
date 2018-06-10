@@ -15,14 +15,20 @@ export default {
   data(){
     return{
       isShow:false,
-      endTime:'1528711203',
+      endTime:'1528690003',
       endText:'已经结束了'
     }
   },
   methods:{
     callback(){
-
+      let timestamp=new Date().getTime();
+      if(this.endTime= timestamp){
+        this.isShow=true;
+      }
     }
+  },
+  watch:{
+
   }
 }
 </script>

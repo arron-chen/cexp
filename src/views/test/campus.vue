@@ -1,6 +1,14 @@
 <template>
     <div class="testwrap">
         <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/test/backto.png" @click="backto"></div>
+      <div class="navwrap">
+        <ul>
+          <router-link to="/test/campus" tag="li">MACL测试</router-link>
+          <router-link to="/test/character" tag="li">性格测试</router-link>
+          <router-link to="/test/work" tag="li">职业测试</router-link>
+          <router-link to="/test/willing" tag="li">意向书</router-link>
+        </ul>
+      </div>
       <div class="question_wrap">
         <Form v-model="form" ref="formValidate" :model="formValidate" :rules="ruleValidate">
           <div v-for="(item,index) in questions" :key="item.id" v-show="item.id == itemIndex"  style="display: none">
@@ -189,8 +197,27 @@
           }
         },
         handleSubmit(){
+          let result=[
+            {
+            "resulttitle":"ESTP挑战者型 -- 不间断地尝试新的挑战",
+            "resultSrc":"http://p9zd0n0di.bkt.clouddn.com/test/echart1.png"
+            },
+            {
+              "resulttitle":"ISTP 冒险家型 -- 平静的思考着，但间或的行为往往出人意料",
+              "resultSrc":"http://p9zd0n0di.bkt.clouddn.com/test/echart2.png"
+            },
+            {
+              "resulttitle":"ENFJ 教导型 -- 谆谆善诱地引导他人",
+              "resultSrc":"http://p9zd0n0di.bkt.clouddn.com/test/echart3.png"
+            },
+            {
+              "resulttitle":"INFJ 博爱型 -- 基于博爱的理想，设身处地的关怀他人",
+              "resultSrc":"http://p9zd0n0di.bkt.clouddn.com/test/echart4.png"
+            },
+          ];
           this.$router.push({
-            path:'/test/result'
+            path:'/test/result1',
+            query:result[0]
           })
         }
       }
@@ -214,6 +241,27 @@
       cursor: pointer;
       img{
         width:80px;height:35px;
+      }
+    }
+    .navwrap{
+      position: fixed;
+      left:50px;
+      top:40%;
+      width:90px;
+      height:180px;
+      ul{
+        list-style: none;
+        width:100%;height:100%;
+
+        li{
+          width:100%;
+          height:40px;
+          line-height: 40px;
+          border:1px solid #efefef;
+          text-align: center;
+          cursor: pointer;
+
+        }
       }
     }
     .question_wrap{

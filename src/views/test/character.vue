@@ -197,8 +197,16 @@
         }
       },
       handleSubmit(){
+        let  imglist=[
+            "http://p9zd0n0di.bkt.clouddn.com/test/result1.jpg",
+            "http://p9zd0n0di.bkt.clouddn.com/test/result2.jpg",
+            "http://p9zd0n0di.bkt.clouddn.com/test/result3.jpg"
+            ]
         this.$router.push({
-          path:'/test/result'
+          path:'/test/result2',
+          query:{
+            imgSrc:imglist[0]
+          }
         })
       }
     }

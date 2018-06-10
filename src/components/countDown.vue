@@ -1,5 +1,5 @@
 <template>
-  <span :endTime="endTime" :callback="callback" :endText="endText">
+  <span  :endTime="endTime" :callback="callback" :endText="endText">
     <slot>
       {{content}}
     </slot>
@@ -70,3 +70,6 @@
     }
   }
 </script>
+<style lang="less">
+
+</style>

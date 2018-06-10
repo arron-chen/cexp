@@ -3,11 +3,13 @@
     <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/video/backto.png" @click="backto"></div>
     <div class="videoBox">
       <div class="cvideocont_l">
-        <video></video>
+        <video src="http://7xnt3p.com1.z0.glb.clouddn.com/Willwork.mp4" controls="controls">
+          您的浏览器不支持 video 标签。
+        </video>
       </div>
       <div class="cvideocont_r">
         <ul class="r_list">
-          <li><span>英语</span></li>
+          <li @click="handleClickItem"><span>英语</span>      <a href='#' target="_blank"> </a> </li>
           <li><span>法语</span></li>
           <li><span>德语</span></li>
           <li><span>韩文</span></li>
@@ -23,6 +25,7 @@
   export default {
     data(){
       return{
+        preimages:'http://p9zd0n0di.bkt.clouddn.com/video/playicon.png'
 
       }
     },
@@ -32,6 +35,12 @@
           path:'/index'
         })
       },
+      handleClickItem(){
+      }
+    },
+    mounted(){
+
+
     }
   }
 </script>
@@ -103,7 +112,7 @@
             span{
               display: inline-block;
               width:100%;height:100%;
-
+              padding-top: 25px;
               cursor: pointer;
               border:2px solid #808080;
               border-radius:4px;

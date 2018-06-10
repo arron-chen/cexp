@@ -3,15 +3,14 @@
       <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/video/backto.png" @click="backto"></div>
       <div class="videoBox">
         <div class="cvideocont_l">
-          <video></video>
+          <video  id="videoDom" :src="videoSrc" controls="controls">
+            您的浏览器不支持 video 标签。
+          </video>
         </div>
         <div class="cvideocont_r">
-          <div class="r_title"><span>精彩视频</span></div>
+          <div class="r_title"><span>校园场景体验</span></div>
           <ul class="r_list">
-            <li><img src="http://p9zd0n0di.bkt.clouddn.com/video/video.png"><span>多伦多大学</span></li>
-            <li><img src="http://p9zd0n0di.bkt.clouddn.com/video/video.png"><span>多伦多大学</span></li>
-            <li><img src="http://p9zd0n0di.bkt.clouddn.com/video/video.png"><span>多伦多大学</span></li>
-            <li><img src="http://p9zd0n0di.bkt.clouddn.com/video/video.png"><span>多伦多大学</span></li>
+            <li v-for="(item,index) in lists" :key="item.id" @click="handleClickItem(item)"><img :src="item.imgSrc"><span>{{item.text}}</span></li>
           </ul>
         </div>
       </div>
@@ -21,7 +20,15 @@
 <script>
   export default {
     data(){
-      return {}
+      return {
+        videoSrc:'http://7xnt3p.com1.z0.glb.clouddn.com/Willwork.mp4',
+        lists:[
+          {"id":1,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/video/video.png","text":"多伦多大学","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/Willwork.mp4"},
+          {"id":2,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/video/video.png","text":"多伦多大学","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/Willwork.mp4"},
+          {"id":3,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/video/video.png","text":"多伦多大学","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/Willwork.mp4"},
+          {"id":4,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/video/video.png","text":"多伦多大学","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/Willwork.mp4"},
+          ]
+      }
     },
     methods:{
       backto(){
@@ -29,6 +36,12 @@
           path:'/index'
         })
       },
+      handleClickItem(item){
+          console.log(item);
+          let _dom=document.getElementById('videoDom');
+          _dom.src=item.videoSrc;
+          _dom.autoplay=true;
+      }
     }
   }
 </script>
@@ -80,7 +93,7 @@
           border-bottom:2px solid #368cf8;
           span{
             color:#ffffff;
-            font-size:14px;
+            font-size:16px;
           }
         }
         .r_list{
@@ -88,12 +101,13 @@
           height:90%;
           list-style: none;
           text-align: left;
+          overflow:auto;
           li{
             width:100%;height:23%;
             line-height: 22%;
             border-bottom:1px solid #2f7bda;
             margin-bottom: 10px;
-
+            cursor: pointer;
             img{
               width:30%;height:80%;
             }

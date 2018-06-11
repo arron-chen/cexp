@@ -52,48 +52,13 @@
 
   import countDown from '../components/countDown';
 
-  import { swiper, swiperSlide } from 'vue-awesome-swiper'
   export default {
     data () {
       return {
         modal1: false,
-        swiperOption: {
-          autoplay:{
-            delay: 3000,
-            stopOnLastSlide: false,
-            disableOnInteraction: true,
-          },
-          grabCursor : false,
-          loop : true,
-          pagination : {
-            el: '.swiper-pagination',
-            clickable :true,
-          },
-          prevButton:'.swiper-button-prev',
-          nextButton:'.swiper-button-next',
-
-        },
-        swiperOption1: {
-          autoplay:{
-            delay: 3000,
-            stopOnLastSlide: false,
-            disableOnInteraction: true,
-          },
-          grabCursor : false,
-          loop : true,
-          pagination : {
-            el: '.swiper-pagination',
-            clickable :true,
-          },
-          prevButton:'.swiper-button-prev',
-          nextButton:'.swiper-button-next',
-
-        },
-        swiperSlides: ['../../static/images/banner/20180409041042283.jpg', '../../static/images/banner/20180425113844399.jpg', '../../static/images/banner/20180525032349951.jpg', '../../static/images/banner/20180409041042283.jpg'],
-        swiperSlides1: ['../../static/images/video/1.jpg', '../../static/images/video/2.jpg']
       }
     },
-    components:{swiper, swiperSlide,countDown},
+    components:{countDown},
     methods: {
       openModal(val){
           this.modal1=val;

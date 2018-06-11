@@ -54,7 +54,7 @@
                   </i-input>
                 </Form-item>
                 <Form-item  prop="vcode">
-                  <i-input type="text" v-model="formCustom2.vcode"  icon="chatbox-working" placeholder="验证码"><i-input></i-input>
+                  <i-input type="password" v-model="formCustom2.vcode"  icon="chatbox-working" placeholder="验证码"><i-input></i-input>
                   </i-input>
                 </Form-item>
                 <Form-item>

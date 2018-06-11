@@ -9,7 +9,6 @@
       <Modal
         v-model="modal1" width="420"
         class-name="vertical-center-modal"
-        :mask-closable="false"
         :closable="false">
         <div class="loginCont">
           <div class="login_head"></div>
@@ -30,11 +29,13 @@
                   </i-input>
                 </Form-item>-->
                 <Form-item>
-                  <i-button class="form_submit" @click="handleSubmit('formCustom')">注册</i-button>
+                  <i-button class="form_submit" disabled="canSubmit1" @click="handleSubmit('formCustom')">注册</i-button>
                 </Form-item>
               </i-form>
             </div>
-            <div> <Radio :checked.sync="single">我已经阅读并同意<a>体验中心用户使用协议</a></Radio></div>
+            <div>
+              <Checkbox v-model="single1">我已经阅读并同意<a>体验中心用户使用协议</a></Checkbox>
+            </div>
             <!--<div class="other_login_tit"><div><i>社交账号登录</i></div></div>-->
           </div>
         </div>
@@ -43,7 +44,6 @@
       <Modal
         v-model="modal2" width="420"
         class-name="vertical-center-modal"
-        :mask-closable="false"
         :closable="false">
         <div class="loginCont">
           <div class="login_head"></div>
@@ -56,15 +56,18 @@
                   </i-input>
                 </Form-item>
                 <Form-item  prop="vcode">
-                  <i-input type="text" v-model="formCustom.vcode"  icon="chatbox-working" placeholder="验证码"><i-input></i-input>
+                  <i-input type="text" v-model="formCustom.vcode"  icon="chatbox-working" placeholder="密码"><i-input></i-input>
                   </i-input>
                 </Form-item>
                 <Form-item>
-                  <i-button class="form_submit" @click="handleSubmit('formCustom')">登录</i-button>
+                  <i-button class="form_submit" disabled="canSubmit2" @click="handleSubmit('formCustom')">登录</i-button>
                 </Form-item>
               </i-form>
             </div>
-            <div> <Radio :checked.sync="single">我已经阅读并同意<a>体验中心用户使用协议</a></Radio></div>
+            <div>
+              <Checkbox v-model="single2">我已经阅读并同意<a>体验中心用户使用协议</a></Checkbox>
+              <!--<Radio :checked.sync="single">我已经阅读并同意<a>体验中心用户使用协议</a></Radio>-->
+            </div>
             <!--<div class="other_login_tit"><div><i>社交账号登录</i></div></div>-->
           </div>
         </div>
@@ -113,7 +116,8 @@
       return {
         modal1:false,
         modal2:false,
-        single:false,
+        single1:false,
+        single2:false,
         formCustom: {
           phone:'',
           vcode:'',
@@ -129,7 +133,9 @@
           passwdCheck: [
             { validator: validatePass, trigger: 'blur' }
           ],
-        }
+        },
+        canSubmit1:true,
+        canSubmit2:true,
       }
     },
     methods:{

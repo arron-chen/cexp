@@ -15,7 +15,7 @@ export default {
   data(){
     return{
       isShow:false,
-      endTime:'1528690003',
+      endTime:'1528990003',
       endText:'已经结束了'
     }
   },

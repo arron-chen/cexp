@@ -13,6 +13,7 @@ import result1 from '@/views/test/result1';
 import result2 from '@/views/test/result2';
 import video from '@/views/video';
 import course from '@/views/course';
+import videolist from '@/views/videoplay';
 import develop from '@/views/develop';
 import template from '@/views/template';
 import info from '@/views/info';
@@ -31,11 +32,17 @@ export default new Router({
       path:'/index',
       name:'index',
       component:index,
+      meta: {
+        requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+      },
     },
     {
       path: '/admin',
       name: 'admin',
-      component: admin
+      component: admin,
+      meta: {
+        requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+      },
     },
     {
       path: '/login',
@@ -45,58 +52,100 @@ export default new Router({
     {
       path: '/test/campus',
       name: 'campus',
-      component: campus
+      component: campus,
+      meta: {
+        requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+      },
     },
 
     {
       path: '/test/character',
       name: 'character',
-      component: character
+      component: character,
+      meta: {
+        requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+      },
     },
     {
       path: '/test/work',
       name: 'work',
-      component: work
+      component: work,
+      meta: {
+        requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+      },
     },
     {
       path: '/test/willing',
       name: 'willing',
-      component: willing
+      component: willing,
+      meta: {
+        requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+      },
     },
     {
       path: '/test/result1',
       name: 'result1',
-      component: result1
+      component: result1,
+      meta: {
+        requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+      },
     },
     {
       path: '/test/result2',
       name: 'result2',
-      component: result2
+      component: result2,
+      meta: {
+        requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+      },
     },
     {
       path:'/video',
       name:'video',
-      component:video
+      component:video,
+      meta: {
+        requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+      },
     },
     {
       path:'/course',
       name:'course',
-      component:course
+      component:course,
+      meta: {
+        requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+      },
+    },
+    {
+      path:'/videolist',
+      name:'videolist',
+      component:videolist,
+      meta: {
+        requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+      },
     },
     {
       path:'/develop',
       name:'develop',
-      component:develop
+      component:develop,
+      meta: {
+        requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+      },
     },
     {
       path:'/template',
       name:'template',
-      component:template
+      component:template,
+      meta: {
+        requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+      },
+
     },
     {
       path:'/info',
       name:'info',
-      component:info
+      component:info,
+      meta: {
+        requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+      },
     },
     /*{
       path: '*',

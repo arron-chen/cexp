@@ -9,12 +9,7 @@
       </div>
       <div class="cvideocont_r">
         <ul class="r_list">
-          <li @click="handleClickItem"><span>英语</span>      <a href='file:///D://%E7%BE%8E%E5%9B%BD%E5%A4%A7%E5%AD%A6/123.mp4' target="_blank"> c:\\test.txt</a> </li>
-          <li><span>法语</span></li>
-          <li><span>德语</span></li>
-          <li><span>韩文</span></li>
-          <li><span>日文</span></li>
-          <li><span>俄罗斯</span></li>
+          <li v-for="item in lists" @click="handleClickItem(item.src)"><span>{{item.text}}</span></li>
         </ul>
       </div>
     </div>
@@ -25,7 +20,15 @@
   export default {
     data(){
       return{
-        preimages:'http://p9zd0n0di.bkt.clouddn.com/video/playicon.png'
+        preimages:'http://p9zd0n0di.bkt.clouddn.com/video/playicon.png',
+        lists:[
+          {"text":"英语","src":"file:\\D:美国大学\ "},
+          {"text":"法语","src":""},
+          {"text":"德语","src":""},
+          {"text":"韩文","src":""},
+          {"text":"日文","src":""},
+          {"text":"俄罗斯","src":""},
+        ]
 
       }
     },
@@ -35,7 +38,11 @@
           path:'/index'
         })
       },
-      handleClickItem(){
+      handleClickItem(src){
+          this.$router.push({
+            path:'/videolist',
+            query:{"url":src}
+          })
       }
     },
     mounted(){
@@ -112,7 +119,7 @@
             span{
               display: inline-block;
               width:100%;height:100%;
-              padding-top: 25px;
+              padding-top: 20px;
               cursor: pointer;
               border:2px solid #808080;
               border-radius:4px;

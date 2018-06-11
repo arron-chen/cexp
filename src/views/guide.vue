@@ -9,20 +9,19 @@
       <Modal
         v-model="modal1" width="420"
         class-name="vertical-center-modal"
-        :mask-closable="false"
         :closable="false">
         <div class="loginCont">
           <div class="login_head"></div>
           <div class="loginWrap">
             <div class="login_code"><span>注册</span></div>
             <div class="login_form">
-              <i-form :model="formCustom" :rules="ruleCustom">
+              <i-form :model="formCustom1" :rules="ruleCustom1" ref="formCustom1">
                 <Form-item  prop="phone">
-                  <i-input type="text" v-model="formCustom.phone"  icon="iphone" placeholder="手机号码">
+                  <i-input type="text" v-model="formCustom1.phone"  icon="iphone" placeholder="手机号码">
                   </i-input>
                 </Form-item>
                  <Form-item  prop="vcode">
-                   <i-input type="password"  v-model="formCustom.vcode" icon="compose" placeholder="请填写图形验证码"><i-input></i-input>
+                   <i-input type="password"  v-model="formCustom1.vcode" icon="compose" placeholder="请填写图形验证码"><i-input></i-input>
                    </i-input>
                  </Form-item>
                <!-- <Form-item  prop="age">
@@ -30,11 +29,11 @@
                   </i-input>
                 </Form-item>-->
                 <Form-item>
-                  <i-button class="form_submit" @click="handleSubmit('formCustom')">注册</i-button>
+                  <i-button class="form_submit"  @click="handleSubmit1('formCustom1')">注册</i-button>
                 </Form-item>
               </i-form>
             </div>
-            <div> <Radio :checked.sync="single">我已经阅读并同意<a>体验中心用户使用协议</a></Radio></div>
+            <div> <Radio  v-model="single1">我已经阅读并同意<a>体验中心用户使用协议</a></Radio></div>
             <!--<div class="other_login_tit"><div><i>社交账号登录</i></div></div>-->
           </div>
         </div>
@@ -43,28 +42,27 @@
       <Modal
         v-model="modal2" width="420"
         class-name="vertical-center-modal"
-        :mask-closable="false"
         :closable="false">
         <div class="loginCont">
           <div class="login_head"></div>
           <div class="loginWrap">
             <div class="login_code"><span>登录</span></div>
             <div class="login_form">
-              <i-form :model="formCustom" :rules="ruleCustom">
+              <i-form :model="formCustom2" :rules="ruleCustom2" ref="formCustom2">
                 <Form-item  prop="phone">
-                  <i-input type="text" v-model="formCustom.phone"   icon="iphone" placeholder="手机号码">
+                  <i-input type="text" v-model="formCustom2.phone"   icon="iphone" placeholder="手机号码">
                   </i-input>
                 </Form-item>
                 <Form-item  prop="vcode">
-                  <i-input type="text" v-model="formCustom.vcode"  icon="chatbox-working" placeholder="验证码"><i-input></i-input>
+                  <i-input type="text" v-model="formCustom2.vcode"  icon="chatbox-working" placeholder="验证码"><i-input></i-input>
                   </i-input>
                 </Form-item>
                 <Form-item>
-                  <i-button class="form_submit" @click="handleSubmit('formCustom')">登录</i-button>
+                  <i-button class="form_submit"  @click="handleSubmit2('formCustom2')">登录</i-button>
                 </Form-item>
               </i-form>
             </div>
-            <div> <Radio :checked.sync="single">我已经阅读并同意<a>体验中心用户使用协议</a></Radio></div>
+            <div> <Radio  v-model="single2">我已经阅读并同意<a>体验中心用户使用协议</a></Radio></div>
             <!--<div class="other_login_tit"><div><i>社交账号登录</i></div></div>-->
           </div>
         </div>
@@ -75,59 +73,106 @@
 <script>
   export default {
     data(){
-      const validatePass = (rule, value, callback) => {
+      const validatePass1 = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请输入密码'));
         } else {
-          if (this.formCustom.passwdCheck !== '') {
+          if (this.formCustom1.passwdCheck !== '') {
             // 对第二个密码框单独验证
             //this.$refs.formCustom.validateField('passwdCheck');
           }
           callback();
         }
       };
-      const validatePhone = (rule, value, callback) => {
+      const validatePhone1 = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请输入手机号'));
         } else {
-          /*if (this.formCustom.phone !== '') {
-
-          }*/
+          let myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+          if (!myreg.test(value)) {
+            callback(new Error('手机格式不正确'));
+          }
           callback();
         }
       };
-      const validateCode = (rule, value, callback) => {
+      const validateCode1 = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请输入验证码'));
         } else {
-          if (this.formCustom.vcode !== '') {
+          if (this.formCustom1.vcode !== '') {
+
+          }
+          callback();
+        }
+      };
+      const validatePass2 = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入密码'));
+        } else {
+          if (this.formCustom1.passwdCheck !== '') {
+            // 对第二个密码框单独验证
+            //this.$refs.formCustom.validateField('passwdCheck');
+          }
+          callback();
+        }
+      };
+      const validatePhone2 = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入手机号'));
+        } else {
+          let myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+          if (!myreg.test(value)) {
+            callback(new Error('请输入正确的手机号'));
+          }
+          callback();
+        }
+      };
+      const validateCode2 = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入验证码'));
+        } else {
+          if (this.formCustom1.vcode !== '') {
 
           }
           callback();
         }
       };
 
-
-
-
       return {
         modal1:false,
         modal2:false,
-        single:false,
-        formCustom: {
+        single1:false,
+        single2:false,
+        formCustom1: {
           phone:'',
           vcode:'',
           passwd: '',
         },
-        ruleCustom: {
+        formCustom2: {
+          phone:'',
+          vcode:'',
+          passwd: '',
+        },
+        ruleCustom1: {
           phone: [
-            { validator: validatePhone, trigger: 'blur' }
+            { validator: validatePhone1, trigger: 'blur' }
           ],
           vcode:[
-            {validator: validateCode, trigger: 'blur'}
+            {validator: validateCode1, trigger: 'blur'}
             ],
           passwdCheck: [
-            { validator: validatePass, trigger: 'blur' }
+            { validator: validatePass1, trigger: 'blur' }
+          ],
+        },
+        ruleCustom2: {
+          phone: [
+            { validator: validatePhone2, trigger: 'blur' }
+          ],
+          vcode:[
+            {validator: validateCode2, trigger: 'blur'}
+          ],
+          passwdCheck: [
+            { validator: validatePass2, trigger: 'blur' }
           ],
         }
       }
@@ -139,9 +184,73 @@
       login(){
         this.modal2=true;
       },
-      handleSubmit(){
-        this.$router.push({path:'index'});
-      }
+      handleSubmit1(name){
+        let _this=this;
+        this.$refs[name].validate((valid) => {
+          if (valid) {
+            let user={
+              "username":"",
+              "password":"",
+            };
+            user.username=this.formCustom1.phone;
+            user.password=this.formCustom1.vcode;
+            if(_this.single1){
+
+              this.$http.post('http://111.230.235.200:8011/user/signUp',user).then((res)=>{
+                console.log(res);
+                if(res.data.code ==0){
+                  this.$Message.success('注册成功,请登录!');
+                  this.modal1=false;
+                  this.modal2=true;
+                }else{
+                 /* return reject(res);*/
+                }
+
+
+              }).catch((err)=>{
+                this.$Message.error('注册失败!');
+                console.log(err);
+              });
+
+              this.$router.push({path:'/'});
+            }
+
+          }
+        })
+
+      },
+      handleSubmit2(name){
+        let _this=this;
+        this.$refs[name].validate((valid) => {
+          if (valid) {
+            let user={
+              "username":"",
+              "password":"",
+            };
+            user.username=this.formCustom2.phone;
+            user.password=this.formCustom2.vcode;
+            if(_this.single2){
+              this.$http.post('http://111.230.235.200:8011/user/signIn',user).then((res)=>{
+                console.log(res);
+                if(res.data.code === 0){
+                  this.$Message.success('欢迎体验!');
+                  this.$router.push({path:'/index'});
+                }else{
+                  /*return reject(res);*/
+                }
+
+              }).catch((err)=>{
+                this.$Message.error('登录失败!');
+                console.log(err);
+              });
+
+
+            }
+
+          }
+        })
+
+      },
     }
   }
 </script>

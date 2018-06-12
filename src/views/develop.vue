@@ -145,10 +145,10 @@
           ],
         content1:[
           {
-            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/img93.jpg",
             "name":"万思聪",
-            "school":"多伦多大1学",
-            "major":"服装设计",
+            "school":"多伦多大学",
+            "major":"插画",
             "children":[
               "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/img87.jpg",
               "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/img90.jpg",
@@ -158,45 +158,80 @@
               "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/img116.jpg"]
           },
           {
-            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img42.jpg",
             "name":"同学B",
-            "school":"多伦多大学",
-            "major":"服装设2计",
-            "children":{}
+            "school":"巴黎大学",
+            "major":"服装设计",
+            "children":[
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img40.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img45.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img48.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img50.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img53.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img55.jpg"
+            ]
           },
           {
-            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
-            "name":"同学c",
-            "school":"多伦多大学",
-            "major":"服装设计",
-            "children":{}
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/img97.jpg",
+            "name":"同学C",
+            "school":"麻省理工",
+            "major":"工业设计",
+            "children":[
+              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/img97.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/img100.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/img103.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/img109.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/img153.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/img159.jpg"
+            ]
           },
           {
-            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
-            "name":"万思聪2",
-            "school":"多伦多大学",
-            "major":"服装设计",
-            "children":{}
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/img109.jpg",
+            "name":"李煜",
+            "school":"圣彼得堡大学",
+            "major":"建筑设计",
+            "children":[
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img40.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img45.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img48.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img50.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img53.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img55.jpg"
+            ]
           },
           {
-            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
-            "name":"万思聪3",
-            "school":"多伦多大学",
-            "major":"服装设计",
-            "children":{}
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/img116.jpg",
+            "name":"张冲",
+            "school":"东京大学",
+            "major":"动漫设计",
+            "children":[
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img40.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img45.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img48.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img50.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img53.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img55.jpg"
+            ]
           },
           {
-            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
-            "name":"万思聪5",
-            "school":"多伦多大学",
-            "major":"服装设计",
-            "children":{}
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/img153.jpg",
+            "name":"沈火火",
+            "school":"哥伦比亚大学",
+            "major":"工业设计",
+            "children":[
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img40.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img45.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img48.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img50.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img53.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img55.jpg"
+            ]
           },
         ],
         content2:[
           {
             "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
-            "name":"万思聪o",
+            "name":"陈里",
             "school":"多伦多大学",
             "major":"服装设计",
             "children":{}

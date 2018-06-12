@@ -6,10 +6,14 @@
   export default {
     data(){
       return{
-        imglist:[],
+        imglist:{},
       }
     },
-    components:{imageCont}
+    components:{imageCont},
+    mounted(){
+      debugger
+     this.imglist=this.$route.query;
+    }
   }
 </script>
 <style>

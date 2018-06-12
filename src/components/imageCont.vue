@@ -1,6 +1,6 @@
 <template>
-    <div clss="imgContBox">
-      <img v-for="item in imglist" :src="item.src">
+    <div class="imgContBox">
+      <img v-for="item in imglist" :src="item">
     </div>
 </template>
 <script>
@@ -9,12 +9,14 @@
       return {}
     },
     props:{
-      imglist:[],
+      imglist:{},
     }
   }
 </script>
 <style lang="less">
     .imgContBox{
       width:100%;height:100%;
+      overflow: auto;
+      text-align: center;
     }
 </style>

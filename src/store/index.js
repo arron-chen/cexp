@@ -9,7 +9,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-      token: '',      //请求头的token
+      token: '12',      //请求头的token
       menuList:'',     //一级菜单
       countime:30, //默认体验时间
     },

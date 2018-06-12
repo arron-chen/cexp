@@ -2,59 +2,74 @@
     <div class="devewrap">
       <div class="devecont_l">
           <ul>
-            <li>作品集</li>
-            <li>实习展示</li>
+            <li v-for="(item,index) in tabs" :class="{active:index == num}" @click="handleClickItem(index)">{{item.text}}</li>
           </ul>
       </div>
-      <div class="devecont_r">
+      <div class="devecont_r" v-show="num == 0">
           <div class="devcont_r_l">
             <ul>
-              <li>
+              <li v-for="(item,index) in content1">
                 <div class="item_img"><img src="http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg"></div>
                 <div class="item_text">
-                  <h3>王思聪</h3>
+                  <h3>王思聪1</h3>
                   <p>录取院校:多伦多大学<br>专业:服装设计</p></div>
-              </li><li>
+              </li>
+            </ul>
+          </div>
+        <div class="devcont_r_r">
+            <ul>
+             <li v-for="(item,index) in tabs1" @click="handleClickItem1(index)">{{item.text}}</li>
+            </ul>
+      </div>
+      </div>
+      <div class="devecont_r" v-show="num == 1">
+        <div class="devcont_r_l">
+          <ul>
+            <li>
+              <div class="item_img"><img src="http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg"></div>
+              <div class="item_text">
+                <h3>王思聪2</h3>
+                <p>录取院校:多伦多大学<br>专业:服装设计</p></div>
+            </li><li>
+            <div class="item_img"><img src="http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg"></div>
+            <div class="item_text">
+              <h3>王思聪</h3>
+              <p>录取院校:多伦多大学<br>专业:服装设计</p></div>
+          </li>
+            <li>
               <div class="item_img"><img src="http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg"></div>
               <div class="item_text">
                 <h3>王思聪</h3>
                 <p>录取院校:多伦多大学<br>专业:服装设计</p></div>
             </li>
-              <li>
-                <div class="item_img"><img src="http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg"></div>
-                <div class="item_text">
-                  <h3>王思聪</h3>
-                  <p>录取院校:多伦多大学<br>专业:服装设计</p></div>
-              </li>
-              <li>
-                <div class="item_img"><img src="http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg"></div>
-                <div class="item_text">
-                  <h3>王思聪</h3>
-                  <p>录取院校:多伦多大学<br>专业:服装设计</p></div>
-              </li>
-              <li>
-                <div class="item_img"><img src="http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg"></div>
-                <div class="item_text">
-                  <h3>王思聪</h3>
-                  <p>录取院校:多伦多大学<br>专业:服装设计</p></div>
-              </li>
-              <li>
-                <div class="item_img"><img src="http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg"></div>
-                <div class="item_text">
-                  <h3>王思聪</h3>
-                  <p>录取院校:多伦多大学<br>专业:服装设计</p></div>
-              </li>
+            <li>
+              <div class="item_img"><img src="http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg"></div>
+              <div class="item_text">
+                <h3>王思聪</h3>
+                <p>录取院校:多伦多大学<br>专业:服装设计</p></div>
+            </li>
+            <li>
+              <div class="item_img"><img src="http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg"></div>
+              <div class="item_text">
+                <h3>王思聪</h3>
+                <p>录取院校:多伦多大学<br>专业:服装设计</p></div>
+            </li>
+            <li>
+              <div class="item_img"><img src="http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg"></div>
+              <div class="item_text">
+                <h3>王思聪</h3>
+                <p>录取院校:多伦多大学<br>专业:服装设计</p></div>
+            </li>
 
-            </ul>
-          </div>
+          </ul>
+        </div>
         <div class="devcont_r_r">
-            <ul>
-              <li>全部</li><li>服装设计</li>
-              <li>平面设计</li><li>工业设计</li><li>建筑设计</li><li>动漫设计</li><li>插画</li>
-              <li>纯艺术</li>
-            </ul>
-      </div>
-
+          <ul>
+            <li>全部</li><li>服装设计</li>
+            <li>平面设计</li><li>工业设计</li><li>建筑设计</li><li>动漫设计</li><li>插画</li>
+            <li>纯艺术</li>
+          </ul>
+        </div>
       </div>
 
 
@@ -64,17 +79,43 @@
   export default {
     data () {
       return {
-        tabs: 2
+        num:0,
+        num1:0,
+        tabs:[
+          {"text":"作品集"},
+          {"text":"实习展示"}
+          ],
+        tabs1:[
+          {"text":"全部"},
+          {"text":"服装设计"},
+          {"text":"平面设计"},
+          {"text":"工业设计"},
+          {"text":"建筑设计"},
+          {"text":"动漫设计"},
+          {"text":"插画"},
+          {"text":"纯艺术"},
+          ],
+        content1:[
+          {}
+        ]
       }
     },
     methods: {
       handleTabsAdd () {
         this.tabs ++;
+      },
+      handleClickItem(index){
+        debugger
+        this.num=index;
+      },
+      handleClickItem1(index){
+        this.num1=index;
       }
     }
   }
 </script>
 <style lang="less">
+
   .devewrap{
     width:100%;
     height:100%;
@@ -97,10 +138,12 @@
           color:#000;
           text-align: center;
           cursor: pointer;
-          &:first-child{
-            background-color: #fff;
-          }
+
         }
+        .active{
+          background-color: #fff;
+        }
+
 
       }
     }
@@ -116,6 +159,7 @@
           list-style: none;
           width:100%;
           height:100%;
+
           li{
             width:25%;
             height:45%;
@@ -138,6 +182,7 @@
               }
             }
           }
+
         }
       }
       .devcont_r_r{

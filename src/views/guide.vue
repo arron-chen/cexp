@@ -203,7 +203,7 @@
                   this.modal1=false;
                   this.modal2=true;
                 }else{
-                 /* return reject(res);*/
+                  this.$Message.error('注册失败!');
                 }
 
 
@@ -236,7 +236,7 @@
                   this.$Message.success('欢迎体验!');
                   this.$router.push({path:'/index'});
                 }else{
-                  /*return reject(res);*/
+                  this.$Message.error('登录失败!');
                 }
 
               }).catch((err)=>{

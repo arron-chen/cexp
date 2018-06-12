@@ -9,7 +9,7 @@ import 'iview/dist/styles/iview.css';
 import axios from 'axios';
 Vue.prototype.$http = axios
 
-
+import store from './store'
 
 Vue.use(iView);
 
@@ -18,8 +18,7 @@ Vue.config.productionTip = false;
 
 
 router.beforeEach((to, from, next) => {
-
-  let validated=true;
+  let validated= store.state.token;
   if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
     if (validated) {  // 通过vuex state获取当前的token是否存在
       next();
@@ -41,6 +40,7 @@ router.beforeEach((to, from, next) => {
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

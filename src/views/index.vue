@@ -45,27 +45,34 @@
           </div>
         </div>
       </div>
-
+      <time-cont :endTime="endTime" :endText="endText" :callback="callback" class="countStyle"></time-cont>
+      <pop :isShow="isShow"></pop>
     </div>
 </template>
 <script>
 
-  import countDown from '../components/countDown';
-
+  import timeCont from '../components/countDown';
+  import pop from '../components/pop';
   export default {
     data () {
       return {
         modal1: false,
+        isShow:false,
+        endTime:'1528990003',
+        endText:'已经结束了',
       }
     },
-    components:{countDown},
+    components:{timeCont,pop},
     methods: {
+      callback(){
+        let timestamp=new Date().getTime();
+        if(this.endTime= timestamp){
+          this.isShow=true;
+        }
+      },
       openModal(val){
           this.modal1=val;
           console.log(this.modal1)
-      },
-      callback(){
-
       },
       turntoCampus(){
         this.$router.push({path:'/test/campus'});

@@ -196,7 +196,7 @@
             user.password=this.formCustom1.vcode;
             if(_this.single1){
 
-              this.$http.post('http://111.230.235.200:8011/user/signUp',user).then((res)=>{
+              this.$http.post('http://111.230.235.200:8011/user/signup',user).then((res)=>{
                 console.log(res);
                 if(res.data.code ==0){
                   this.$Message.success('注册成功,请登录!');
@@ -230,9 +230,14 @@
             user.username=this.formCustom2.phone;
             user.password=this.formCustom2.vcode;
             if(_this.single2){
-              this.$http.post('http://111.230.235.200:8011/user/signIn',user).then((res)=>{
+              this.$http.post('http://111.230.235.200:8011/user/login',user).then((res)=>{
                 console.log(res);
                 if(res.data.code === 0){
+                  let id = res.data.msg;
+                  let exp = new Date();
+                  exp.setTime(exp.getTime() + 1000 * 60 * 60 * 24); //这里表示保存24小时
+                  document.cookie = "userid=" + id + ";expires=" + exp.toGMTString();
+
                   this.$Message.success('欢迎体验!');
                   this.$router.push({path:'/index'});
                 }else{

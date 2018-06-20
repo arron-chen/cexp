@@ -26,8 +26,8 @@
       </Header>
       <Layout>
         <Sider hide-trigger :style="{background: '#fff'}">
-          <Menu active-name="1-2" theme="light" width="auto" :open-names="['1']">
-            <Submenu name="1">
+          <Menu active-name="1-2" theme="light" width="auto" :open-names="['1']" v-on:on-select="itemSelect()">
+            <Submenu name="1" >
               <template slot="title">
                 <Icon type="ios-navigate"></Icon>
                用户管理
@@ -60,7 +60,16 @@
 </template>
 <script>
   export default {
+      data(){
+        return {
 
+        }
+      },
+    methods:{
+      itemSelect(){
+        debugger
+      }
+    }
   }
 </script>
 <style lang="less">

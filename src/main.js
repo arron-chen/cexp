@@ -18,7 +18,7 @@ Vue.config.productionTip = false;
 
 
 router.beforeEach((to, from, next) => {
-  let validated= store.state.token;
+  let validated= document.cookie.split('=')[1];
   if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
     if (validated) {  // 通过vuex state获取当前的token是否存在
       next();

@@ -4,8 +4,8 @@
     <div class="navwrap">
       <ul>
         <router-link to="/test/campus" tag="li">MACL测试</router-link>
-        <router-link to="/test/character" tag="li">性格测试</router-link>
-        <router-link to="/test/work" tag="li">职业测试</router-link>
+        <router-link to="/test/character" tag="li">专业方向测试</router-link>
+        <router-link to="/test/work" tag="li">职业心理测试</router-link>
         <router-link to="/test/willing" tag="li">意向书</router-link>
       </ul>
     </div>
@@ -228,8 +228,9 @@
       position: fixed;
       left:50px;
       top:40%;
-      width:90px;
+      width:100px;
       height:180px;
+      z-index: 10;
       ul{
         list-style: none;
         width:100%;height:100%;

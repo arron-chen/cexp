@@ -12,7 +12,6 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
  * 请求之前可以做什么
  */
 axios.interceptors.request.use((config) => {
-  debugger
   config.data = qs.stringify(config.data);
   if (window.localStorage.getItem("token")) {
     var lstoken = window.localStorage.getItem("token");
@@ -28,6 +27,7 @@ axios.interceptors.request.use((config) => {
  */
 axios.interceptors.response.use((res) => {
     return res
+    document.cookie='userid'+res.data.msg;
   }, (error) => {
     if (error.response.status == 500) {
       window.localStorage.removeItem("token")
@@ -52,10 +52,21 @@ export default {
   fetchHomePageReports: data => axios.get('/mainWeb/ReportTable/HomePageReports', data),
 
   //注册登录
-  register:data=>axios.post('111.230.235.200:8011/user/signUp',data),
-  login:data=>axios.post('111.230.235.200:8011/user/signIn',data),
+  register:data=>axios.post('111.230.235.200:8011/user/signup',data),
+  login:data=>axios.post('111.230.235.200:8011/user/login',data),
 
-  getTime:data =>axios.post('111.230.235.200:8011/user/getTime',data),
+  getTime:data =>axios.get('111.230.235.200:8011/user/timeout',data),
+  modifyTime:data =>axios.put('111.230.235.200:8011/user/timeout',data),
+
+  getUserlist:data=>axios.get('111.230.235.200:8011/user/list',data),
+
+  deleteUser:data=>axios.delete('111.230.235.200:8011/user/',data),
+  modifyPassword:data=>axios.put('111.230.235.200:8011/user/password',data),
+  modifyPrivilege:data=>axios.put('111.230.235.200:8011/user',data),
+
+
+
+
 
   //###系统管理
   //登录接口

@@ -59,8 +59,8 @@
       return {
         modal1: false,
         isShow:false,
-        endTime:'1529990003',
-        endText:'已经结束了',
+        endTime:1539687195949,
+        endText:'体验时间结束',
       }
     },
     components:{timeCont,pop},
@@ -82,10 +82,17 @@
         let a= document.cookie;
         var param={"userid":""};
         if(a && a!=""){
-          param.userid= a.split('=')[1];
+          let b=a.split(',')[0];
+          param.userid= b.split('=')[1];
         }
-        this.$http.get('111.230.235.200:8011/user/timeout',param).then((res)=>{
-         console.log(res)
+        this.$http.get('http://112.74.25.26/user/timeout',{params:param}).then((res)=>{
+         console.log(res);
+         let timenum=parseInt(res.data.msg);
+         let currenttime=new Date();
+         currenttime.setTime(currenttime.getTime()+timenumjj55*60*1000);
+         let endt=currenttime.getTime()
+         //console.log(endt);
+         this.endTime=endt;
         }).catch((err)=>{
           console.log(err)
         })
@@ -95,14 +102,18 @@
       swiper() {
         return this.$refs.mySwiper.swiper
       },
-      userTime(){
+    },
+    watch:{
+      endTime:{
+        handler:function (val,oldval) {
+          console.log(val);
+        }
       }
     },
     mounted() {
       this.getTime();
-      var _this=this;
       this.$nextTick(function () {
-        setInterval(_this.getTime, 60000);
+        setInterval(this.getTime, 60000);
       })
 
     }

@@ -6,7 +6,7 @@ import router from "../router"
 // axios 配置
 axios.defaults.timeout = 100000;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
-
+axios.defaults.headers.get['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 
 /**
  * 请求之前可以做什么
@@ -29,6 +29,7 @@ axios.interceptors.response.use((res) => {
     return res
     document.cookie='userid'+res.data.msg;
   }, (error) => {
+  debugger
     if (error.response.status == 500) {
       window.localStorage.removeItem("token")
       store.commit('SET_TOKEN', '')

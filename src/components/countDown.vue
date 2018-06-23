@@ -14,12 +14,12 @@
     },
     props:{
       endTime:{
-        type: String,
+        type: Number,
         default :''
       },
       endText:{
         type : String,
-        default:'已结束'
+        default:'体验时间结束'
       },
       callback : {
         type : Function,
@@ -34,7 +34,7 @@
         let self = this;
         let timer = setInterval(function(){
           let nowTime = new Date();
-          let endTime = new Date(timestamp * 1000);
+          let endTime = new Date(timestamp );
           let t = endTime.getTime() - nowTime.getTime();
           if(t>0){
             let day = Math.floor(t/86400000);

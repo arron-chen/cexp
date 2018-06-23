@@ -29,8 +29,26 @@ router.beforeEach((to, from, next) => {
         query: {redirect: to.fullPath}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
       })
     }
+  } else {
+    next();
   }
-  else {
+
+  if(to.meta.requireAdmin){
+    let a=document.cookie;
+    var  level="";
+    if(a && a!=""){
+      let b=a.split(',')[1];
+      level =b.split('=')[1];
+    }
+    if(level === "管理员"){
+      next();
+    }else{
+      next({
+        path: '/',
+        query: {redirect: to.fullPath}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
+      })
+    }
+  }else{
     next();
   }
 })

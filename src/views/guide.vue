@@ -97,7 +97,7 @@
       };
       const validateCode1 = (rule, value, callback) => {
         if (value === '') {
-          callback(new Error('请输入验证码'));
+          callback(new Error('请输入密码'));
         } else {
           if (this.formCustom1.vcode !== '') {
 
@@ -129,7 +129,7 @@
       };
       const validateCode2 = (rule, value, callback) => {
         if (value === '') {
-          callback(new Error('请输入验证码'));
+          callback(new Error('请输入密码'));
         } else {
           if (this.formCustom1.vcode !== '') {
 
@@ -196,7 +196,7 @@
             user.password=this.formCustom1.vcode;
             if(_this.single1){
 
-              this.$http.post('http://111.230.235.200:8011/user/signup',user).then((res)=>{
+              this.$http.post('http://112.74.25.26/user/signup',user).then((res)=>{
                 console.log(res);
                 if(res.data.code ==0){
                   this.$Message.success('注册成功,请登录!');
@@ -230,13 +230,18 @@
             user.username=this.formCustom2.phone;
             user.password=this.formCustom2.vcode;
             if(_this.single2){
-              this.$http.post('http://111.230.235.200:8011/user/login',user).then((res)=>{
+              this.$http.post('http://112.74.25.26/user/login',user).then((res)=>{
                 console.log(res);
                 if(res.data.code === 0){
+                  debugger
                   let id = res.data.msg;
+                  let user="";
+                  if(res.data.extPrperties.level){
+                    user = res.data.extPrperties.level.detail;
+                  }
                   let exp = new Date();
                   exp.setTime(exp.getTime() + 1000 * 60 * 60 * 24); //这里表示保存24小时
-                  document.cookie = "userid=" + id + ";expires=" + exp.toGMTString();
+                  document.cookie = "userid=" + id +",user="+user+ ";expires=" + exp.toGMTString();
 
                   this.$Message.success('欢迎体验!');
                   this.$router.push({path:'/index'});

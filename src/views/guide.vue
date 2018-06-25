@@ -21,9 +21,13 @@
                   </i-input>
                 </Form-item>
                  <Form-item  prop="vcode">
-                   <i-input type="password"  v-model="formCustom1.vcode" icon="compose" placeholder="请填写图形验证码"><i-input></i-input>
+                   <i-input type="password"  v-model="formCustom1.vcode" icon="compose" placeholder="密码"><i-input></i-input>
                    </i-input>
                  </Form-item>
+                <Form-item  prop="vcode">
+                  <i-input type="password"  v-model="formCustom1.vcode" icon="compose" placeholder="确认密码"><i-input></i-input>
+                  </i-input>
+                </Form-item>
                <!-- <Form-item  prop="age">
                   <i-input type="text" :value.sync="formCustom.vcode" icon="chatbox-working" placeholder="验证码"><i-input></i-input>
                   </i-input>
@@ -54,7 +58,7 @@
                   </i-input>
                 </Form-item>
                 <Form-item  prop="vcode">
-                  <i-input type="password" v-model="formCustom2.vcode"  icon="chatbox-working" placeholder="验证码"><i-input></i-input>
+                  <i-input type="password" v-model="formCustom2.vcode"  icon="chatbox-working" placeholder="密码"><i-input></i-input>
                   </i-input>
                 </Form-item>
                 <Form-item>

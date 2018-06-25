@@ -266,7 +266,7 @@
         float:right;width:85%;
         height:100%;
         .r_cont_wrap{
-          width:55%;height:100%;
+          width:45%;height:100%;
           float:left;
           .r_cont_l{
             width:100%;
@@ -304,7 +304,7 @@
         }
 
         .r_cont_r{
-          width:40%;
+          width:50%;
           height:100%;
           float:right;
           background-color: #fff;

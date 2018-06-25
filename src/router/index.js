@@ -27,7 +27,10 @@ export default new Router({
     {
       path: '/',
       name: 'guide',
-      component: guide
+      component: guide,
+      meta:{
+        requireLogin:true
+      }
     },
     {
       path:'/index',

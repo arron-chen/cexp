@@ -32,7 +32,16 @@ router.beforeEach((to, from, next) => {
   } else {
     next();
   }
-
+  if(to.meta.requireLogin){
+    if(validated){
+      next({
+        path: '/index',
+        query: {redirect: to.fullPath}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
+      })
+    }else{
+        next();
+    }
+  }
   if(to.meta.requireAdmin){
     let a=document.cookie;
     var  level="";

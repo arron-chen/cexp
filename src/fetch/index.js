@@ -29,7 +29,6 @@ axios.interceptors.response.use((res) => {
     return res
     document.cookie='userid'+res.data.msg;
   }, (error) => {
-  debugger
     if (error.response.status == 500) {
       window.localStorage.removeItem("token")
       store.commit('SET_TOKEN', '')

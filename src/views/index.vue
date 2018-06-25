@@ -45,35 +45,34 @@
           </div>
         </div>
       </div>
-      <time-cont :endTime="endTime" :endText="endText" :callback="callback" class="countStyle"></time-cont>
+      <time-cont :endTime="time" :endText="endText" :callback="callback" class="countStyle"></time-cont>
       <pop :isShow="isShow"></pop>
+      <div class="exit_box"> <a class="btn_exit"  @click="exitSys"><span>退出</span></a></div>
     </div>
 </template>
 <script>
 
   import timeCont from '../components/countDown';
   import pop from '../components/pop';
-  import api from '../fetch/index';
+  import { mapState } from 'vuex';
   export default {
     data () {
       return {
         modal1: false,
         isShow:false,
-        endTime:1539687195949,
+       /* endTime:1539687195949,*/
         endText:'体验时间结束',
+        timenum:0
       }
     },
     components:{timeCont,pop},
     methods: {
       callback(){
         let timestamp=new Date().getTime();
-        if(this.endTime= timestamp){
+        console.log(this.time)
+        if(this.time <= timestamp){
           this.isShow=true;
         }
-      },
-      openModal(val){
-          this.modal1=val;
-          console.log(this.modal1)
       },
       turntoCampus(){
         this.$router.push({path:'/test/campus'});
@@ -85,35 +84,96 @@
           let b=a.split(',')[0];
           param.userid= b.split('=')[1];
         }
+        var _this=this;
         this.$http.get('http://112.74.25.26/user/timeout',{params:param}).then((res)=>{
-         console.log(res);
-         let timenum=parseInt(res.data.msg);
+         //console.log(res);
+         this.timenum=parseInt(res.data.msg);
+         debugger
+          //console.log(this.$store);
+         this.$store.dispatch('setT', { countime:this.timenum });
+         var _this=this;
+
          let currenttime=new Date();
-         currenttime.setTime(currenttime.getTime()+timenumjj55*60*1000);
-         let endt=currenttime.getTime()
-         //console.log(endt);
-         this.endTime=endt;
+
+         currenttime.setTime(currenttime.getTime()+this.timenum*60*1000);
+          //console.log(currenttime);
+         let endt=currenttime.getTime();
+         //console.log(1+endt);
+         this.endTime=this.timenum;
+         console.log("endtime"+this.endTime)
         }).catch((err)=>{
           console.log(err)
         })
-      }
-    },
+      },
+      clearAllCookie() {
+        var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+        if(keys) {
+          for(var i = keys.length; i--;)
+            document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+        }
+      },
+      exitSys(){
+        this.$Modal.confirm({
+          title: '注销登陆',
+          content: '<p>是否注销当前用户</p>',
+          onOk: () => {
+              this.clearAllCookie();
+              var userid ;
+              let a = document.cookie;
+              let b=a.split(',')[0];
+              userid =b.split('=')[1];
+            this.$Message.info('退出登陆成功');
+            this.$router.push({path:'/'});
+              /*this.$http.delete("http://112.74.25.26/logout",{params:{userid:userid}}).then((res)=>{
+
+            }).catch((err)=>{
+              console.log(err)
+            })*/
+
+          },
+        })
+
+          }
+      },
     computed: {
       swiper() {
         return this.$refs.mySwiper.swiper
       },
-    },
-    watch:{
+      time(){
+        let date =new Date().getTime();
+        console.log("time"+this.endTime);
+        return this.endTime*60*1000+date;
+      },
       endTime:{
-        handler:function (val,oldval) {
-          console.log(val);
+        get:function(){
+          return  this.$store.state.countime;
+        },
+        set:function(val){
+          console.log("set"+val)
+          return val;
         }
-      }
+
+      },
+      ...mapState({
+        countime(state){
+          return state;
+        }
+      })
+        },
+    watch:{
+        endTime(val){
+          this.endTime=val;
+        }
     },
     mounted() {
       this.getTime();
+      this.endTime=this.$store.state.countime;
+      var _this=this
       this.$nextTick(function () {
-        setInterval(this.getTime, 60000);
+        setInterval(function(){
+          var now =_this.timenum-1;
+          _this.$store.dispatch('settime', { countime:now });
+        }, 60000);
       })
 
     }

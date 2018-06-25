@@ -152,7 +152,7 @@
       },
       deleteUser(info){
         this.$Modal.confirm({
-          title: 'Title',
+          title: '消息提示',
           content: '<p>是否删除当前用户</p>',
           onOk: () => {
             this.$http.delete("http://112.74.25.26/user",{params:{userid:info.row.userid}}).then((res)=>{

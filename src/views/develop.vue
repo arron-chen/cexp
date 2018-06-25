@@ -1,5 +1,6 @@
 <template>
     <div class="devewrap">
+      <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/video/backto.png" @click="backto"></div>
       <div class="devecont_l">
           <ul>
             <li v-for="(item,index) in tabs" :class="{active:index == num}" @click="handleClickItem(index)">{{item.text}}</li>
@@ -289,7 +290,12 @@
           path:'/devshow',
           query:children
         })
-      }
+      },
+      backto(){
+        this.$router.push({
+          path:'/index'
+        })
+      },
     }
   }
 </script>
@@ -298,6 +304,18 @@
   .devewrap{
     width:100%;
     height:100%;
+    .backto{
+      position:absolute;
+      left: 30px;
+      top: 45px;
+      width: 80px;
+      height: 35px;
+      cursor: pointer;
+      z-index: 10;
+      img{
+        width:80px;height:35px;
+      }
+    }
     .devecont_l{
       width:15%;height:100%;
       float:left;

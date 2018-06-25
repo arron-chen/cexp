@@ -26,6 +26,11 @@
         default :''
       }
     },
+    watch:{
+      endTime(){
+        this.countdowm(this.endTime);
+      }
+    },
     mounted () {
       this.countdowm(this.endTime)
     },
@@ -59,6 +64,7 @@
             clearInterval(timer);
             self.content = self.endText;
             self._callback();
+
           }
         },1000);
       },

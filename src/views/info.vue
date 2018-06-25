@@ -82,7 +82,7 @@
             margin:10px 10px 10px 0;
             cursor: pointer;
             img{
-              width:50px;height:50px;
+              width:42px;height:50px;
             }
             span{
               color:#fff;
@@ -98,8 +98,9 @@
         justify-content: center;
         align-items: center;
         img{
-          width:80px;
-          height:85px;
+          width:90px;
+          height:100px;
+          margin-bottom:10px;
         }
         h4{
           color:#fff;

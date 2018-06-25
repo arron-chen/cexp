@@ -3,7 +3,7 @@
     <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/video/backto.png" @click="backto"></div>
     <div class="videoBox">
       <div class="cvideocont_l">
-        <video src="http://7xnt3p.com1.z0.glb.clouddn.com/Willwork.mp4" controls="controls">
+        <video src="http://7xnt3p.com1.z0.glb.clouddn.com/guide.mp4" controls="controls">
           您的浏览器不支持 video 标签。
         </video>
       </div>

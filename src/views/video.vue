@@ -21,7 +21,7 @@
   export default {
     data(){
       return {
-        videoSrc:'http://7xnt3p.com1.z0.glb.clouddn.com/Willwork.mp4',
+        videoSrc:'http://7xnt3p.com1.z0.glb.clouddn.com/guide.mp4',
         lists:[
           {"id":1,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/video/video.png","text":"多伦多大学","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/Willwork.mp4"},
           {"id":2,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/video/video.png","text":"多伦多大学","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/Willwork.mp4"},

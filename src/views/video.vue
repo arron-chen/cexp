@@ -8,9 +8,13 @@
           </video>
         </div>
         <div class="cvideocont_r">
-          <div class="r_title"><span>校园场景体验</span></div>
+          <div class="r_title">
+            <Select v-model="model8" clearable style="width:200px" v-on:on-change="onchange">
+              <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+            </Select>
+          </div>
           <ul class="r_list">
-            <li v-for="(item,index) in lists" :key="item.id" @click="handleClickItem(item)"><img :src="item.imgSrc"><span>{{item.text}}</span></li>
+            <li v-for="(item,index) in listU" :key="item.id" @click="handleClickItem(item)"><img :src="item.imgSrc"><span>{{item.text}}</span></li>
           </ul>
         </div>
       </div>
@@ -21,15 +25,59 @@
   export default {
     data(){
       return {
-        videoSrc:'http://7xnt3p.com1.z0.glb.clouddn.com/guide.mp4',
-        lists:[
-          {"id":1,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/video/video.png","text":"多伦多大学","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/Willwork.mp4"},
-          {"id":2,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/video/video.png","text":"多伦多大学","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/Willwork.mp4"},
-          {"id":3,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/video/video.png","text":"多伦多大学","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/Willwork.mp4"},
-          {"id":4,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/video/video.png","text":"多伦多大学","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/Willwork.mp4"},
-          ]
+        videoSrc:'http://7xnt3p.com1.z0.glb.clouddn.com/%E5%A4%A9%E8%A1%8C%E8%80%85%E7%95%99%E5%AD%A6%E4%BD%93%E9%AA%8C%E4%B8%AD%E5%BF%83_01.mp4',
+        cityList: [
+          {
+            value: 'a',
+            label: '美国大学'
+          },
+          {
+            value: 'b',
+            label: '英国大学'
+          },
+          {
+            value: 'c',
+            label: '法国大学'
+          },
+
+        ],
+        model8: 'a',
+        listIndex:"",
+        lists:
+          {
+            'a':[
+              {"id":1,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img123.jpg","text":"多伦多大学","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/%E5%A4%A9%E8%A1%8C%E8%80%85%E7%95%99%E5%AD%A6%E4%BD%93%E9%AA%8C%E4%B8%AD%E5%BF%83_01.mp4"},
+              {"id":2,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/video/video.png","text":"万老师解惑一","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/DSC_0102.MOV"},
+              {"id":3,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/video/video.png","text":"万老师解惑二","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/DSC_0105.MOV"},
+              {"id":4,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/f/img415.jpg","text":"多伦多大学","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/%E5%A4%A9%E8%A1%8C%E8%80%85%E7%95%99%E5%AD%A6%E4%BD%93%E9%AA%8C%E4%B8%AD%E5%BF%83_01.mp4"},
+            ],
+            'b':[
+              {"id":1,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/video/video.png","text":"伦敦大学","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/%E5%A4%A9%E8%A1%8C%E8%80%85%E7%95%99%E5%AD%A6%E4%BD%93%E9%AA%8C%E4%B8%AD%E5%BF%83_01.mp4"},
+              {"id":2,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/video/video.png","text":"万老师解惑三","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/DSC_0103.MOV"},
+              {"id":3,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/video/video.png","text":"伦敦大学","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/%E5%A4%A9%E8%A1%8C%E8%80%85%E7%95%99%E5%AD%A6%E4%BD%93%E9%AA%8C%E4%B8%AD%E5%BF%83_01.mp4"},
+              {"id":4,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/video/video.png","text":"多伦敦大学","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/%E5%A4%A9%E8%A1%8C%E8%80%85%E7%95%99%E5%AD%A6%E4%BD%93%E9%AA%8C%E4%B8%AD%E5%BF%83_01.mp4"},
+            ],
+            'c':[
+              {"id":1,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/video/video.png","text":"巴黎大学","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/%E5%A4%A9%E8%A1%8C%E8%80%85%E7%95%99%E5%AD%A6%E4%BD%93%E9%AA%8C%E4%B8%AD%E5%BF%83_01.mp4"},
+              {"id":2,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/video/video.png","text":"巴黎大学","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/DSC_0104.MOV"},
+              {"id":3,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/video/video.png","text":"巴黎大学","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/%E5%A4%A9%E8%A1%8C%E8%80%85%E7%95%99%E5%AD%A6%E4%BD%93%E9%AA%8C%E4%B8%AD%E5%BF%83_01.mp4"},
+              {"id":4,"imgSrc":"http://p9zd0n0di.bkt.clouddn.com/video/video.png","text":"巴黎大学","videoSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/%E5%A4%A9%E8%A1%8C%E8%80%85%E7%95%99%E5%AD%A6%E4%BD%93%E9%AA%8C%E4%B8%AD%E5%BF%83_01.mp4"},
+            ]
+        }
+
       }
     },
+    computed:{
+      listU:{
+        get:function() {
+          return this.listIndex;
+        },
+        set:function(val,newv){
+          return val;
+        }
+      }
+    },
+
     methods:{
       backto(){
         this.$router.push({
@@ -41,6 +89,10 @@
           let _dom=document.getElementById('videoDom');
           _dom.src=item.videoSrc;
           _dom.autoplay=true;
+      },
+      onchange(e){
+        this.listU=this.lists[e];
+        this.listIndex=this.lists[e];
       }
     }
   }
@@ -91,6 +143,12 @@
         .r_title{
           width:100%;height:40px;
           border-bottom:2px solid #368cf8;
+          .ivu-select{
+            width: 100%!important;
+            .ivu-select-selection{
+              background-color:transparent !important;
+            }
+          }
           span{
             color:#ffffff;
             font-size:16px;

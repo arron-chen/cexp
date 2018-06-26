@@ -202,6 +202,18 @@
             "http://p9zd0n0di.bkt.clouddn.com/test/result2.jpg",
             "http://p9zd0n0di.bkt.clouddn.com/test/result3.jpg"
             ]
+        let a= document.cookie;
+        var param={"userId":"","userForm":{}};
+        if(a && a!=""){
+          let b=a.split(',')[0];
+          param.userId= b.split('=')[1];
+        }
+        param.userForm =imglist[0];
+        this.$http.post("http://112.74.25.26/user/test2",param).then((res)=>{
+          debugger
+        }).catch((err)=>{
+          console.log(err)
+        })
         this.$router.push({
           path:'/test/result2',
           query:{

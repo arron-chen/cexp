@@ -9,7 +9,7 @@
       <div class="devecont_r" v-show="num == 0">
           <div class="devcont_r_l">
             <ul v-show="num1 == 0">
-              <li v-for="(item,index) in content1" @click="handleClickTo(item.children)">
+              <li v-for="(item,index) in content0" @click="handleClickTo(item.children)">
                 <div class="item_img"><img :src="item.imgSrc"></div>
                 <div class="item_text">
                   <h3>{{item.name}}</h3>
@@ -17,7 +17,7 @@
               </li>
             </ul>
             <ul v-show="num1 == 1">
-              <li v-for="(item,index) in content2">
+              <li v-for="(item,index) in content1" @click="handleClickTo(item.children)">
                 <div class="item_img"><img :src="item.imgSrc"></div>
                 <div class="item_text">
                   <h3>{{item.name}}</h3>
@@ -25,7 +25,7 @@
               </li>
             </ul>
             <ul v-show="num1 == 2">
-              <li v-for="(item,index) in content1">
+              <li v-for="(item,index) in content2" @click="handleClickTo(item.children)">
                 <div class="item_img"><img :src="item.imgSrc"></div>
                 <div class="item_text">
                   <h3>{{item.name}}</h3>
@@ -33,7 +33,7 @@
               </li>
             </ul>
             <ul v-show="num1 == 3">
-              <li v-for="(item,index) in content1">
+              <li v-for="(item,index) in content3" @click="handleClickTo(item.children)">
                 <div class="item_img"><img :src="item.imgSrc"></div>
                 <div class="item_text">
                   <h3>{{item.name}}</h3>
@@ -41,7 +41,7 @@
               </li>
             </ul>
             <ul v-show="num1 == 4">
-              <li v-for="(item,index) in content1">
+              <li v-for="(item,index) in content4" @click="handleClickTo(item.children)">
                 <div class="item_img"><img :src="item.imgSrc"></div>
                 <div class="item_text">
                   <h3>{{item.name}}</h3>
@@ -49,7 +49,7 @@
               </li>
             </ul>
             <ul v-show="num1 == 5">
-              <li v-for="(item,index) in content1">
+              <li v-for="(item,index) in content5" @click="handleClickTo(item.children)">
                 <div class="item_img"><img :src="item.imgSrc"></div>
                 <div class="item_text">
                   <h3>{{item.name}}</h3>
@@ -57,7 +57,7 @@
               </li>
             </ul>
             <ul v-show="num1 == 6">
-              <li v-for="(item,index) in content1">
+              <li v-for="(item,index) in content6" @click="handleClickTo(item.children)">
                 <div class="item_img"><img :src="item.imgSrc"></div>
                 <div class="item_text">
                   <h3>{{item.name}}</h3>
@@ -140,11 +140,10 @@
           {"text":"平面设计"},
           {"text":"工业设计"},
           {"text":"建筑设计"},
-          {"text":"动漫设计"},
           {"text":"插画"},
           {"text":"纯艺术"},
           ],
-        content1:[
+        content0:[
           {
             "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/img93.jpg",
             "name":"万思聪",
@@ -229,50 +228,311 @@
             ]
           },
         ],
+        content1:[
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/c/img111.jpg",
+            "name":"C同学",
+            "school":"科尔丁设计学院",
+            "major":"服装设计",
+            "children":[
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/c/img111.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/c/img113.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/c/img116.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/c/img118.jpg",
+            ]
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/n/img40.jpg",
+            "name":"N同学",
+            "school":"蒙特利尔大学",
+            "major":"服装设计",
+            "children":[
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img40.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img45.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img48.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img50.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img53.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img55.jpg"
+            ]
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/q/img85.jpg",
+            "name":"Q同学",
+            "school":"爱丁堡艺术学院",
+            "major":"服装设计",
+            "children":[
+              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/img97.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/img100.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/img103.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/img109.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/img153.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/img159.jpg"
+            ]
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/w/img100.jpg",
+            "name":"W同学",
+            "school":"约克大学",
+            "major":"服装设计",
+            "children":[
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img40.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img45.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img48.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img50.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img53.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img55.jpg"
+            ]
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/s/img53.jpg",
+            "name":"S同学",
+            "school":"维也纳应用艺术学院",
+            "major":"服装设计",
+            "children":[
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img40.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img45.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img48.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img50.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img53.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img55.jpg"
+            ]
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/z/img69.jpg",
+            "name":"Z同学",
+            "school":"兰考斯特大学",
+            "major":"服装设计",
+            "children":[
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img40.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img45.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img48.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img50.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img53.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img55.jpg"
+            ]
+          },
+        ],
         content2:[
           {
             "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
             "name":"陈里",
             "school":"多伦多大学",
-            "major":"服装设计",
+            "major":"平面设计",
             "children":{}
           },
           {
             "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
             "name":"同学Bx",
             "school":"多伦多大学",
-            "major":"服装设计",
+            "major":"平面设计",
             "children":{}
           },
           {
             "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
             "name":"同学cv",
             "school":"多伦多大学",
-            "major":"服装设计",
+            "major":"平面设计",
             "children":{}
           },
           {
             "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
             "name":"万思聪2",
             "school":"多伦多大学",
-            "major":"服装设计",
+            "major":"平面设计",
             "children":{}
           },
           {
             "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
             "name":"万思聪q3",
             "school":"多伦多大学",
-            "major":"服装设计",
+            "major":"平面设计",
             "children":{}
           },
           {
             "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
             "name":"万思聪5",
             "school":"多伦多大学",
-            "major":"服装设计",
+            "major":"平面设计",
+            "children":{}
+          },
+        ],
+        content3:[
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"陈里",
+            "school":"多伦多大学",
+            "major":"工业设计",
+            "children":{}
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"同学Bx",
+            "school":"多伦多大学",
+            "major":"工业设计",
+            "children":{}
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"同学cv",
+            "school":"多伦多大学",
+            "major":"工业设计",
+            "children":{}
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"万思聪2",
+            "school":"多伦多大学",
+            "major":"工业设计",
+            "children":{}
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"万思聪q3",
+            "school":"多伦多大学",
+            "major":"工业设计",
+            "children":{}
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"万思聪5",
+            "school":"多伦多大学",
+            "major":"工业设计",
+            "children":{}
+          },
+        ],
+        content4:[
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"陈里",
+            "school":"多伦多大学",
+            "major":"建筑设计",
+            "children":{}
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"同学Bx",
+            "school":"多伦多大学",
+            "major":"建筑设计",
+            "children":{}
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"同学cv",
+            "school":"多伦多大学",
+            "major":"建筑设计",
+            "children":{}
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"万思聪2",
+            "school":"多伦多大学",
+            "major":"建筑设计",
+            "children":{}
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"万思聪q3",
+            "school":"多伦多大学",
+            "major":"建筑设计",
+            "children":{}
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"万思聪5",
+            "school":"多伦多大学",
+            "major":"建筑设计",
+            "children":{}
+          },
+        ],
+        content5:[
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"陈里",
+            "school":"多伦多大学",
+            "major":"插画",
+            "children":{}
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"同学Bx",
+            "school":"多伦多大学",
+            "major":"插画",
+            "children":{}
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"同学cv",
+            "school":"多伦多大学",
+            "major":"插画",
+            "children":{}
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"万思聪2",
+            "school":"多伦多大学",
+            "major":"插画",
+            "children":{}
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"万思聪q3",
+            "school":"多伦多大学",
+            "major":"插画",
+            "children":{}
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"万思聪5",
+            "school":"多伦多大学",
+            "major":"插画",
+            "children":{}
+          },
+        ],
+        content6:[
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"陈里",
+            "school":"多伦多大学",
+            "major":"纯艺术",
+            "children":{}
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"同学Bx",
+            "school":"多伦多大学",
+            "major":"纯艺术",
+            "children":{}
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"同学cv",
+            "school":"多伦多大学",
+            "major":"纯艺术",
+            "children":{}
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"万思聪2",
+            "school":"多伦多大学",
+            "major":"纯艺术",
+            "children":{}
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"万思聪q3",
+            "school":"多伦多大学",
+            "major":"纯艺术",
+            "children":{}
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg",
+            "name":"万思聪5",
+            "school":"多伦多大学",
+            "major":"纯艺术",
             "children":{}
           },
         ]
+
       }
     },
     methods: {

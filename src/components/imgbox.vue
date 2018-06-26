@@ -9,7 +9,9 @@
       }
     },
     props:{
-      imgSrc:''
+      imgSrc:{
+        type:String
+      }
     }
   }
 </script>

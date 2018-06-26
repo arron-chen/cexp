@@ -1,5 +1,5 @@
 <template>
-  <div class="testwrap">
+  <div class="testworkwrap">
     <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/test/backto.png" @click="backto"></div>
     <div class="navwrap">
       <ul>
@@ -208,7 +208,7 @@
   .showItem{
     display:block!important;
   }
-  .testwrap{
+  .testworkwrap{
     width:100%;
     height:100%;
     background: url('http://p9zd0n0di.bkt.clouddn.com/test/test_bg.jpg') no-repeat center center;

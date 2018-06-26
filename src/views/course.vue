@@ -3,7 +3,7 @@
     <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/video/backto.png" @click="backto"></div>
     <div class="videoBox">
       <div class="cvideocont_l">
-        <video src="http://7xnt3p.com1.z0.glb.clouddn.com/guide.mp4" controls="controls">
+        <video src="http://7xnt3p.com1.z0.glb.clouddn.com/%E5%A4%A9%E8%A1%8C%E8%80%85%E7%95%99%E5%AD%A6%E4%BD%93%E9%AA%8C%E4%B8%AD%E5%BF%83_01.mp4" controls="controls">
           您的浏览器不支持 video 标签。
         </video>
       </div>
@@ -11,6 +11,7 @@
         <ul class="r_list">
           <li v-for="item in lists" @click="handleClickItem(item.src)"><span>{{item.text}}</span></li>
         </ul>
+        <div class="teste" @click="handleClickTo">英语测试</div>
       </div>
     </div>
 
@@ -43,6 +44,9 @@
             path:'/videolist',
             query:{"url":src}
           })
+      },
+      handleClickTo(){
+
       }
     },
     mounted(){
@@ -102,6 +106,14 @@
             color:#ffffff;
             font-size:14px;
           }
+        }
+        .teste{
+          width: 100%;
+          position: absolute;
+          bottom: -30px;
+          font-size: 20px;
+          color: red;
+          cursor: pointer;
         }
         .r_list{
           list-style: none;

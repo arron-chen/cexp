@@ -62,7 +62,10 @@
         isShow:false,
        /* endTime:1539687195949,*/
         endText:'体验时间结束',
-        timenum:0
+        timenum:0,
+        timmer:{
+          type:Object
+        }
       }
     },
     components:{timeCont,pop},
@@ -123,12 +126,12 @@
               let b=a.split(',')[0];
               userid =b.split('=')[1];
             this.$Message.info('退出登陆成功');
+            clearInterval(this.timmer);
             this.$router.push({path:'/'});
-              /*this.$http.delete("http://112.74.25.26/logout",{params:{userid:userid}}).then((res)=>{
-
+            this.$http.delete("http://112.74.25.26/logout").then((res)=>{
             }).catch((err)=>{
               console.log(err)
-            })*/
+            })
 
           },
         })
@@ -170,8 +173,9 @@
       this.endTime=this.$store.state.countime;
       var _this=this
       this.$nextTick(function () {
-        setInterval(function(){
-          var now =_this.timenum-1;
+         this.timmer=setInterval(function(){
+          _this.timenum=_this.timenum-1
+          var now =_this.timenum;
           _this.$store.dispatch('settime', { countime:now });
         }, 60000);
       })

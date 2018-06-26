@@ -215,6 +215,18 @@
               "resultSrc":"http://p9zd0n0di.bkt.clouddn.com/test/echart4.png"
             },
           ];
+          let a= document.cookie;
+          var param={"userid":"","userForm":{}};
+          if(a && a!=""){
+            let b=a.split(',')[0];
+            param.userid= b.split('=')[1];
+          }
+
+          this.$http.post("http://112.74.25.26/user/test1",param).then((res)=>{
+            debugger
+          }).catch((err)=>{
+            console.log(err)
+          })
           this.$router.push({
             path:'/test/result1',
             query:result[0]

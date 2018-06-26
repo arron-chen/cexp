@@ -236,6 +236,7 @@
             if(_this.single2){
               this.$http.post('http://112.74.25.26/user/login',user).then((res)=>{
                 console.log(res);
+                debugger
                 if(res.data.code === 0){
                   debugger
                   let id = res.data.msg;
@@ -250,10 +251,12 @@
                   this.$Message.success('欢迎体验!');
                   this.$router.push({path:'/index'});
                 }else{
+                  debugger
                   this.$Message.error('登录失败!');
                 }
 
               }).catch((err)=>{
+                debugger
                 this.$Message.error('登录失败!');
                 console.log(err);
               });

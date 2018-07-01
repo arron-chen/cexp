@@ -6,7 +6,7 @@
         <router-link to="/test/campus" tag="li">MACL测试</router-link>
         <router-link to="/test/character" tag="li">专业方向测试</router-link>
         <router-link to="/test/work" tag="li">职业心理测试</router-link>
-        <router-link to="/test/willing" tag="li">留学意向书</router-link>
+       <!-- <router-link to="/test/willing" tag="li">留学意向书</router-link>-->
       </ul>
     </div>
     <div class="question_wrap">

@@ -1,5 +1,6 @@
 <template>
     <div class="resultwrap">
+      <div class="btn_back"><a @click="back">返回</a></div>
      <div class="result_tit">
        <a>{{title}}</a>
      </div>
@@ -17,6 +18,11 @@
       props:{
 
       },
+      methods:{
+        back(){
+          history.go(-1);
+        }
+      },
       mounted(){
         this.title=this.$route.query.resulttitle;
         this.resultsrc=this.$route.query.resultSrc;
@@ -29,6 +35,26 @@
     background: url("http://p9zd0n0di.bkt.clouddn.com/test/result_bg.png")no-repeat center center;
     background-size: 100% 100%;
     padding:10% 10% 6% 10%;
+    .btn_back{
+    z-index: 10;
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index:10;
+    a{
+      display: inline-block;
+      width: 80px;
+      height: 35px;
+      line-height: 35px;
+      color: #000;
+      border: 1px solid #efefef;
+      border-radius: 5px;
+      text-align: center;
+      background: #efefef;
+      font-size: 16px;
+    }
+  }
+
     .result_tit{
       width:70%;
       height:70px;

@@ -16,7 +16,6 @@
           v-show=" index == num" >
           <ul class="r_cont_l">
             <li v-for="item in itemCon.content">
-              <div>{{item.campus}}</div>
               <span v-for="span in item.children" @click="changePdf(span.url)">{{span.text}}</span>
             </li>
           </ul>
@@ -309,7 +308,8 @@
             padding-top:40px;
             overflow: auto;
             li{
-              width:100%;height:16%;
+              width:100%;height:15%;
+              line-height: 50px;
               border-bottom:1px solid #2f7bda;
               margin-bottom: 10px;
               div{

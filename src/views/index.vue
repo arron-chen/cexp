@@ -48,13 +48,14 @@
       <time-cont :endTime="time" :endText="endText" :callback="callback" class="countStyle"></time-cont>
       <pop :isShow="isShow"></pop>
       <div class="exit_box"> <a class="btn_exit"  @click="exitSys"><span>退出</span></a></div>
+      <vueshowpdf @closepdf="closepdf" v-show="isshowpdf" :pdfurl="pdfurls" @pdferr="pdferr" :maxscale='4' :minscale='0.6' :scale='1.1' ></vueshowpdf>
     </div>
 </template>
 <script>
-
   import timeCont from '../components/countDown';
   import pop from '../components/pop';
   import { mapState } from 'vuex';
+  import vueshowpdf from 'vueshowpdf'
   export default {
     data () {
       return {
@@ -65,11 +66,19 @@
         timenum:0,
         timmer:{
           type:Object
-        }
+        },
+        pdfurls:'http://p9zd0n0di.bkt.clouddn.com/template/%E7%95%99%E5%AD%A6%E6%8E%A8%E8%8D%90%E4%BF%A1%E8%8C%83%E6%96%87%EF%BC%9A%E7%BE%8E%E6%9C%AF%E4%B8%93%E4%B8%9A.pdf',
+        isshowpdf:false,
       }
     },
-    components:{timeCont,pop},
+    components:{timeCont,pop,vueshowpdf},
     methods: {
+      closepdf(){
+        this.isshowpdf = false
+      },
+      pdferr(errurl) {
+        console.log(errurl);
+      },
       callback(){
         let timestamp=new Date().getTime();
         console.log(this.time)

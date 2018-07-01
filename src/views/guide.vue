@@ -24,8 +24,8 @@
                    <i-input type="password"  v-model="formCustom1.vcode" icon="compose" placeholder="密码"><i-input></i-input>
                    </i-input>
                  </Form-item>
-                <Form-item  prop="vcode">
-                  <i-input type="password"  v-model="formCustom1.vcode" icon="compose" placeholder="确认密码"><i-input></i-input>
+                <Form-item  prop="vcode1">
+                  <i-input type="password"  v-model="formCustom1.vcode1" icon="compose" placeholder="确认密码"><i-input></i-input>
                   </i-input>
                 </Form-item>
                <!-- <Form-item  prop="age">
@@ -109,6 +109,18 @@
           callback();
         }
       };
+      const validateCode11 = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入密码'));
+        } else {
+          if (this.formCustom1.vcode1 !== this.formCustom1.vcode) {
+            callback(new Error('与第一次密码不一致'));
+          }else{
+
+          }
+          callback();
+        }
+      };
       const validatePass2 = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请输入密码'));
@@ -150,6 +162,7 @@
         formCustom1: {
           phone:'',
           vcode:'',
+          vcode1:'',
           passwd: '',
         },
         formCustom2: {
@@ -164,6 +177,9 @@
           vcode:[
             {validator: validateCode1, trigger: 'blur'}
             ],
+          vcode1:[
+            {validator: validateCode11, trigger: 'blur'}
+          ],
           passwdCheck: [
             { validator: validatePass1, trigger: 'blur' }
           ],
@@ -236,7 +252,6 @@
             if(_this.single2){
               this.$http.post('http://112.74.25.26/user/login',user).then((res)=>{
                 console.log(res);
-                debugger
                 if(res.data.code === 0){
                   debugger
                   let id = res.data.msg;
@@ -252,12 +267,12 @@
                   this.$router.push({path:'/index'});
                 }else{
                   debugger
-                  this.$Message.error('登录失败!');
+                  this.$Message.error(res.data.msg);
                 }
 
               }).catch((err)=>{
                 debugger
-                this.$Message.error('登录失败!');
+                this.$Message.error(err);
                 console.log(err);
               });
 

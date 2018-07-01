@@ -5,6 +5,7 @@
     :mask-closable="false"
     :closable="false">
     <div class="pop"></div>
+    <div class="logout" @click="logout"><a>注销</a></div>
   </Modal>
 </template>
 <script>
@@ -14,6 +15,36 @@
         modal:'',
         modalW:'420px'
       }
+    },
+    methods:{
+      logout(){
+        this.$Modal.confirm({
+          title: '注销登陆',
+          content: '<p>是否注销当前用户</p>',
+          onOk: () => {
+            this.clearAllCookie();
+            var userid ;
+            let a = document.cookie;
+            let b=a.split(',')[0];
+            userid =b.split('=')[1];
+            this.$Message.info('退出登陆成功');
+            //clearInterval(this.timmer);
+            this.$router.push({path:'/'});
+            this.$http.delete("http://112.74.25.26/logout").then((res)=>{
+            }).catch((err)=>{
+              console.log(err)
+            })
+
+          },
+        })
+      },
+      clearAllCookie() {
+        var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+        if(keys) {
+          for(var i = keys.length; i--;)
+            document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+        }
+      },
     },
     props:{
       isShow:''
@@ -26,6 +57,23 @@
     background: url("http://p9zd0n0di.bkt.clouddn.com/ahead.jpg")no-repeat center center;
     background-size: 100% 100%;
     border-radius: 10px;
+  }
+  .logout{
+    position:absolute;
+    bottom:33px;
+    right:20px;
+    width:40px;
+    text-align: center;
+    a{
+      display: inline-block;
+      width:100%;
+      height:35px;
+      line-height:35px;
+      color: #fff;
+      border: none;
+      border-radius:50%;
+      background: #358cf6;
+    }
   }
   .vertical-modal{
     display: flex;

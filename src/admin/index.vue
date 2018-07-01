@@ -63,6 +63,17 @@
           <Content v-show='itemShow == "2-1"' :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
             列表22
           </Content>
+          <Modal  v-model="modal" width="420"
+                  class-name="vertical-center-modal"
+                  :closable="false">
+            <div class="userLine"><span>用户权限</span>
+              <Select v-model="userPrivilige" style="width:200px;">
+              <Option v-for="(item,index) in privileges" :value="item.value" :key="item.value">{{ item.label }}</Option>
+            </Select><a class="modify_btn" @click="modifyP">修改</a></div>
+            <div class="userLine"><span>体验时长</span><Input v-model="userTime" style="width:200px;"></Input><a class="modify_btn" @click="modifyT">修改</a></div>
+            <div class="userLine"><span>修改密码</span><Input placeholder="请输入要重置的密码" v-model="userPassword" style="width:200px;"></Input><a class="modify_btn" @click="modifyPass">修改</a></div>
+
+          </Modal>
         </Layout>
       </Layout>
     </Layout>
@@ -73,6 +84,11 @@
   export default {
       data(){
         return {
+          modal:false,
+          userPrivilige:"",
+          userId:"",
+          userTime:'',
+          userPassword:'',
           itemShow:"1-1",
           search:"",
           ajaxHistoryData:[],
@@ -80,6 +96,20 @@
           dataCount:0,
           // 每页显示多少条
           pageSize:10,
+          privileges:[
+            {
+              value: 'user',
+              label: '用户'
+            },
+            {
+              value: 'admin',
+              label: '管理员'
+            },
+            {
+              value: 'vip',
+              label: 'vip'
+            },
+          ],
           columns1: [
             {
               title: 'id',
@@ -112,10 +142,10 @@
                     },
                     on: {
                       click: () => {
-                        this.show(params.index)
+                        this.showdetail(params)
                       }
                     }
-                  }, 'View'),
+                  }, '详情'),
                   h('Button', {
                     props: {
                       type: 'error',
@@ -126,7 +156,7 @@
                         this.deleteUser(params)
                       }
                     }
-                  }, 'Delete')
+                  }, '删除')
                 ]);
               }
             }
@@ -138,6 +168,90 @@
     methods:{
       itemSelect(name){
         this.itemShow = name;
+      },
+      showdetail(params){
+          this.modal=true;
+          debugger
+          if(params.row){
+            let a =params.row;
+            this.userId=a.id;
+            switch (a.level){
+              case "admin":
+                this.userPrivilige="admin";
+                break;
+              case "vip":
+                this.userPrivilige="vip";
+                break;
+              case "user":
+                this.userPrivilige="user";
+                break;
+            }
+
+            if(a.timeout){
+              this.userTime=a.timeout;
+            }
+
+
+          }
+      },
+      modifyP(){
+        this.$Modal.confirm({
+          title: '消息提示',
+          content: '<p>是否修改当前用户权限</p>',
+          onOk: () => {
+            var level;
+            let b =this.userPrivilige;
+            switch(b){
+              case "admin":
+                level=1;
+                break;
+              case "user":
+                level=0;
+                break;
+              case "vip":
+                level=2;
+                debugger
+                break;
+            }
+            debugger
+            this.$http.put("http://112.74.25.26/user",{"userid":this.userId,"level":level}).then((res)=>{
+              this.$Message.info('修改用户权限成功');
+            }).catch((err)=>{
+              console.log(err)
+            })
+
+          },
+        })
+      },
+      modifyT(){
+        this.$Modal.confirm({
+          title: '消息提示',
+          content: '<p>是否修改当前用户体验时长</p>',
+          onOk: () => {
+            var time=this.userTime;
+            this.$http.put("http://112.74.25.26/user/timeout",{"userid":this.userId,"time":time}).then((res)=>{
+              this.$Message.info('修改用户权限成功');
+            }).catch((err)=>{
+              console.log(err)
+            })
+
+          },
+        })
+      },
+      modifyPass(){
+        this.$Modal.confirm({
+          title: '消息提示',
+          content: '<p>是否修改当前用户密码</p>',
+          onOk: () => {
+            var pass=this.userPassword;
+            this.$http.put("http://112.74.25.26/user/password",{"userid":this.userId,"password":pass}).then((res)=>{
+              this.$Message.info('修改用户密码成功');
+            }).catch((err)=>{
+              console.log(err)
+            })
+
+          },
+        })
       },
       searchUser(){
         if(this.search == "" ){

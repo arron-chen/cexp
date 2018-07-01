@@ -82,7 +82,7 @@
           <div class="loginWrap">
             <div class="login_code"><span>修改密码</span></div>
             <div class="login_form">
-              <i-form :model="formCustom3" :rules="ruleCustom2" ref="formCustom2">
+              <i-form :model="formCustom3" :rules="ruleCustom3" ref="formCustom3">
                 <Form-item  prop="phone">
                   <i-input type="text" v-model="formCustom3.phone"   icon="iphone" placeholder="手机号码">
                   </i-input>
@@ -284,6 +284,7 @@
       },
       handleSubmit2(name){
         let _this=this;
+        debugger
         this.$refs[name].validate((valid) => {
           if (valid) {
             let user={

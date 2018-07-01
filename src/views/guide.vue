@@ -68,6 +68,38 @@
             </div>
             <div> <Radio  v-model="single2">我已经阅读并同意<a>体验中心用户使用协议</a></Radio></div>
             <!--<div class="other_login_tit"><div><i>社交账号登录</i></div></div>-->
+            <div  class="forgetPass"><a @click="forgetPass"> 忘记密码</a></div>
+          </div>
+        </div>
+        <div slot="footer"></div>
+      </Modal>
+      <Modal
+        v-model="modal3" width="420"
+        class-name="vertical-center-modal"
+        :closable="false">
+        <div class="loginCont">
+          <div class="login_head"></div>
+          <div class="loginWrap">
+            <div class="login_code"><span>修改密码</span></div>
+            <div class="login_form">
+              <i-form :model="formCustom3" :rules="ruleCustom2" ref="formCustom2">
+                <Form-item  prop="phone">
+                  <i-input type="text" v-model="formCustom3.phone"   icon="iphone" placeholder="手机号码">
+                  </i-input>
+                </Form-item>
+                <Form-item  prop="vcode">
+                  <i-input type="password" v-model="formCustom3.vcode"  icon="chatbox-working" placeholder="原密码"><i-input></i-input>
+                  </i-input>
+                </Form-item>
+                <Form-item  prop="vcode1">
+                  <i-input type="password" v-model="formCustom3.vcode1"  icon="chatbox-working" placeholder="修改密码"><i-input></i-input>
+                  </i-input>
+                </Form-item>
+                <Form-item>
+                  <i-button class="form_submit"  @click="handleSubmit3('formCustom3')">确定修改</i-button>
+                </Form-item>
+              </i-form>
+            </div>
           </div>
         </div>
         <div slot="footer"></div>
@@ -157,6 +189,7 @@
       return {
         modal1:false,
         modal2:false,
+        modal3:false,
         single1:false,
         single2:false,
         formCustom1: {
@@ -168,6 +201,12 @@
         formCustom2: {
           phone:'',
           vcode:'',
+          passwd: '',
+        },
+        formCustom3: {
+          phone:'',
+          vcode:'',
+          vcode1:'',
           passwd: '',
         },
         ruleCustom1: {
@@ -203,6 +242,10 @@
       },
       login(){
         this.modal2=true;
+      },
+      forgetPass(){
+        this.modal2=false;
+        this.modal3=true;
       },
       handleSubmit1(name){
         let _this=this;
@@ -283,6 +326,9 @@
         })
 
       },
+      handleSubmit3(){
+
+      }
     }
   }
 </script>

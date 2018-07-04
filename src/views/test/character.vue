@@ -14,13 +14,13 @@
         <div v-for="(item,index) in questions" :key="item.id" v-show="item.id == itemIndex"  style="display: none">
           <div class="question_tit">{{item.question}}</div>
           <FormItem :prop="item.prop" class="answer_cont">
-            <RadioGroup v-model="item.model" v-on:on-change="changeRadio">
+            <RadioGroup v-model="item.model" v-on:on-change="changeRadio(item)">
               <Radio label="A"> {{item.answerA}}</Radio>
               <Radio label="B"> {{item.answerB}}</Radio>
             </RadioGroup>
           </FormItem>
           <div>
-            <Button v-show="!showSubmitBtn" :disabled="enableBtn" type="primary" size="small" @click="nextQuestion(item.id)">下一题</Button>
+            <Button v-show="!showSubmitBtn" :disabled="enableBtn" type="primary" size="small" @click="preQuestion(item.id)">返回上一题</Button>
             <Button v-show="showSubmitBtn" @click="handleSubmit('formValidate')">提交</Button>
           </div>
         </div>
@@ -179,21 +179,26 @@
       },
       changeRadio(e){
         console.log(e);
+        this.itemIndex= e.id+1 > this.questions.length ? this.questions.length : e.id+1;
         if(e){
           this.enableBtn=false;
         }
-        this.radioE=e;
+        if(e.id === this.questions.length){
+          this.showSubmitBtn=true;
+        }else{
+          this.showSubmitBtn=false;
+        }
+        this.radioE=e.model;
       },
-      nextQuestion(ind){
+      preQuestion(ind){
         //console.log(ind);
         this.resultArray.push(this.radioE);
         console.log(this.resultArray);
-        if(ind == this.questions.length){
-          this.showSubmitBtn=true;
-          this.itemIndex=ind;
-        }else{
-          this.itemIndex=ind+1;
+        if(ind == 1){
+          this.itemIndex=1;
           this.enableBtn=true;
+        }else{
+          this.itemIndex=ind-1;
         }
       },
       handleSubmit(){
@@ -290,6 +295,7 @@
         font-weight:bold;
       }
       .answer_cont{
+        user-select: none;
         margin-top:50px;
         .ivu-radio-wrapper{
           font-size:20px;

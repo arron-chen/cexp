@@ -108,12 +108,17 @@
           }
         }
         .teste{
-          width: 100%;
+          width: 210px;
+          height: 40px;
+          line-height: 40px;
           position: absolute;
-          bottom: -30px;
-          font-size: 20px;
-          color: red;
+          bottom: 372px;
+          font-size: 25px;
+          left: 65px;
+          text-align: center;
           cursor: pointer;
+          border: 2px solid #815940;
+          border-radius: 5px;
         }
         .r_list{
           list-style: none;
@@ -126,14 +131,14 @@
           li{
             width:30px;height:100%;
             float:left;
-            margin-right:4%;
+            margin-right:10px;
             vertical-align: middle;
             span{
               display: inline-block;
               width:100%;height:100%;
               padding-top: 20px;
               cursor: pointer;
-              border:2px solid #808080;
+              border:2px solid #0d0100;
               border-radius:4px;
               color:#0d3d6c;
               font-size:18px;

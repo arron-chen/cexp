@@ -257,8 +257,11 @@
             };
             user.username=this.formCustom1.phone;
             user.password=this.formCustom1.vcode;
+            if(!_this.single1) {
+              this.$Message.error("请勾选协议");
+              return;
+            }
             if(_this.single1){
-
               this.$http.post('http://112.74.25.26/user/signup',user).then((res)=>{
                 console.log(res);
                 if(res.data.code ==0){
@@ -268,16 +271,12 @@
                 }else{
                   this.$Message.error('注册失败!');
                 }
-
-
               }).catch((err)=>{
                 this.$Message.error('注册失败!');
                 console.log(err);
               });
-
               this.$router.push({path:'/'});
             }
-
           }
         })
 
@@ -293,6 +292,10 @@
             };
             user.username=this.formCustom2.phone;
             user.password=this.formCustom2.vcode;
+            if(!_this.single2) {
+              this.$Message.error("请勾选协议");
+              return;
+            }
             if(_this.single2){
               this.$http.post('http://112.74.25.26/user/login',user).then((res)=>{
                 console.log(res);

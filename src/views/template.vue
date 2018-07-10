@@ -22,6 +22,11 @@
         </div>
         <div  class="r_cont_r">
           <iframe :src="pdfurls" frameborder="0" id="pdfContainer" name="pdfContainer"></iframe>
+          <!--<pdfshower
+            :pdfurl="pdfurls"
+            :scale="scale"
+            @onErr="onErr"
+          ></pdfshower>-->
         </div>
       </div>
     </div>
@@ -29,7 +34,7 @@
   </div>
 </template>
 <script>
-  import vueshowpdf from 'vueshowpdf'
+  import pdfshower from 'vue-pdf-shower';
   export default {
     data(){
       return {
@@ -150,33 +155,16 @@
                 "campus":"美国的",
                 "children":[
                   {
-                    "text":"NBA专业",
-                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/%E6%8E%A8%E8%8D%90%E4%BF%A1%E8%8C%83%E6%96%87%EF%BC%9AMBA%E4%B8%93%E4%B8%9A.pdf",
+                    "text":"杜克大学",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/Duke+Resume+Template.pdf",
                   },
                   {
-                    "text":"化学专业",
-                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/%E7%95%99%E5%AD%A6%E6%8E%A8%E8%8D%90%E4%BF%A1%E8%8C%83%E6%96%87%EF%BC%9A%E5%8C%96%E5%AD%A6%E4%B8%93%E4%B8%9A.pdf",
+                    "text":"耶鲁大学",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/Yale%20resume%20tips.pdf",
                   },
                   {
-                    "text":"市场营销",
-                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/%E7%95%99%E5%AD%A6%E6%8E%A8%E8%8D%90%E4%BF%A1%E8%8C%83%E6%96%87%EF%BC%9A%E5%B8%82%E5%9C%BA%E8%90%A5%E9%94%80.pdf",
-                  },
-                ]
-              },
-              {
-                "campus":"英国的",
-                "children":[
-                  {
-                    "text":"广告学专业",
-                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/%E7%95%99%E5%AD%A6%E6%8E%A8%E8%8D%90%E4%BF%A1%E8%8C%83%E6%96%87%EF%BC%9A%E5%B9%BF%E5%91%8A%E5%AD%A6%E4%B8%93%E4%B8%9A.pdf",
-                  },
-                  {
-                    "text":"心理学专业",
-                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/%E7%95%99%E5%AD%A6%E6%8E%A8%E8%8D%90%E4%BF%A1%E8%8C%83%E6%96%87%EF%BC%9A%E5%BF%83%E7%90%86%E5%AD%A6%E4%B8%93%E4%B8%9A.pdf",
-                  },
-                  {
-                    "text":"物理专业",
-                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/%E7%95%99%E5%AD%A6%E6%8E%A8%E8%8D%90%E4%BF%A1%E8%8C%83%E6%96%87%EF%BC%9A%E7%89%A9%E7%90%86%E4%B8%93%E4%B8%9A.pdf",
+                    "text":"康奈尔大学",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/Cornell%20resume%20template.pdf",
                   },
                 ]
               },
@@ -184,16 +172,16 @@
                 "campus":"英国的",
                 "children":[
                   {
-                    "text":"电子专业",
-                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/%E7%95%99%E5%AD%A6%E6%8E%A8%E8%8D%90%E4%BF%A1%E8%8C%83%E6%96%87%EF%BC%9A%E7%94%B5%E5%AD%90%E4%B8%93%E4%B8%9A.pdf",
+                    "text":"哥伦比亚大学",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/Columbia%20resume%20sample%20sample+resume+in+MC.pdf",
                   },
                   {
-                    "text":"美术专业",
-                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/%E7%95%99%E5%AD%A6%E6%8E%A8%E8%8D%90%E4%BF%A1%E8%8C%83%E6%96%87%EF%BC%9A%E7%BE%8E%E6%9C%AF%E4%B8%93%E4%B8%9A.pdf",
+                    "text":"耶鲁大学",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/Dupras-Boileau_Laurent_CV.pdf",
                   },
                   {
-                    "text":"航空航天专业",
-                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/%E7%95%99%E5%AD%A6%E6%8E%A8%E8%8D%90%E4%BF%A1%E8%8C%83%E6%96%87%EF%BC%9A%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E4%B8%93%E4%B8%9A.pdf",
+                    "text":"普林斯顿大学",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/Fischer_Jeremie_CV.pdf",
                   },
                 ]
               },
@@ -201,16 +189,87 @@
                 "campus":"英国的",
                 "children":[
                   {
-                    "text":"计算机专业",
-                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/%E7%95%99%E5%AD%A6%E6%8E%A8%E8%8D%90%E4%BF%A1%E8%8C%83%E6%96%87%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A.pdf",
+                    "text":"剑桥大学",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/hbs2001resumes.pdf",
                   },
                   {
-                    "text":"金融专业",
-                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/%E7%95%99%E5%AD%A6%E6%8E%A8%E8%8D%90%E4%BF%A1%E8%8C%83%E6%96%87%EF%BC%9A%E9%87%91%E8%9E%8D%E4%B8%93%E4%B8%9A.pdf",
+                    "text":"普林斯顿大学",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/Wu_Tong_CV.pdf",
+                  },
+                  {
+                    "text":"普林斯顿大学",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/Zabukovec_Igor_CV.pdf",
+                  },
+                ]
+              },
+              {
+                "campus":"英国的",
+                "children":[
+                  {
+                    "text":"商行",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/work/%E5%95%86%E8%A1%8C1.pdf",
+                  },
+                  {
+                    "text":"投行",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/work/%E6%8A%95%E8%A1%8C1.pdf",
+                  },
+                  {
+                    "text":"券商",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/work/%E5%88%B8%E5%95%861.pdf",
                   }
-
                 ]
-              }
+              },
+              {
+                "campus":"英国的",
+                "children":[
+                  {
+                    "text":"人力咨询",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/work/%E4%BA%BA%E5%8A%9B%E5%92%A8%E8%AF%A21.pdf",
+                  },
+                  {
+                    "text":"管理咨询",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/work/%E7%AE%A1%E7%90%86%E5%92%A8%E8%AF%A23.pdf",
+                  },
+                  {
+                    "text":"律师事务所",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/work/%E5%9B%9B%E5%A4%A71.pdf",
+                  }
+                ]
+              },
+              {
+                "campus":"英国的",
+                "children":[
+                  {
+                    "text":"互联网",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/work/%E4%BA%92%E8%81%94%E7%BD%911.pdf",
+                  },
+                  {
+                    "text":"人力资源",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/work/%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%901.pdf",
+                  },
+                  {
+                    "text":"保险",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/work/%E4%BF%9D%E9%99%A91.pdf",
+                  }
+                ]
+              },
+              {
+                "campus":"英国的",
+                "children":[
+                  {
+                    "text":"外贸",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/work/%E5%A4%96%E8%B4%B81.pdf",
+                  },
+                  {
+                    "text":"物流",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/work/%E7%89%A9%E6%B5%811.pdf",
+                  },
+                  {
+                    "text":"法律",
+                    "url":"http://p9zd0n0di.bkt.clouddn.com/template/work/%E6%B3%95%E5%BE%8B1.pdf",
+                  }
+                ]
+              },
             ]
           },
 
@@ -218,8 +277,8 @@
         num: 1
       }
     },
-    components:{
-      vueshowpdf
+    components: {
+      pdfshower
     },
     methods:{
       backto(){
@@ -237,6 +296,10 @@
       changePdf(url){
         console.log(url);
         this.pdfurls=url;
+      },
+      onErr(err) {
+        console.log('pdf加载失败，请重试');
+        console.log('错误信息：', err);
       }
     }
   }

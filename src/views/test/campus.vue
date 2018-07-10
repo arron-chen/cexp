@@ -178,7 +178,7 @@
           })
         },
         changeRadio(e){
-          console.log(e);
+          //console.log(e);
           this.itemIndex= e.id+1 > this.questions.length ? this.questions.length : e.id+1;
           if(e){
             this.enableBtn=false;
@@ -188,37 +188,27 @@
           }else{
             this.showSubmitBtn=false;
           }
-         this.radioE=e.model;
-        },
-        preQuestion(ind){
-          //console.log(ind);
+          this.radioE=e.model;
           this.resultArray.push(this.radioE);
           console.log(this.resultArray);
+        },
+        preQuestion(ind){
           if(ind == 1){
             this.itemIndex=1;
             this.enableBtn=true;
           }else{
             this.itemIndex=ind-1;
+            this.resultArray.pop();
+            console.log(this.resultArray)
           }
         },
         handleSubmit(){
           let result=[
-            {
-            "resulttitle":"ESTP挑战者型 -- 不间断地尝试新的挑战",
-            "resultSrc":"http://p9zd0n0di.bkt.clouddn.com/test/echart1.png"
-            },
-            {
-              "resulttitle":"ISTP 冒险家型 -- 平静的思考着，但间或的行为往往出人意料",
-              "resultSrc":"http://p9zd0n0di.bkt.clouddn.com/test/echart2.png"
-            },
-            {
-              "resulttitle":"ENFJ 教导型 -- 谆谆善诱地引导他人",
-              "resultSrc":"http://p9zd0n0di.bkt.clouddn.com/test/echart3.png"
-            },
-            {
-              "resulttitle":"INFJ 博爱型 -- 基于博爱的理想，设身处地的关怀他人",
-              "resultSrc":"http://p9zd0n0di.bkt.clouddn.com/test/echart4.png"
-            },
+            "http://p9zd0n0di.bkt.clouddn.com/test/result11.jpg",
+            "http://p9zd0n0di.bkt.clouddn.com/test/result12.jpg",
+            "http://p9zd0n0di.bkt.clouddn.com/test/result13.jpg",
+            "http://p9zd0n0di.bkt.clouddn.com/test/result14.jpg",
+            "http://p9zd0n0di.bkt.clouddn.com/test/result15.jpg",
           ];
           let a= document.cookie;
           var param={"userid":"","userForm":{}};
@@ -233,8 +223,10 @@
             console.log(err)
           })
           this.$router.push({
-            path:'/test/result1',
-            query:result[0]
+            path:'/test/result2',
+            query:{
+              imgSrc:result[0]
+            }
           })
         }
       }

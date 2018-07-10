@@ -178,7 +178,7 @@
         })
       },
       changeRadio(e){
-        console.log(e);
+        //console.log(e);
         this.itemIndex= e.id+1 > this.questions.length ? this.questions.length : e.id+1;
         if(e){
           this.enableBtn=false;
@@ -189,16 +189,18 @@
           this.showSubmitBtn=false;
         }
         this.radioE=e.model;
-      },
-      preQuestion(ind){
-        //console.log(ind);
         this.resultArray.push(this.radioE);
         console.log(this.resultArray);
+      },
+      preQuestion(ind){
         if(ind == 1){
           this.itemIndex=1;
           this.enableBtn=true;
         }else{
           this.itemIndex=ind-1;
+          this.resultArray.pop();
+          console.log(this.resultArray)
+
         }
       },
       handleSubmit(){

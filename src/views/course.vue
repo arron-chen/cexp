@@ -3,7 +3,7 @@
     <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/video/backto.png" @click="backto"></div>
     <div class="videoBox">
       <div class="cvideocont_l">
-        <video src="http://7xnt3p.com1.z0.glb.clouddn.com/%E5%A4%A9%E8%A1%8C%E8%80%85%E7%95%99%E5%AD%A6%E4%BD%93%E9%AA%8C%E4%B8%AD%E5%BF%83_01.mp4" controls="controls">
+        <video :src="viedoSrc" controls="controls">
           您的浏览器不支持 video 标签。
         </video>
       </div>
@@ -21,6 +21,7 @@
   export default {
     data(){
       return{
+        viedoSrc:"http://7xnt3p.com1.z0.glb.clouddn.com/%E5%A4%A9%E8%A1%8C%E8%80%85%E7%95%99%E5%AD%A6%E4%BD%93%E9%AA%8C%E4%B8%AD%E5%BF%83_01.mp4",
         preimages:'http://p9zd0n0di.bkt.clouddn.com/video/playicon.png',
         lists:[
           {"text":"英语","src":"file:\\D:美国大学\ "},
@@ -40,13 +41,10 @@
         })
       },
       handleClickItem(src){
-          this.$router.push({
-            path:'/videolist',
-            query:{"url":src}
-          })
+        this.viedoSrc=src;
       },
       handleClickTo(){
-
+        console.log("diayogjn1");
       }
     },
     mounted(){

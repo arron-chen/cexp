@@ -178,7 +178,7 @@
         })
       },
       changeRadio(e){
-        console.log(e);
+        //console.log(e);
         this.itemIndex= e.id+1 > this.questions.length ? this.questions.length : e.id+1;
         if(e){
           this.enableBtn=false;
@@ -189,21 +189,31 @@
           this.showSubmitBtn=false;
         }
         this.radioE=e.model;
-      },
-      preQuestion(ind){
-        //console.log(ind);
         this.resultArray.push(this.radioE);
         console.log(this.resultArray);
+      },
+      preQuestion(ind){
         if(ind == 1){
           this.itemIndex=1;
           this.enableBtn=true;
         }else{
           this.itemIndex=ind-1;
+          this.resultArray.pop();
+          console.log(this.resultArray);
         }
       },
       handleSubmit(){
+        let  imglist=[
+          "http://p9zd0n0di.bkt.clouddn.com/test/%E5%86%85-18.png",
+          "http://p9zd0n0di.bkt.clouddn.com/test/%E5%86%85-19.png",
+          "http://p9zd0n0di.bkt.clouddn.com/test/%E5%86%85-21.png",
+          "http://p9zd0n0di.bkt.clouddn.com/test/%E5%86%85-22.png"
+        ]
         this.$router.push({
-          path:'/test/result'
+          path:'/test/result2',
+          query:{
+            imgSrc:imglist[0]
+          }
         })
       }
     }

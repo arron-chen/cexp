@@ -288,7 +288,10 @@
           _this.$store.dispatch('settime', { countime:now });
         }, 60000);
       })
-    }
+    },
+   destroyed(){
+    clearTimeout(this.timmer);//清空定时器
+  }
   }
 </script>
 <style lang="less">

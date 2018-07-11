@@ -53,7 +53,7 @@
           </Breadcrumb>
           <Content v-show='itemShow == "1-1"' :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
             <Table :columns="columns1" :data="data1"></Table>
-            <Page :total="dataCount" :page-size="pageSize" show-total ></Page>
+            <!--<Page :total="dataCount" :page-size="pageSize" show-total ></Page>-->
           </Content>
           <Content v-show='itemShow == "1-2"' :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
             <Input v-model="search" icon="ios-search" placeholder="请输入用户名" style="width: 200px"></Input>

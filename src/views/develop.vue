@@ -7,6 +7,7 @@
             <li v-for="(item,index) in tabs" :class="{active:index == num}" @click="handleClickItem(index)">{{item.text}}</li>
           </ul>
       </div>
+      <keep-alive>
       <div class="devecont_r" v-show="num == 0">
           <div class="devcont_r_l">
             <ul v-show="num1 == 0">
@@ -72,54 +73,25 @@
             </ul>
       </div>
       </div>
+      </keep-alive>
       <div class="devecont_r" v-show="num == 1">
         <div class="devcont_r_l">
           <ul>
-            <li>
-              <div class="item_img"><img src="http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg"></div>
+            <li v-for="(item,index) in content21" @click="handleClickToVideo(item.children)">
+              <div class="item_img"><img :src="item.imgSrc"></div>
               <div class="item_text">
-                <h3>王思聪2</h3>
-                <p>录取院校:多伦多大学<br>专业:服装设计</p></div>
-            </li><li>
-            <div class="item_img"><img src="http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg"></div>
-            <div class="item_text">
-              <h3>王思聪</h3>
-              <p>录取院校:多伦多大学<br>专业:服装设计</p></div>
-          </li>
-            <li>
-              <div class="item_img"><img src="http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg"></div>
-              <div class="item_text">
-                <h3>王思聪</h3>
-                <p>录取院校:多伦多大学<br>专业:服装设计</p></div>
+                <h3>{{item.name}}</h3>
+                <p>院校:{{item.school}}<br>专业:{{item.major}}</p></div>
             </li>
-            <li>
-              <div class="item_img"><img src="http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg"></div>
-              <div class="item_text">
-                <h3>王思聪</h3>
-                <p>录取院校:多伦多大学<br>专业:服装设计</p></div>
-            </li>
-            <li>
-              <div class="item_img"><img src="http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg"></div>
-              <div class="item_text">
-                <h3>王思聪</h3>
-                <p>录取院校:多伦多大学<br>专业:服装设计</p></div>
-            </li>
-            <li>
-              <div class="item_img"><img src="http://p9zd0n0di.bkt.clouddn.com/develop/develop.jpg"></div>
-              <div class="item_text">
-                <h3>王思聪</h3>
-                <p>录取院校:多伦多大学<br>专业:服装设计</p></div>
-            </li>
-
           </ul>
         </div>
-        <div class="devcont_r_r">
+       <!-- <div class="devcont_r_r">
           <ul>
             <li>全部</li><li>服装设计</li>
             <li>平面设计</li><li>工业设计</li><li>建筑设计</li><li>动漫设计</li><li>插画</li>
             <li>纯艺术</li>
           </ul>
-        </div>
+        </div>-->
       </div>
 
 
@@ -723,7 +695,37 @@
               "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/z/img123.jpg",
             ]
           },
-        ]
+        ],
+        content21:[
+          {
+            "imgSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/fu/fu1.jpg",
+            "name":"毕业时装秀",
+            "school":"伦敦大学",
+            "major":"服装设计专业",
+            "children":[
+              "http://7xnt3p.com1.z0.glb.clouddn.com/%E6%A0%BC%E5%BC%8F%E5%B7%A5%E5%8E%82%E4%BC%A6%E6%95%A6%E5%A4%A7%E5%AD%A6%E6%9C%8D%E8%A3%85%E8%AE%BE%E8%AE%A1%E4%B8%93%E4%B8%9A%E6%AF%95%E4%B8%9A%E6%97%B6%E8%A3%85%E7%A7%802.mp4",
+            ]
+          },
+          {
+            "imgSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/fu/fu2.jpg",
+            "name":"服装设计时装秀",
+            "school":"加拿大预科",
+            "major":"服装设计专业",
+            "children":[
+              "http://7xnt3p.com1.z0.glb.clouddn.com/%E6%A0%BC%E5%BC%8F%E5%B7%A5%E5%8E%82%E5%8A%A0%E6%8B%BF%E5%A4%A7%E9%A2%84%E7%A7%91%E6%9C%8D%E8%A3%85%E8%AE%BE%E8%AE%A1%E6%97%B6%E8%A3%85%E7%A7%802.mp4",
+            ]
+          },
+          {
+            "imgSrc":"http://7xnt3p.com1.z0.glb.clouddn.com/fu/fu3.jpg",
+            "name":"毕业时装秀",
+            "school":"英国剑桥大学",
+            "major":"服装设计专业",
+            "children":[
+              "http://7xnt3p.com1.z0.glb.clouddn.com/%E6%A0%BC%E5%BC%8F%E5%B7%A5%E5%8E%82%E8%8B%B1%E5%9B%BD%E5%89%91%E6%A1%A5%E5%A4%A7%E5%AD%A6%E6%9C%8D%E8%A3%85%E8%AE%BE%E8%AE%A1%E6%AF%95%E4%B8%9A%E6%97%B6%E8%A3%85%E7%A7%802.mp4",
+            ]
+          },
+        ],
+
 
       }
     },
@@ -740,6 +742,12 @@
       handleClickTo(children){
         this.$router.push({
           path:'/devshow',
+          query:children
+        })
+      },
+      handleClickToVideo(children){
+        this.$router.push({
+          path:'/videoshow',
           query:children
         })
       },

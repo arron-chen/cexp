@@ -25,10 +25,10 @@
         preimages:'http://p9zd0n0di.bkt.clouddn.com/video/playicon.png',
         lists:[
           {"text":"英语","src":"file:\\D:美国大学\ "},
-          {"text":"法语","src":""},
-          {"text":"德语","src":""},
-          {"text":"韩文","src":""},
-          {"text":"日文","src":""},
+          {"text":"法语","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%B3%95%E8%AF%AD"},
+          {"text":"德语","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E5%BE%B7%E8%AF%AD"},
+          {"text":"意大利","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%84%8F%E5%A4%A7%E5%88%A9%E8%AF%AD"},
+          {"text":"日文","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%97%A5%E8%AF%AD"},
           {"text":"俄罗斯","src":""},
         ]
 

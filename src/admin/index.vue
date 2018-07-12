@@ -174,7 +174,7 @@
           debugger
           if(params.row){
             let a =params.row;
-            this.userId=a.id;
+            this.userId=a.userid;
             switch (a.level){
               case "admin":
                 this.userPrivilige="admin";

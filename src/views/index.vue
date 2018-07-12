@@ -131,7 +131,7 @@
             this.$Message.info('退出登陆成功');
             clearInterval(this.timmer);
             this.$router.push({path:'/'});
-            this.$http.delete("http://112.74.25.26/logout").then((res)=>{
+            this.$http.delete("http://112.74.25.26/user/logout").then((res)=>{
             }).catch((err)=>{
               console.log(err)
             })

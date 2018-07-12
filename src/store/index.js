@@ -12,7 +12,7 @@ export default new Vuex.Store({
     state: {
       token: '12',      //请求头的token
       menuList:'',     //一级菜单
-      countime:0, //默认体验时间
+      countime:0.2, //默认体验时间
     },
     mutations: {
       [types.SET_TOKEN](state, res) {

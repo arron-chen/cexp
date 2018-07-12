@@ -45,13 +45,15 @@
           </div>
         </div>
       </div>
-      <time-cont :endTime="time" :endText="endText" :callback="callback" class="countStyle"></time-cont>
-      <pop :isShow="isShow"></pop>
+     <!-- <time-cont :endTime="time" :endText="endText" :callback="callback" class="countStyle"></time-cont>
+      --><!--<pop :isShow="isShow"></pop>-->
+      <count ></count>
+      <!--<timec :endTime="endTime" :callback="callback"></timec>-->
       <div class="exit_box"> <a class="btn_exit"  @click="exitSys"><span>退出</span></a></div>
     </div>
 </template>
 <script>
-  import timeCont from '../components/countDown';
+  import timec from '../components/count/timec';
   import pop from '../components/pop';
   import { mapState } from 'vuex';
   export default {
@@ -67,17 +69,22 @@
         },
       }
     },
-    components:{timeCont,pop},
+    components:{timec,pop},
     methods: {
-
+      response(){
+        debugger;
+        console.log("----");
+      },
       pdferr(errurl) {
         console.log(errurl);
       },
       callback(){
+        debugger
+        this.isShow=true;
         let timestamp=new Date().getTime();
         console.log(this.time)
         if(this.time <= timestamp){
-          this.isShow=true;
+
         }
       },
       turntoCampus(){
@@ -150,15 +157,12 @@
         console.log("time"+this.endTime);
         return this.endTime*60*1000+date;
       },
-      endTime:{
-        get:function(){
-          return  this.$store.state.countime;
-        },
-        set:function(val){
-          console.log("set"+val)
-          return val;
-        }
-
+      endTime(){
+        let timestamp,count = this.$store.state.countime;
+        count = count > 0 ? count : 0;
+        timestamp = new Date().getTime() + count*60*1000;
+        console.log(timestamp)
+        return timestamp;
       },
       ...mapState({
         countime(state){
@@ -172,7 +176,7 @@
         }
     },
     mounted() {
-      this.getTime();
+      /*this.getTime();
       this.endTime=this.$store.state.countime;
       var _this=this
       this.$nextTick(function () {
@@ -181,7 +185,7 @@
           var now =_this.timenum;
           _this.$store.dispatch('settime', { countime:now });
         }, 60000);
-      })
+      })*/
 
     },
     destroyed(){

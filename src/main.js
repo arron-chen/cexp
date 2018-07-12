@@ -6,12 +6,16 @@ import router from './router'
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
 
+import count from '@/components/count';
+
 import axios from 'axios';
 Vue.prototype.$http = axios
 
 import store from './store'
 
 Vue.use(iView);
+
+Vue.use(count);
 
 
 Vue.config.productionTip = false;

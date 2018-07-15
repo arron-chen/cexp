@@ -221,12 +221,12 @@
         }).catch((err)=>{
           console.log(err)
         })
-        this.$router.push({
+     /*   this.$router.push({
           path:'/test/result2',
           query:{
             imgSrc:imglist[0]
           }
-        })
+        })*/
       }
     }
   }
@@ -245,10 +245,10 @@
       position:absolute;
       left:40px;
       top:20px;
-      width:80px;height:35px;
+      width:100px;height:45px;
       cursor: pointer;
       img{
-        width:80px;height:35px;
+        width:100px;height:45px;
       }
     }
     .navwrap{

@@ -165,6 +165,14 @@
           data2:[]
         }
       },
+    watch:{
+      data1(){
+        this.getUserList();
+      },
+      data2(){
+        this.getUserList();
+      }
+    },
     methods:{
       itemSelect(name){
         this.itemShow = name;
@@ -213,9 +221,10 @@
                 debugger
                 break;
             }
-            debugger
             this.$http.put("http://112.74.25.26/user",{"userid":this.userId,"level":level}).then((res)=>{
               this.$Message.info('修改用户权限成功');
+              this.getUserList();
+              this.modal=false;
             }).catch((err)=>{
               console.log(err)
             })
@@ -230,7 +239,9 @@
           onOk: () => {
             var time=this.userTime;
             this.$http.put("http://112.74.25.26/user/timeout",{"userid":this.userId,"time":time}).then((res)=>{
-              this.$Message.info('修改用户权限成功');
+              this.$Message.info('修改用户时长成功');
+
+              this.modal=false;
             }).catch((err)=>{
               console.log(err)
             })
@@ -246,10 +257,11 @@
             var pass=this.userPassword;
             this.$http.put("http://112.74.25.26/user/password",{"userid":this.userId,"password":pass}).then((res)=>{
               this.$Message.info('修改用户密码成功');
+              this.getUserList();
+              this.modal=false;
             }).catch((err)=>{
               console.log(err)
             })
-
           },
         })
       },
@@ -278,19 +290,19 @@
           },
         })
 
-      }
-
-
-    },
-    mounted(){
+      },
+      getUserList(){
         this.$http.get("http://112.74.25.26/user/list").then(
           (res)=>{
             this.data1=res.data.userList;
-            debugger
           }
         ).catch((err)=>{
-          debugger
         })
+      }
+
+    },
+    mounted(){
+       this.getUserList();
     }
   }
 </script>

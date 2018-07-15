@@ -45,16 +45,15 @@
           </div>
         </div>
       </div>
-     <!-- <time-cont :endTime="time" :endText="endText" :callback="callback" class="countStyle"></time-cont>
-      --><!--<pop :isShow="isShow"></pop>-->
-      <count ></count>
-      <!--<timec :endTime="endTime" :callback="callback"></timec>-->
+      <timec :endTime="time" :endText="endText" :callBack="callback" class="countStyle"></timec>
+      <pop :isShow="isShow"></pop>
+      <!--<count ></count>-->
       <div class="exit_box"> <a class="btn_exit"  @click="exitSys"><span>退出</span></a></div>
     </div>
 </template>
 <script>
-  import timec from '../components/count/timec';
-  import pop from '../components/pop';
+  import count from '../components/count';
+  import pop from '../components/pop'
   import { mapState } from 'vuex';
   export default {
     data () {
@@ -69,7 +68,7 @@
         },
       }
     },
-    components:{timec,pop},
+    components:{count,pop},
     methods: {
       response(){
         debugger;
@@ -90,7 +89,7 @@
       turntoCampus(){
         this.$router.push({path:'/test/campus'});
       },
-      getTime(){
+   /*   getTime(){
         let a= document.cookie;
         var param={"userid":""};
         if(a && a!=""){
@@ -101,7 +100,6 @@
         this.$http.get('http://112.74.25.26/user/timeout',{params:param}).then((res)=>{
          //console.log(res);
          this.timenum=parseInt(res.data.msg);
-         debugger
           //console.log(this.$store);
          this.$store.dispatch('setT', { countime:this.timenum });
          var _this=this;
@@ -117,7 +115,7 @@
         }).catch((err)=>{
           console.log(err)
         })
-      },
+      },*/
       clearAllCookie() {
         var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
         if(keys) {
@@ -157,12 +155,18 @@
         console.log("time"+this.endTime);
         return this.endTime*60*1000+date;
       },
-      endTime(){
-        let timestamp,count = this.$store.state.countime;
-        count = count > 0 ? count : 0;
-        timestamp = new Date().getTime() + count*60*1000;
-        console.log(timestamp)
-        return timestamp;
+      endTime:{
+        get:function (){
+          let timestamp,count = this.$store.state.countime;
+          count = count > 0 ? count : 0;
+          timestamp = new Date().getTime() + count*60*1000;
+          console.log(timestamp)
+          return timestamp;
+        },
+        set:function (){
+
+        }
+
       },
       ...mapState({
         countime(state){
@@ -176,7 +180,8 @@
         }
     },
     mounted() {
-      /*this.getTime();
+      //this.getTime();
+      /*
       this.endTime=this.$store.state.countime;
       var _this=this
       this.$nextTick(function () {

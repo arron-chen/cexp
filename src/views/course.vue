@@ -1,17 +1,17 @@
 <template>
   <div class="coursewrap">
-    <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/video/backto.png" @click="backto"></div>
+    <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/test/backto.png" @click="backto"></div>
     <div class="videoBox">
       <div class="cvideocont_l">
-        <video :src="viedoSrc" controls="controls">
+        <video :src="viedoSrc" controls="controls" autoplay>
           您的浏览器不支持 video 标签。
         </video>
       </div>
       <div class="cvideocont_r">
+        <div class="teste" @click="handleClickTo">英语测试</div>
         <ul class="r_list">
           <li v-for="item in lists" @click="handleClickItem(item.src)"><span>{{item.text}}</span></li>
         </ul>
-        <div class="teste" @click="handleClickTo">英语测试</div>
       </div>
     </div>
 
@@ -24,12 +24,12 @@
         viedoSrc:"http://7xnt3p.com1.z0.glb.clouddn.com/%E5%A4%A9%E8%A1%8C%E8%80%85%E7%95%99%E5%AD%A6%E4%BD%93%E9%AA%8C%E4%B8%AD%E5%BF%83_01.mp4",
         preimages:'http://p9zd0n0di.bkt.clouddn.com/video/playicon.png',
         lists:[
-          {"text":"英语","src":"file:\\D:美国大学\ "},
+          {"text":"雅思","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%A0%BC%E5%BC%8F%E5%B7%A5%E5%8E%82%E8%8B%B1%E8%AF%AD%E9%9B%85%E6%80%9D.mp4"},
+          {"text":"托福","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%A0%BC%E5%BC%8F%E5%B7%A5%E5%8E%82%E8%8B%B1%E8%AF%AD%E6%89%98%E7%A6%8F.mp4"},
           {"text":"法语","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%B3%95%E8%AF%AD"},
           {"text":"德语","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E5%BE%B7%E8%AF%AD"},
           {"text":"意大利","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%84%8F%E5%A4%A7%E5%88%A9%E8%AF%AD"},
           {"text":"日文","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%97%A5%E8%AF%AD"},
-          {"text":"俄罗斯","src":""},
         ]
 
       }
@@ -65,10 +65,10 @@
       position:absolute;
       left:50px;
       top:45px;
-      width:80px;height:35px;
+      width:100px;height:45px;
       cursor: pointer;
       img{
-        width:80px;height:35px;
+        width:100px;height:45px;
       }
     }
     .videoBox{
@@ -97,6 +97,8 @@
         float:left;width:30%;
         height:100%;
         position: relative;
+        display:flex;
+        justify-content: center;
         .r_title{
           width:100%;height:40px;
           border-bottom:2px solid #368cf8;
@@ -106,17 +108,20 @@
           }
         }
         .teste{
-          width: 210px;
-          height: 40px;
-          line-height: 40px;
-          position: absolute;
-          bottom: 372px;
+          width: 250px;
+          height: 50px;
+          line-height: 50px;
+          background-color: #fff;
           font-size: 25px;
           left: 65px;
           text-align: center;
           cursor: pointer;
           border: 2px solid #815940;
           border-radius: 5px;
+          margin:20px 0 0 30px;
+          &:hover{
+            box-shadow:5px 5px 10px rgba(0,0,0,.5);
+          }
         }
         .r_list{
           list-style: none;
@@ -134,7 +139,7 @@
             span{
               display: inline-block;
               width:100%;height:100%;
-              padding-top: 20px;
+              padding-top: 12px;
               cursor: pointer;
               border:2px solid #0d0100;
               border-radius:4px;

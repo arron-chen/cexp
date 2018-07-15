@@ -6,7 +6,8 @@ import router from './router'
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
 
-import count from '@/components/count';
+import timec from '@/components/timec';
+import popc from '@/components/pop';
 
 import axios from 'axios';
 Vue.prototype.$http = axios
@@ -15,8 +16,8 @@ import store from './store'
 
 Vue.use(iView);
 
-Vue.use(count);
-
+Vue.use(timec);
+Vue.use(popc);
 
 Vue.config.productionTip = false;
 

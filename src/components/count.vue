@@ -1,29 +1,48 @@
 <template>
-  <Modal
-    v-model="isShow" :width="modalW"
-    class-name="vertical-modal"
-    :mask-closable="false"
-    :closable="false">
-    <div class="pop"></div>
-    <div class="logout" @click="logout"><a>注销</a></div>
-  </Modal>
+    <div>
+      <timec :endTime="endTime" :calllBack="callback"></timec>
+      <Modal
+        v-model="isShow" :width="modalW"
+        class-name="vertical-modal"
+        :mask-closable="false"
+        :closable="false">
+        <div class="pop"></div>
+        <div class="logout" @click="logout"><a>注销</a></div>
+      </Modal>
+    </div>
 </template>
 <script>
   export default {
-    name:'pop',
-    data(){
+    name:'count',
+    data() {
       return {
+        isShow:false,
         modal:'',
         modalW:'420px'
       }
     },
-    props:{
-      isShow:{
-        type:Boolean,
-        default:false
+    mounted(){
+        //console.log("mounted-------"+this.$store.state.countime);
+    },
+    computed:{
+      endTime(){
+        let timestamp,count = this.$store.state.countime;
+        count = count > 0 ? count : 0;
+        timestamp = new Date().getTime() + count*60*1000;
+        //console.log(timestamp)
+        return timestamp;
       }
     },
+   /* props:{
+      remotecall:{
+        type:Function,
+      }
+    },*/
     methods:{
+      callback(){
+        debugger;
+        console.log('callbakc');
+      },
       logout(){
         this.$Modal.confirm({
           title: '注销登陆',
@@ -66,34 +85,34 @@
     right:20px;
     width:40px;
     text-align: center;
-    a{
-      display: inline-block;
-      width:100%;
-      height:35px;
-      line-height:35px;
-      color: #fff;
-      border: none;
-      border-radius:50%;
-      background: #358cf6;
-    }
+  a{
+    display: inline-block;
+    width:100%;
+    height:35px;
+    line-height:35px;
+    color: #fff;
+    border: none;
+    border-radius:50%;
+    background: #358cf6;
+  }
   }
   .vertical-modal{
     display: flex;
     align-items: center;
     justify-content: center;
-    .ivu-modal-footer{
-      display: none;
-    }
-    .ivu-modal{
-      top: 0;
-      .ivu-modal-content{
-        background: rgba(196,196,196,.9);
-        border-radius: 10px;
-        border:1px solid #686d71;
-      }
-      .ivu-modal-body{
-        padding:0;
-      }
-    }
+  .ivu-modal-footer{
+    display: none;
+  }
+  .ivu-modal{
+    top: 0;
+  .ivu-modal-content{
+    background: rgba(196,196,196,.9);
+    border-radius: 10px;
+    border:1px solid #686d71;
+  }
+  .ivu-modal-body{
+    padding:0;
+  }
+  }
   }
 </style>

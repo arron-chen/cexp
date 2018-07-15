@@ -315,10 +315,10 @@
       position:absolute;
       left:50px;
       top:45px;
-      width:80px;height:35px;
+      width:100px;height:45px;
       cursor: pointer;
       img{
-        width:80px;height:35px;
+        width:100px;height:45px;
       }
     }
     .videoBox{

@@ -15,8 +15,8 @@
           v-for='(itemCon,index) in tabContents'
           v-show=" index == num" >
           <ul class="r_cont_l">
-            <li v-for="item in itemCon.content">
-              <span v-for="span in item.children" @click="changePdf(span.url)">{{span.text}}</span>
+            <li v-for="(item,index1) in itemCon.content">
+              <a v-for="(span,index2) in item.children" @click="changePdf(span.url,$event,index1,index2)" >{{span.text}}</a>
             </li>
           </ul>
         </div>
@@ -293,7 +293,7 @@
       tab(index) {
         this.num = index;
       },
-      changePdf(url){
+      changePdf(url,event,index1,index2){
         console.log(url);
         this.pdfurls=url;
       },
@@ -315,10 +315,10 @@
       position:absolute;
       left:50px;
       top:45px;
-      width:80px;height:35px;
+      width:100px;height:45px;
       cursor: pointer;
       img{
-        width:80px;height:35px;
+        width:100px;height:45px;
       }
     }
     .videoBox{
@@ -332,7 +332,7 @@
 
       .cvideocont_l{
         float:left;
-        width:10%;
+        width:9%;
         height:100%;
         ul{
           width:100%;height:100%;
@@ -356,10 +356,10 @@
         }
       }
       .cvideocont_r{
-        float:right;width:85%;
+        float:right;width:90%;
         height:100%;
         .r_cont_wrap{
-          width:45%;height:100%;
+          width:29%;height:100%;
           float:left;
           .r_cont_l{
             width:100%;
@@ -379,7 +379,10 @@
                 font-size:14px;
                 margin-bottom:10px;
               }
-              span{
+              .active{
+                color:red;
+              }
+              a{
                 color:#fff;
                 font-size:14px;
                 margin-right:30px;
@@ -399,7 +402,7 @@
         }
 
         .r_cont_r{
-          width:50%;
+          width:70%;
           height:100%;
           float:right;
           background-color: #fff;

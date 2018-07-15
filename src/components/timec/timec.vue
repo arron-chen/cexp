@@ -1,5 +1,5 @@
 <template>
-  <span  :endTime="endTime" :callback="callback" :endText="endText">
+  <span  :endTime="endTime" :callback="callBack" :endText="endText">
     <slot>
       {{content}}
     </slot>
@@ -22,20 +22,15 @@
         type:Number,
         default:0
       },
-      callback : {
+      callBack : {
         type : Function,
       }
     },
-    watch:{
-      endTime: function (){
-        this.countdowm(this.endTime);
-      }
-    },
     mounted () {
-      this.countdowm(this.endTime)
+      this.countdown(this.endTime)
     },
     methods: {
-      countdowm(timestamp){
+      countdown(timestamp){
         let self = this;
         let timer = setInterval(function(){
           let nowTime = new Date();

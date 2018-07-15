@@ -5,15 +5,22 @@
     :mask-closable="false"
     :closable="false">
     <div class="pop"></div>
-    <div class="logout" @click="logout"><a>体验结束</a></div>
+    <div class="logout" @click="logout"><a>注销</a></div>
   </Modal>
 </template>
 <script>
   export default {
+    name:'popc',
     data(){
       return {
         modal:'',
         modalW:'420px'
+      }
+    },
+    props:{
+      isShow:{
+        type:Boolean,
+        default:false
       }
     },
     methods:{
@@ -28,13 +35,11 @@
             let b=a.split(',')[0];
             userid =b.split('=')[1];
             this.$Message.info('退出登陆成功');
-            //clearInterval(this.timmer);
             this.$router.push({path:'/'});
-            this.$http.delete("http://112.74.25.26/logout").then((res)=>{
+            this.$http.delete("http://112.74.25.26/user/logout").then((res)=>{
             }).catch((err)=>{
               console.log(err)
             })
-
           },
         })
       },
@@ -46,9 +51,6 @@
         }
       },
     },
-    props:{
-      isShow:''
-    }
   }
 </script>
 <style lang="less">
@@ -62,9 +64,8 @@
     position:absolute;
     bottom:33px;
     right:20px;
-    width:60px;
+    width:40px;
     text-align: center;
-    cursor: pointer;
     a{
       display: inline-block;
       width:100%;

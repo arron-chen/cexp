@@ -56,7 +56,6 @@
         }).catch((err)=>{
           console.log(err)
         })
-        debugger
          this.$http.get("http://112.74.25.26/user/test2",{params:param}).then((res)=>{
            if(res.data.msg!= "失败"){
              var a;for(var i in res.data.msg){a=i}
@@ -83,6 +82,7 @@
 
     },
     mounted(){
+      debugger
       let a= document.cookie;
       var userid="";
       if(a && a!=""){
@@ -106,10 +106,10 @@
       position:absolute;
       left:50px;
       top:45px;
-      width:80px;height:35px;
+      width:100px;height:45px;
       cursor: pointer;
       img{
-        width:80px;height:35px;
+        width:100px;height:45px;
       }
     }
     .videoBox{

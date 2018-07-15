@@ -130,86 +130,81 @@
           ],
         content0:[
           {
-            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/img93.jpg",
-            "name":"万思聪",
-            "school":"多伦多大学",
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img119.jpg",
+            "name":"F同学",
+            "school":"科廷大学",
             "major":"插画",
             "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/img87.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/img90.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/img93.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/img108.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/img110.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/img116.jpg"]
-          },
-          {
-            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img42.jpg",
-            "name":"同学B",
-            "school":"巴黎大学",
-            "major":"服装设计",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img40.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img45.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img48.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img50.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img53.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img55.jpg"
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img119.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img123.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img129.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img144.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img147.jpg",
             ]
           },
           {
-            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/img97.jpg",
-            "name":"同学C",
-            "school":"麻省理工",
-            "major":"工业设计",
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img108.jpg",
+            "name":"L同学",
+            "school":"澳大利亚国立大学",
+            "major":"插画",
             "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/img97.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/img100.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/img103.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/img109.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/img153.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/img159.jpg"
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img108.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img110.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img116.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img160.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img87.jpg",
             ]
           },
           {
-            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/img109.jpg",
-            "name":"李煜",
-            "school":"圣彼得堡大学",
-            "major":"建筑设计",
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img218.jpg",
+            "name":"S同学",
+            "school":"奥克兰大学",
+            "major":"插画",
             "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img40.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img45.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img48.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img50.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img53.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img55.jpg"
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img218.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img235.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img238.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img240.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img247.jpg",
             ]
           },
           {
-            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/img116.jpg",
-            "name":"张冲",
-            "school":"东京大学",
-            "major":"动漫设计",
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img153.jpg",
+            "name":"W同学",
+            "school":"阿德莱德大学",
+            "major":"插画",
             "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img40.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img45.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img48.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img50.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img53.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img55.jpg"
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img153.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img175.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img190.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img194.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img196.jpg",
             ]
           },
           {
-            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/img153.jpg",
-            "name":"沈火火",
-            "school":"哥伦比亚大学",
-            "major":"工业设计",
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img162.jpg",
+            "name":"Y同学",
+            "school":"堪培拉大学",
+            "major":"插画",
             "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img40.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img42.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img45.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img58.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img50.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/img55.jpg"
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img162.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img173.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img208.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img211.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img212.jpg",
+            ]
+          },
+          {
+            "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img156.jpg",
+            "name":"Z同学",
+            "school":"南澳大学",
+            "major":"插画",
+            "children":[
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img156.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img181.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img184.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img187.jpg",
+              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img243.jpg",
             ]
           },
         ],
@@ -851,12 +846,12 @@
       position:absolute;
       left: 30px;
       top: 45px;
-      width: 80px;
-      height: 35px;
+      width: 100px;
+      height: 45px;
       cursor: pointer;
       z-index: 10;
       img{
-        width:80px;height:35px;
+        width:100px;height:45px;
       }
     }
     .devecont_l{

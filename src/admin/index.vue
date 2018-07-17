@@ -74,6 +74,19 @@
             <div class="userLine"><span>修改密码</span><Input placeholder="请输入要重置的密码" v-model="userPassword" style="width:200px;"></Input><a class="modify_btn" @click="modifyPass">修改</a></div>
 
           </Modal>
+          <Modal  v-model="modal2" width="520"
+                  class-name="vertical-center-modal"
+                  :closable="false">
+            <div><button @click="addUserInfo">添加</button></div>
+           <Table :columns="columns3" :data="data3"></Table>
+          </Modal>
+          <Modal  v-model="modal3" width="420"
+                  class-name="vertical-center-modal"
+                  :closable="false">
+            <div class="userLine"><span>资源标题</span><Input v-model="userinfoTitle" style="width:200px;"></Input></div>
+            <div class="userLine"><span>资源路径</span><Input  v-model="userinfoUrl" style="width:200px;"></Input></div>
+            <div class="userLine"><button @click="confirmAddRes">添加</button></div>
+          </Modal>
         </Layout>
       </Layout>
     </Layout>
@@ -85,10 +98,17 @@
       data(){
         return {
           modal:false,
+          modal2:false,
+          modal3:false,
+
           userPrivilige:"",
           userId:"",
           userTime:'',
           userPassword:'',
+          userinfoTitle:'',
+          userinfoUrl:'',
+
+
           itemShow:"1-1",
           search:"",
           ajaxHistoryData:[],
@@ -145,7 +165,21 @@
                         this.showdetail(params)
                       }
                     }
-                  }, '详情'),
+                  }, '管理'),
+                  h('Button', {
+                    props: {
+                      type: 'primary',
+                      size: 'small'
+                    },
+                    style: {
+                      marginRight: '5px'
+                    },
+                    on: {
+                      click: () => {
+                        this.getUserInfo(params)
+                      }
+                    }
+                  }, '信息'),
                   h('Button', {
                     props: {
                       type: 'error',
@@ -161,25 +195,50 @@
               }
             }
           ],
+          columns3: [
+            {
+              title: '标题',
+              key: 'level'
+            },
+            {
+              title: '资源路径',
+              key: 'timeout'
+            },
+            {
+              title: '操作',
+              key: 'operate',
+              render: (h, params) => {
+                return h('div', [
+                  h('Button', {
+                    props: {
+                      type: 'primary',
+                      size: 'small'
+                    },
+                    style: {
+                      marginRight: '5px'
+                    },
+                    on: {
+                      click: () => {
+                        this.showdetail(params)
+                      }
+                    }
+                  }, '管理'),
+
+                ]);
+              }
+            }
+          ],
           data1: [],
-          data2:[]
+          data2:[],
+          data3:[],
         }
       },
-    watch:{
-      data1(){
-        this.getUserList();
-      },
-      data2(){
-        this.getUserList();
-      }
-    },
     methods:{
       itemSelect(name){
         this.itemShow = name;
       },
       showdetail(params){
           this.modal=true;
-          debugger
           if(params.row){
             let a =params.row;
             this.userId=a.userid;
@@ -291,10 +350,49 @@
         })
 
       },
+      getUserInfo(info){
+        this.modal2=true;
+      },
       getUserList(){
         this.$http.get("http://112.74.25.26/user/list").then(
           (res)=>{
             this.data1=res.data.userList;
+          }
+        ).catch((err)=>{
+        })
+      },
+      addUserInfo(){
+          this.modal3=true;
+      },
+      confirmAddRes(){
+        let a= document.cookie;
+        var param={
+          "userid":"",
+          "title":this.userinfoTitle,
+          "url":this.userinfoUrl
+        };
+        if(a && a!=""){
+          let b=a.split(',')[0];
+          param.userid= b.split('=')[1];
+        }
+        this.$http.post("http://112.74.25.26/user/infoList",param).then(
+          (res)=>{
+            debugger
+           console.log(res);
+          }
+        ).catch((err)=>{
+        })
+      },
+      getUserinfoList(){
+        let a= document.cookie;
+        var param={"userId":"","userForm":{}};
+        if(a && a!=""){
+          let b=a.split(',')[0];
+          param.userid= b.split('=')[1];
+        }
+        this.$http.get("http://112.74.25.26/user/infoList",{params:param}).then(
+          (res)=>{
+            this.data3=res.data.userList;
           }
         ).catch((err)=>{
         })
@@ -303,6 +401,7 @@
     },
     mounted(){
        this.getUserList();
+       this.getUserinfoList();
     }
   }
 </script>

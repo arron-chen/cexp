@@ -44,52 +44,56 @@
         var param={"userId":"","userForm":{}};
         if(a && a!=""){
           let b=a.split(',')[0];
-          param.userId= b.split('=')[1];
+          param.userid= b.split('=')[1];
         }
-        this.$http.get("http://112.74.25.26/user/test1",{params:param}).then((res)=>{
-          if(res.data.msg!= "失败"){
-            var a;for(var i in res.data.msg){a=i}
-            let arr={"imgUrl":a,"title":"macl测试结果"};
-            this.resultList.push(arr);
-          }
-
-        }).catch((err)=>{
-          console.log(err)
-        })
-         this.$http.get("http://112.74.25.26/user/test2",{params:param}).then((res)=>{
-           if(res.data.msg!= "失败"){
-             var a;for(var i in res.data.msg){a=i}
-             let arr ={"imgUrl":a,"title":"专业方向测试"}
-             this.resultList.push(arr);
+        this.$http.get("http://112.74.25.26/user",{params:param}).then((res)=>{
+          if(res.data.code !== 2){
+           let result = res.data.msg[0];
+           this.username = result.username;
+           if(result.test1 && result.test1 !== ""){
+             this.resultList.push({
+               "title":"MACL测试",
+               "url":result.test1
+             })
            }
+            if(result.test2 && result.test2 !== ""){
+              this.resultList.push({
+                "title":"专业方向",
+                "url":result.test2
+              })
+            }
+            if(result.test3 && result.test3 !== ""){
+              this.resultList.push({
+                "title":"职业心理",
+                "url":result.test3
+              })
+            }
+            if(result.infoList && result.infoList !== ""){
+              debugger
+              let res = result.infoList.spilt(',')
+              if(res.length > 0){
+                for(var i =0;i<res.length; i++){
+                  this.resultList.push({
+                    "title":res[i].title,
+                    "url":res[i].url
+                  })
+                }
+              }else{
+                this.resultList.push({
+                  "title":result.title,
+                  "url":result.url
+                })
+              }
 
-         }).catch((err)=>{
-           console.log(err)
-         })
-        this.$http.get("http://112.74.25.26/user/test3",{params:param}).then((res)=>{
-          if(res.data.msg!= "失败"){
-            var a;for(var i in res.data.msg){a=i}
-            let arr={"imgUrl":a,"title":"职业心理测试"};
-            this.resultList.push(arr);
+            }
           }
 
         }).catch((err)=>{
           console.log(err)
         })
       }
-    },
-    computed:{
-
     },
     mounted(){
-      debugger
-      let a= document.cookie;
-      var userid="";
-      if(a && a!=""){
-        let b=a.split(',')[0];
-        this.username= b.split('=')[1];
-      }
-
       this.getInfo()
     }
   }

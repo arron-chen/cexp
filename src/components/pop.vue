@@ -5,11 +5,12 @@
     :mask-closable="false"
     :closable="false">
     <div class="pop"></div>
-    <div class="logout" @click="logout"><a>体验结束</a></div>
+    <div class="logout" @click="logout"><a>注销</a></div>
   </Modal>
 </template>
 <script>
   export default {
+    name:'popc',
     data(){
       return {
         modal:'',
@@ -47,21 +48,24 @@
       },
     },
     props:{
-      isShow:''
-    }
+      isShow:{
+        type:Boolean,
+        default:false
+      }
+    },
   }
 </script>
 <style lang="less">
   .pop{
     width:100%;height:420px;
-    background: url("http://p9zd0n0di.bkt.clouddn.com/ahead.jpg")no-repeat center center;
+    background: url("http://p9zd0n0di.bkt.clouddn.com/ahead.png")no-repeat center center;
     background-size: 100% 100%;
     border-radius: 10px;
   }
   .logout{
     position:absolute;
-    bottom:33px;
-    right:20px;
+    bottom: 40px;
+    right: 30px;
     width:60px;
     text-align: center;
     cursor: pointer;

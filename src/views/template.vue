@@ -21,12 +21,8 @@
           </ul>
         </div>
         <div  class="r_cont_r">
-          <iframe :src="pdfurls" frameborder="0" id="pdfContainer" name="pdfContainer"></iframe>
-          <!--<pdfshower
-            :pdfurl="pdfurls"
-            :scale="scale"
-            @onErr="onErr"
-          ></pdfshower>-->
+          <!--<iframe :src="pdfurls" frameborder="0" id="pdfContainer" name="pdfContainer"></iframe>-->
+          <pdf :src="pdfurls"></pdf>
         </div>
       </div>
     </div>
@@ -34,7 +30,7 @@
   </div>
 </template>
 <script>
-  import pdfshower from 'vue-pdf-shower';
+  import pdf from 'vue-pdf'
   export default {
     data(){
       return {
@@ -278,7 +274,7 @@
       }
     },
     components: {
-      pdfshower
+      pdf
     },
     methods:{
       backto(){
@@ -406,6 +402,7 @@
           height:100%;
           float:right;
           background-color: #fff;
+          overflow: auto;
           iframe{
             width:100%;height:100%;
           }

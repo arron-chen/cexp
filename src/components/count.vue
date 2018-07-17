@@ -1,47 +1,44 @@
 <template>
     <div>
-      <timec :endTime="endTime" :calllBack="callback"></timec>
-      <Modal
-        v-model="isShow" :width="modalW"
-        class-name="vertical-modal"
-        :mask-closable="false"
-        :closable="false">
-        <div class="pop"></div>
-        <div class="logout" @click="logout"><a>注销</a></div>
-      </Modal>
+      <timec :endTime="endTime" :endText="endText" :callback="callback"></timec>
+      <popc :isShow="isShow"></popc>
     </div>
 </template>
 <script>
+  import timec from '../components/countDown.vue';
+  import popc from '../components/pop.vue';
   export default {
     name:'count',
     data() {
       return {
         isShow:false,
-        modal:'',
-        modalW:'420px'
+        timmer:'',
+        endText:'活动已经结束'
       }
     },
+    components:{timec,popc},
     mounted(){
-        //console.log("mounted-------"+this.$store.state.countime);
+        this.$store.dispatch('gettime');
+        console.log(this.$store.state.countime)
+        this.timmer = setInterval(()=>{
+          this.$store.dispatch('settime');
+        },60000)
+    },
+    destory(){
+      this.clearInterval(this.timmer);
     },
     computed:{
       endTime(){
-        let timestamp,count = this.$store.state.countime;
-        count = count > 0 ? count : 0;
+        let timestamp;
+        let count = this.$store.state.countime;
+        console.log("endTime"+ count);
         timestamp = new Date().getTime() + count*60*1000;
-        //console.log(timestamp)
         return timestamp;
       }
     },
-   /* props:{
-      remotecall:{
-        type:Function,
-      }
-    },*/
     methods:{
       callback(){
-        debugger;
-        console.log('callbakc');
+        this.isShow= false;
       },
       logout(){
         this.$Modal.confirm({

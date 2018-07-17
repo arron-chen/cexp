@@ -1,6 +1,5 @@
 <template>
     <div class="devewrap">
-      <time-cont :endTime="time" :endText="endText" :callback="callback" class="countStyle"></time-cont>
       <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/video/backto.png" @click="backto"></div>
       <div class="devecont_l">
           <ul>
@@ -104,14 +103,6 @@
   export default {
     data () {
       return {
-        modal1: false,
-        isShow:false,
-        /* endTime:1539687195949,*/
-        endText:'体验时间结束',
-        timenum:0,
-        timmer:{
-          type:Object
-        },
 
         num:0,
         num1:0,
@@ -751,81 +742,8 @@
           path:'/index'
         })
       },
-      getTime(){
-        let a= document.cookie;
-        var param={"userid":""};
-        if(a && a!=""){
-          let b=a.split(',')[0];
-          param.userid= b.split('=')[1];
-        }
-        var _this=this;
-        this.$http.get('http://112.74.25.26/user/timeout',{params:param}).then((res)=>{
-          //console.log(res);
-          this.timenum=parseInt(res.data.msg);
-          debugger
-          //console.log(this.$store);
-          this.$store.dispatch('setT', { countime:this.timenum });
-          var _this=this;
-
-          let currenttime=new Date();
-
-          currenttime.setTime(currenttime.getTime()+this.timenum*60*1000);
-          //console.log(currenttime);
-          let endt=currenttime.getTime();
-          //console.log(1+endt);
-          this.endTime=this.timenum;
-          console.log("endtime"+this.endTime)
-        }).catch((err)=>{
-          console.log(err)
-        })
-      },
-      callback(){
-        let timestamp=new Date().getTime();
-        console.log(this.time)
-        if(this.time <= timestamp){
-          this.isShow=true;
-        }
-      },
     },
-    computed:{
-      time(){
-        let date =new Date().getTime();
-        console.log("time"+this.endTime);
-        return this.endTime*60*1000+date;
-      },
-      endTime:{
-        get:function(){
-          return  this.$store.state.countime;
-        },
-        set:function(val){
-          console.log("set"+val)
-          return val;
-        }
-
-      },
-    ...mapState({
-        countime(state){
-          return state;
-        }
-      })
-    },
-    components:{timeCont,pop},
-    mounted() {
-      this.getTime();
-      this.endTime=this.$store.state.countime;
-      var _this=this
-      this.$nextTick(function () {
-        this.timmer=setInterval(function(){
-          _this.timenum=_this.timenum-1
-          var now =_this.timenum;
-          _this.$store.dispatch('settime', { countime:now });
-        }, 60000);
-      })
-
-    },
-    destroyed(){
-      clearTimeout(this.timmer);//清空定时器
-    }
+    /*components:{timeCont,pop},*/
   }
 </script>
 <style lang="less">

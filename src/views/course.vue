@@ -44,12 +44,11 @@
         this.viedoSrc=src;
       },
       handleClickTo(){
+        window.location.href="WinSCP:";
         console.log("diayogjn1");
       }
     },
     mounted(){
-
-
     }
   }
 </script>

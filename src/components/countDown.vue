@@ -7,40 +7,39 @@
 </template>
 <script>
   export default {
+    name:'timec',
     data(){
       return {
         content: '',
       }
     },
     props:{
-      endTime:{
-        type: Number,
-        default :''
-      },
       endText:{
         type : String,
         default:'体验时间结束'
       },
+      endTime:{
+        type:Number,
+        default:0
+      },
       callback : {
         type : Function,
-        default :''
       }
     },
     watch:{
       endTime(){
-        this.countdowm(this.endTime);
+        this.countdown(this.endTime);
       }
     },
     mounted () {
-      this.countdowm(this.endTime)
+      this.countdown(this.endTime)
     },
     methods: {
-      countdowm(timestamp){
+      countdown(timestamp){
         let self = this;
         let timer = setInterval(function(){
           let nowTime = new Date();
-          let endTime = new Date(timestamp
-          );
+          let endTime = new Date(timestamp);
           let t = endTime.getTime() - nowTime.getTime();
           if(t>0){
             let day = Math.floor(t/86400000);
@@ -65,7 +64,6 @@
             clearInterval(timer);
             self.content = self.endText;
             self._callback();
-
           }
         },1000);
       },

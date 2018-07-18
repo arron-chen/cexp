@@ -1,6 +1,11 @@
 <template>
   <div class="infowrap">
     <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/video/backto.png" @click="backto"></div>
+    <Modal v-model="modal" width="90%"
+           class-name="vertical-center-modal"
+           :closable="false">
+      <iframe :src="resultUrl" width="100%" height="100%" style="overflow: auto"></iframe>
+    </Modal>
     <div class="videoBox">
       <div class="cvideocont_l">
         <ul class="r_list">
@@ -22,7 +27,9 @@
     data(){
       return {
         resultList:[],
-        username:""
+        username:"",
+        resultUrl:"",
+        modal:false
       }
     },
     methods:{
@@ -32,7 +39,6 @@
         })
       },
       showItem(item){
-          debugger;
         this.$router.push({
           path:'/imgShow',
           query:item
@@ -41,7 +47,7 @@
       },
       getInfo(){
         let a= document.cookie;
-        var param={"userId":"","userForm":{}};
+        var param={"userid":"","userForm":{}};
         if(a && a!=""){
           let b=a.split(',')[0];
           param.userid= b.split('=')[1];
@@ -68,8 +74,16 @@
                 "url":result.test3
               })
             }
-            if(result.infoList && result.infoList !== ""){
-              debugger
+            let par = { "userid":param.userid}
+            this.$http.get("http://112.74.25.26/user/infoList",{params:par}).then((res)=>{
+                for(var i in res.data.msg){
+                  this.resultList.push(res.data.msg[i]);
+                }
+              }
+            ).catch((err)=>{
+            })
+           /* if(result.infoList && result.infoList !== ""){
+
               let res = result.infoList.spilt(',')
               if(res.length > 0){
                 for(var i =0;i<res.length; i++){
@@ -85,7 +99,7 @@
                 })
               }
 
-            }
+            }*/
           }
 
         }).catch((err)=>{

@@ -30,6 +30,10 @@
           {"text":"德语","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E5%BE%B7%E8%AF%AD"},
           {"text":"意大利","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%84%8F%E5%A4%A7%E5%88%A9%E8%AF%AD"},
           {"text":"日文","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%97%A5%E8%AF%AD"},
+          {"text":"A P","src":"http://7xnt3p.com1.z0.glb.clouddn.com/AP.mp4"},
+          {"text":"A L","src":"http://7xnt3p.com1.z0.glb.clouddn.com/A_Level.mp4"},
+          {"text":"O L","src":"http://7xnt3p.com1.z0.glb.clouddn.com/O_A%20Level.mp4"},
+
         ]
 
       }
@@ -97,7 +101,8 @@
         height:100%;
         position: relative;
         display:flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
         .r_title{
           width:100%;height:40px;
           border-bottom:2px solid #368cf8;
@@ -128,13 +133,16 @@
           height:100px;
           position: absolute;
           bottom:20px;
-          margin-left: 20%;
+          margin-left: 40px;
           min-width:315px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: auto;
           li{
             width:30px;height:100%;
-            float:left;
             margin-right:10px;
-            vertical-align: middle;
+            float:left;
             span{
               display: inline-block;
               width:100%;height:100%;

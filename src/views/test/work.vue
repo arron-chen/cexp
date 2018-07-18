@@ -209,12 +209,19 @@
           "http://p9zd0n0di.bkt.clouddn.com/test/%E5%86%85-21.png",
           "http://p9zd0n0di.bkt.clouddn.com/test/%E5%86%85-22.png"
         ]
-     /*   this.$router.push({
-          path:'/test/result2',
-          query:{
-            imgSrc:imglist[0]
-          }
-        })*/
+        let a= document.cookie;
+        var param={"userId":"","userForm":{}};
+        if(a && a!=""){
+          let b=a.split(',')[0];
+          param.userId= b.split('=')[1];
+        }
+        let index = parseInt(Math.random()*3);
+        param.userForm=imglist[index];
+        this.$http.post("http://112.74.25.26/user/test3",param).then((res)=>{
+          this.$Message.info('提交成功，留学芯片中查看结果');
+        }).catch((err)=>{
+          console.log(err)
+        })
       }
     }
   }

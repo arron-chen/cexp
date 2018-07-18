@@ -20,7 +20,8 @@
               </RadioGroup>
             </FormItem>
             <div>
-              <Button v-show="!showSubmitBtn" :disabled="enableBtn" type="primary" size="small" @click="preQuestion(item.id)">返回上一题</Button>
+              <Button v-show="!showSubmitBtn" :disabled="enableBtn" type="primary" size="small" @click="preQuestion(item.id)">上一题</Button>
+             <!-- <Button v-show="!showSubmitBtn && clickPre" :disabled="enableBtn" type="primary" size="small" @click="nextQuestion(item.id)">下一题</Button>-->
               <Button v-show="showSubmitBtn" @click="handleSubmit('formValidate')">提交</Button>
             </div>
           </div>
@@ -35,29 +36,26 @@
             return {
               form:'',
               formValidate: {
-                name: '',
-                mail: '',
-                city: '',
-                gender: '',
-                interest: [],
-                date: '',
-                time: '',
-                desc: '',
-                item1:true
+                gender1: '',
+                gender2: '',
+                gender3: '',
+
+
               },
               ruleValidate: {},
               showItem:true,
               itemIndex:1,
               enableBtn:true,
+              clickPre:false,
               showSubmitBtn:false,
               radioE:'',
               questions:[
-                {"id":1,"prop":"gender","model":"formValidate.gender1'",
+                {"id":1,"prop":"gender","model":"gender1'",
                   "question":"Q1. 认识你的人倾向形容你为：",
                   "answerA":"A 热和敏感",
                   "answerB":" B逻辑和正确"
                 },
-                {"id":2,"prop":"gender","model":"formValidate.gender2",
+                {"id":2,"prop":"gender","model":"gender2",
                   "question":"Q2. 下列哪一件事听起来比较吸引你?",
                   "answerA":"A 与恋人到有很多人且社交活动频繁的地方。",
                   "answerB":"B 呆在家中与恋人做一些特别的事情，例如说观赏一部有趣的录影带并享用你最喜欢的外卖食物。"},
@@ -179,6 +177,7 @@
         },
         changeRadio(e){
           //console.log(e);
+          //this.clickPre = false;
           this.itemIndex= e.id+1 > this.questions.length ? this.questions.length : e.id+1;
           if(e){
             this.enableBtn=false;
@@ -193,6 +192,7 @@
           console.log(this.resultArray);
         },
         preQuestion(ind){
+          this.clickPre = true;
           if(ind == 1){
             this.itemIndex=1;
             this.enableBtn=true;
@@ -201,6 +201,16 @@
             this.resultArray.pop();
             console.log(this.resultArray)
           }
+        },
+        nextQuestion(ind){
+          if(ind == this.resultArray.length){
+            this.itemIndex= this.resultArray.length;
+            this.enableBtn=true;
+          }else{
+            this.itemIndex=ind+1;
+            this.resultArray.push(this.radioE);
+          }
+          console.log(this.resultArray)
         },
         handleSubmit(){
           let result=[
@@ -211,14 +221,16 @@
             "http://p9zd0n0di.bkt.clouddn.com/test/result15.jpg",
           ];
           let a= document.cookie;
-          var param={"userid":"","userForm":{}};
+          var param={"userId":"","userForm":{}};
           if(a && a!=""){
             let b=a.split(',')[0];
-            param.userid= b.split('=')[1];
+            param.userId= b.split('=')[1];
           }
-          param.userForm="";
+          let index = parseInt(Math.random()*4);
+          param.userForm=result[index];
           this.$http.post("http://112.74.25.26/user/test1",param).then((res)=>{
-            debugger
+            console.log(res);
+            this.$Message.info('提交成功，留学芯片中查看结果');
           }).catch((err)=>{
             console.log(err)
           })

@@ -215,9 +215,10 @@
           let b=a.split(',')[0];
           param.userId= b.split('=')[1];
         }
-        param.userForm =imglist[0];
+        let index = parseInt(Math.random()*2);
+        param.userForm=result[index];
         this.$http.post("http://112.74.25.26/user/test2",param).then((res)=>{
-          debugger
+          this.$Message.info('提交成功，留学芯片中查看结果');
         }).catch((err)=>{
           console.log(err)
         })

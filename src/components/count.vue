@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="countWrap">
       <timec :endTime="endTime" :endText="endText" :callback="callback"></timec>
       <popc :isShow="isShow"></popc>
     </div>
@@ -19,8 +19,8 @@
     components:{timec,popc},
     mounted(){
         this.$store.dispatch('gettime');
-        console.log(this.$store.state.countime)
         this.timmer = setInterval(()=>{
+          this.$store.commit('countdown');
           this.$store.dispatch('settime');
         },60000)
     },
@@ -70,6 +70,12 @@
   }
 </script>
 <style lang="less">
+  .countWrap{
+    position: absolute;
+    right:20px;
+    bottom:20px;
+    color:#fff;
+  }
   .pop{
     width:100%;height:420px;
     background: url("http://p9zd0n0di.bkt.clouddn.com/ahead.jpg")no-repeat center center;

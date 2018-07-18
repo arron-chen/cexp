@@ -23,12 +23,7 @@ export default new Vuex.Store({
         state.countime =num;
       },
       countdown(state){
-        if(state.count > 0){
-          state.countime--;
-        }else{
-          state.count = 0;
-        }
-
+        state.countime--;
       }
     },
     actions: {
@@ -69,14 +64,14 @@ export default new Vuex.Store({
           if(a && a!= ""){
             b=a.split('=')[1];
           }
-        context.commit('countdown');
+        console.log('减时间前--'+ context.state.countime);
+        console.log('减时间后--'+ context.state.countime);
         var  param={
             "userid":b,
             "time":context.state.countime
         };
        axios.put('http://112.74.25.26/user/timeout',param).then((res)=>{
           console.log(res);
-          console.log(context.state.countime);
         }).catch((err)=>{
           console.log(err);
         });

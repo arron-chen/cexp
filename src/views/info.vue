@@ -1,5 +1,6 @@
 <template>
   <div class="infowrap">
+    <count></count>
     <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/video/backto.png" @click="backto"></div>
     <Modal v-model="modal" width="90%"
            class-name="vertical-center-modal"
@@ -23,6 +24,7 @@
   </div>
 </template>
 <script>
+  import count from '../components/count';
   export default {
     data(){
       return {
@@ -32,6 +34,7 @@
         modal:false
       }
     },
+    components:{count},
     methods:{
       backto(){
         this.$router.push({

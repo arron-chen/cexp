@@ -1,5 +1,6 @@
 <template>
     <div class="videowrap">
+      <count></count>
       <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/video/backto.png" @click="backto"></div>
       <div class="videoBox">
         <div class="cvideocont_l">
@@ -22,6 +23,7 @@
     </div>
 </template>
 <script>
+  import count from '../components/count';
   export default {
     data(){
       return {
@@ -177,7 +179,7 @@
 
       }
     },
-   /* components:{timeCont,pop},*/
+    components:{count},
     computed:{
       listU:{
         get:function() {

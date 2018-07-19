@@ -1,5 +1,6 @@
 <template>
   <div class="templatewrap">
+    <count></count>
     <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/video/backto.png" @click="backto"></div>
     <div class="videoBox">
       <div class="cvideocont_l">
@@ -30,7 +31,8 @@
   </div>
 </template>
 <script>
-  import pdf from 'vue-pdf'
+  import pdf from 'vue-pdf';
+  import count from '../components/count';
   export default {
     data(){
       return {
@@ -274,7 +276,7 @@
       }
     },
     components: {
-      pdf
+      pdf,count
     },
     methods:{
       backto(){

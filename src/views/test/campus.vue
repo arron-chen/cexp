@@ -1,5 +1,6 @@
 <template>
     <div class="testwrap">
+        <count></count>
         <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/test/backto.png" @click="backto"></div>
       <div class="navwrap">
         <ul>
@@ -31,15 +32,15 @@
     </div>
 </template>
 <script>
+    import count from '../../components/count';
     export default {
-        data() {
+      data() {
             return {
               form:'',
               formValidate: {
                 gender1: '',
                 gender2: '',
-                gender3: '',
-
+                gender3: ''
 
               },
               ruleValidate: {},
@@ -169,6 +170,7 @@
 
             }
         },
+      components:{count},
       methods:{
         backto(){
           this.$router.push({

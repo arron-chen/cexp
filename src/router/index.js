@@ -13,7 +13,6 @@ import result1 from '@/views/test/result1';
 import result2 from '@/views/test/result2';
 import video from '@/views/video';
 import course from '@/views/course';
-import videolist from '@/views/videoplay';
 import videoshow from '@/views/videoshow';
 import develop from '@/views/develop';
 import devshow from '@/views/devshow';
@@ -125,14 +124,6 @@ export default new Router({
       path:'/videoshow',
       name:'videoshow',
       component:videoshow,
-      meta: {
-        requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
-      },
-    },
-    {
-      path:'/videolist',
-      name:'videolist',
-      component:videolist,
       meta: {
         requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
       },

@@ -1,13 +1,14 @@
 <template>
     <div class="videoCont">
+      <count></count>
       <div class="btn_back"><a @click="back">返回</a></div>
       <video  :src="videoSrc" controls="controls" :autoplay="autoplay">
         您的浏览器不支持 video 标签。
       </video>
-
     </div>
 </template>
 <script>
+  import count from '../components/count';
     export default {
       data() {
           return {
@@ -15,6 +16,7 @@
             autoplay:true
           }
       },
+      components:{count},
       methods:{
         back(){
           history.go(-1);

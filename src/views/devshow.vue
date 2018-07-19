@@ -1,5 +1,6 @@
 <template>
   <div class="showWrap">
+    <count></count>
     <image-Cont :imglist="imglist"></image-Cont>
     <div class="btn_back"><a @click="back">返回</a></div>
   </div>
@@ -7,13 +8,14 @@
 </template>
 <script>
   import imageCont from '@/components/imageCont';
+  import count from '../components/count';
   export default {
     data(){
       return{
         imglist:{},
       }
     },
-    components:{imageCont},
+    components:{imageCont,count},
     methods:{
       back(){
         history.go(-1);

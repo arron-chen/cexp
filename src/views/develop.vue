@@ -1,5 +1,6 @@
 <template>
     <div class="devewrap">
+      <count></count>
       <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/video/backto.png" @click="backto"></div>
       <div class="devecont_l">
           <ul>
@@ -97,9 +98,7 @@
     </div>
 </template>
 <script>
-  import timeCont from '../components/countDown';
-  import pop from '../components/pop';
-  import { mapState } from 'vuex';
+  import count from '../components/count';
   export default {
     data () {
       return {
@@ -715,6 +714,7 @@
 
       }
     },
+    components:{count},
     methods: {
       handleTabsAdd () {
         this.tabs ++;

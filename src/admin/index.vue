@@ -246,6 +246,7 @@
         this.itemShow = name;
       },
       showdetail(params) {
+        debugger
         this.modal = true;
         if (params.row) {
           let a = params.row;

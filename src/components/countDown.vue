@@ -24,11 +24,11 @@
       },
       callback : {
         type : Function,
-      }
+      },
     },
     watch:{
-      endTime(){
-        this.countdown(this.endTime);
+      endTime(val){
+        this.countdown(val)
       }
     },
     mounted () {
@@ -60,6 +60,7 @@
               format =`${min}分${sec}秒`;
             }
             self.content = format;
+            self.$emit('rescall');
           }else{
             clearInterval(timer);
             self.content = self.endText;

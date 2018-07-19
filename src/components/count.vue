@@ -1,6 +1,6 @@
 <template>
     <div class="countWrap">
-      <timec :endTime="endTime" :endText="endText" :callback="callback"></timec>
+      <timec v-on:rescall="rescall" :endTime="endTime" :endText="endText" :callback="callback"></timec>
       <popc :isShow="isShow"></popc>
     </div>
 </template>
@@ -13,7 +13,7 @@
       return {
         isShow:false,
         timmer:'',
-        endText:'活动已经结束'
+        endText:'活动已经结束',
       }
     },
     components:{timec,popc},
@@ -25,20 +25,29 @@
         },60000)
     },
     destory(){
-      this.clearInterval(this.timmer);
+      clearInterval(this.timmer);
+    },
+    watch:{
+      endTime(val,oldval){
+        console.log("val: --"+val+" oldval:--"+oldval);
+      }
     },
     computed:{
       endTime(){
         let timestamp;
         let count = this.$store.state.countime;
-        console.log("endTime"+ count);
-        timestamp = new Date().getTime() + count*60*1000;
+        console.log("endTime -- "+ count);
+        timestamp = new Date().getTime() + count *60*1000;
         return timestamp;
       }
     },
     methods:{
       callback(){
-        this.isShow= false;
+        console.log("倒计时回调");
+        this.isShow= true;
+      },
+      rescall(){
+        this.isShow = false;
       },
       logout(){
         this.$Modal.confirm({

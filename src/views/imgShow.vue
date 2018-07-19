@@ -1,8 +1,8 @@
 <template>
   <div class="imgWrap">
     <div class="btn_back"><a @click="back">返回</a></div>
-    <img-box :src="imglist"></img-box>
-    <!--<iframe id="resId" :src="resUrl" ></iframe>-->
+   <!-- <img-box :src="imglist"></img-box>-->
+    <iframe id="resId" :src="resUrl" ></iframe>
   </div>
 
 </template>
@@ -22,8 +22,8 @@
     },
     components:{imgBox},
     created(){
-      this.imglist=this.$route.query.url;
-     /* this.resUrl=this.$route.query.url;*/
+    /*  this.imglist=this.$route.query.url;*/
+      this.resUrl=this.$route.query.url;
     },
     mounted(){
      /* var iframe = document.getElementById("resId");

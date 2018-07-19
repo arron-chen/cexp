@@ -190,7 +190,9 @@
         }
       },
     },
-
+    mounted(){
+      this.listIndex=this.lists.a;
+    },
     methods:{
       backto(){
         this.$router.push({
@@ -288,12 +290,16 @@
             border-bottom:1px solid #2f7bda;
             margin-bottom: 10px;
             cursor: pointer;
+            display:flex;
+            align-items: center;
+
             img{
               width:30%;height:80%;
             }
             span{
               color:#fff;
               font-size:18px;
+              margin-left:8%;
             }
           }
         }

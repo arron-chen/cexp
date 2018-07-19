@@ -51,7 +51,7 @@
         this.viedoSrc=src;
       },
       handleClickTo(){
-        window.location.href="WinSCP:";
+        window.location.href="TPO:";
         console.log("diayogjn1");
       }
     },

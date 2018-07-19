@@ -32,7 +32,7 @@
       }
     },
     mounted () {
-      this.countdown(this.endTime)
+      //this.countdown(this.endTime)
     },
     methods: {
       countdown(timestamp){

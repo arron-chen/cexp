@@ -370,6 +370,8 @@
       getUserList() {
         this.$http.get("http://112.74.25.26/user/list").then(
           (res) => {
+            console.log('res');debugger;
+
             this.data1 = res.data.userList;
           }
         ).catch((err) => {

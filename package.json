@@ -12,6 +12,7 @@
   "dependencies": {
     "pdfjs-dist": "^2.0.489",
     "vue": "^2.5.2",
+    "vue-picture-preview": "^1.2.0",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

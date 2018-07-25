@@ -1,7 +1,12 @@
 <template>
   <div class="showWrap">
     <count></count>
-    <image-Cont :imglist="imglist"></image-Cont>
+    <img v-for="(img,index) in imgurl"
+         v-preview="img.url"
+         :src="img.url"
+         :key="index"
+         preview-title-enable="true"
+         preview-nav-enable="true">
     <div class="btn_back"><a @click="back">返回</a></div>
   </div>
 
@@ -13,6 +18,7 @@
     data(){
       return{
         imglist:{},
+        imgurl:[],
       }
     },
     components:{imageCont,count},
@@ -22,14 +28,20 @@
       }
     },
     mounted(){
-      debugger
-     this.imglist=this.$route.query;
+      let res = this.$route.query;
+      for(let i in res){
+        this.imgurl.push({"url":res[i]});
+      }
+     //this.imglist=this.$route.query;
     }
   }
 </script>
 <style lang="less">
   .showWrap{
     width:100%;height:100%;
+    img{
+      width:100%;height:100%;
+    }
     .btn_back{
       z-index: 10;
       position: fixed;

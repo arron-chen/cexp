@@ -39,7 +39,7 @@
         pdfurls:'http://p9zd0n0di.bkt.clouddn.com/template/%E7%95%99%E5%AD%A6%E6%8E%A8%E8%8D%90%E4%BF%A1%E8%8C%83%E6%96%87%EF%BC%9A%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E4%B8%93%E4%B8%9A.pdf',
         isshowpdf:true,
         contentIndex:1,
-        tabs: ["申请文书", "简历模板"],
+        tabs: ["申请文书", "简历模板","推荐信","套磁信"],
         tabContents:[
           {
             "content": [
@@ -270,6 +270,270 @@
               },
             ]
           },
+          {
+            "content": [
+              {
+                "campus":"美国的",
+                "children":[
+                  {
+                    "text":"成功申请哈佛的Essay范文",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/Andrew%20Rist%E6%88%90%E5%8A%9F%E7%94%B3%E8%AF%B7%E5%93%88%E4%BD%9B%E7%9A%84Essay%E8%8C%83%E6%96%87.pdf",
+                  },
+                  {
+                    "text":"Dartmouth College",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/Dartmouth%20College.pdf",
+                  },
+                  {
+                    "text":"Essay Four",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/Essay%20Four.pdf",
+                  },
+                ]
+              },
+              {
+                "campus":"英国的",
+                "children":[
+                  {
+                    "text":"Essay One",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/Essay%20One.pdf",
+                  },
+                  {
+                    "text":"Essay Two",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/Essay%20Two.pdf",
+                  },
+                  {
+                    "text":"Essay Three",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/Essay%20Three.pdf",
+                  },
+                ]
+              },
+              {
+                "campus":"英国的",
+                "children":[
+                  {
+                    "text":"Macalester College",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/Macalester%20College.pdf",
+                  },
+                  {
+                    "text":"Oberlin College",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/Oberlin%20College.pdf",
+                  },
+                  {
+                    "text":"Tufts University",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/Tufts%20University.pdf",
+                  },
+                ]
+              },
+              {
+                "campus":"英国的",
+                "children":[
+                  {
+                    "text":"University of Chicago",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/University%20of%20Chicago.pdf",
+                  },
+                  {
+                    "text":"new essay01",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/new%20essay01.pdf",
+                  },
+                  {
+                    "text":"new essay02",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/new%20essay02.pdf",
+                  },
+                ]
+              },
+              {
+                "campus":"英国的",
+                "children":[
+                  {
+                    "text":"new essay03",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/new%20essay03.pdf",
+                  },
+                  {
+                    "text":"new essay04",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/new%20essay04.pdf",
+                  },
+                  {
+                    "text":"乔治亚理工学院",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/%E4%B9%94%E6%B2%BB%E4%BA%9A%E7%90%86%E5%B7%A5%E5%AD%A6%E9%99%A2.pdf",
+                  },
+                ]
+              },
+              {
+                "campus":"英国的",
+                "children":[
+                  {
+                    "text":"华盛顿州立大学",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/%E5%8D%8E%E7%9B%9B%E9%A1%BF%E5%B7%9E%E7%AB%8B%E5%A4%A7%E5%AD%A6.pdf",
+                  },
+                  {
+                    "text":"哈佛大学",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/%E5%93%88%E4%BD%9B%E5%A4%A7%E5%AD%A6.pdf",
+                  },
+                  {
+                    "text":"宾夕法尼亚大学",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/%E5%AE%BE%E5%A4%95%E6%B3%95%E5%B0%BC%E4%BA%9A%E5%A4%A7%E5%AD%A6.pdf",
+                  },
+                ]
+              },
+              {
+                "campus":"英国的",
+                "children":[
+                  {
+                    "text":"斯沃斯莫尔学院",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/%E6%96%AF%E6%B2%83%E6%96%AF%E8%8E%AB%E5%B0%94%E5%AD%A6%E9%99%A2.pdf",
+                  },
+                  {
+                    "text":"普林斯顿大学",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/%E6%99%AE%E6%9E%97%E6%96%AF%E9%A1%BF%E5%A4%A7%E5%AD%A6.pdf",
+                  },
+                  {
+                    "text":"曼荷莲女子学院",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/%E6%9B%BC%E8%8D%B7%E8%8E%B2%E5%A5%B3%E5%AD%90%E5%AD%A6%E9%99%A2.pdf",
+                  },
+                ]
+              },
+              {
+                "campus":"英国的",
+                "children":[
+                  {
+                    "text":"杜克大学",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/%E6%9D%9C%E5%85%8B%E5%A4%A7%E5%AD%A6.pdf",
+                  },
+                  {
+                    "text":"耶鲁大学",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/%E8%80%B6%E9%B2%81%E5%A4%A7%E5%AD%A6.pdf",
+                  },
+                  {
+                    "text":"芝加哥大学",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%8E%A8%E8%8D%90%E4%BF%A1/%E8%8A%9D%E5%8A%A0%E5%93%A5%E5%A4%A7%E5%AD%A6.pdf",
+                  },
+                ]
+              },
+            ]
+          },
+          {
+            "content": [
+              {
+                "campus":"美国的",
+                "children":[
+                  {
+                    "text":"套磁1",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%281%29.pdf",
+                  },
+                  {
+                    "text":"套磁2",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%282%29.pdf",
+                  },
+                  {
+                    "text":"套磁3",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%283%29.pdf",
+                  },
+                ]
+              },
+              {
+                "campus":"美国的",
+                "children":[
+                  {
+                    "text":"套磁4",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%284%29.pdf",
+                  },
+                  {
+                    "text":"套磁5",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%285%29.pdf",
+                  },
+                  {
+                    "text":"套磁6",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%286%29.pdf",
+                  },
+                ]
+              },
+              {
+                "campus":"美国的",
+                "children":[
+                  {
+                    "text":"套磁7",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%287%29.pdf",
+                  },
+                  {
+                    "text":"套磁8",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%288%29.pdf",
+                  },
+                  {
+                    "text":"套磁9",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%289%29.pdf",
+                  },
+                ]
+              },
+              {
+                "campus":"美国的",
+                "children":[
+                  {
+                    "text":"套磁10",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%2810%29.pdf",
+                  },
+                  {
+                    "text":"套磁11",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%2811%29.pdf",
+                  },
+                  {
+                    "text":"套磁12",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%2812%29.pdf",
+                  },
+                ]
+              },
+              {
+                "campus":"美国的",
+                "children":[
+                  {
+                    "text":"套磁13",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%2813%29.pdf",
+                  },
+                  {
+                    "text":"套磁14",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%2814%29.pdf",
+                  },
+                  {
+                    "text":"套磁15",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%2815%29.pdf",
+                  },
+                ]
+              },
+              {
+                "campus":"美国的",
+                "children":[
+                  {
+                    "text":"套磁16",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%2816%29.pdf",
+                  },
+                  {
+                    "text":"套磁17",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%2817%29.pdf",
+                  },
+                  {
+                    "text":"套磁18",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%2818%29.pdf",
+                  },
+                ]
+              },
+              {
+                "campus":"美国的",
+                "children":[
+                  {
+                    "text":"套磁19",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%2819%29.pdf",
+                  },
+                  {
+                    "text":"套磁20",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%2820%29.pdf",
+                  },
+                  {
+                    "text":"套磁21",
+                    "url":"http://7xnt3p.com1.z0.glb.clouddn.com/taocixin/%E5%A5%97%E7%A3%81%20%2821%29.pdf",
+                  },
+                ]
+              },
+
+            ]
+          },
 
           ],
         num: 1
@@ -336,16 +600,23 @@
           width:100%;height:100%;
           list-style: none;
           border-right:2px solid #368cf8;
-          text-align: center;
-          vertical-align: middle;
+          display: flex;
+          flex-direction: column;
 
           li{
             width:100%;
-            height:50%;
+            height:25%;
             vertical-align: middle;
-            line-height:200px;
-            &:first-child{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:nth-child(2), &:nth-child(3){
               border-bottom:2px solid #368cf8;
+              border-top:2px solid #368cf8;
+            }
+            &:nth-child(3){
+              border-top: 0;
             }
             a{
               font-size:16px;
@@ -373,6 +644,7 @@
               line-height: 50px;
               border-bottom:1px solid #2f7bda;
               margin-bottom: 10px;
+              overflow: scroll;
               div{
                 font-size:14px;
                 margin-bottom:10px;

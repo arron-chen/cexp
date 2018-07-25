@@ -6,6 +6,9 @@ import router from './router'
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
 
+import vuePicturePreview from 'vue-picture-preview'
+Vue.use(vuePicturePreview)
+
 
 import axios from 'axios';
 Vue.prototype.$http = axios

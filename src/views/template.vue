@@ -36,7 +36,7 @@
   export default {
     data(){
       return {
-        pdfurls:'http://p9zd0n0di.bkt.clouddn.com/template/%E7%95%99%E5%AD%A6%E6%8E%A8%E8%8D%90%E4%BF%A1%E8%8C%83%E6%96%87%EF%BC%9A%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E4%B8%93%E4%B8%9A.pdf',
+        pdfurls:'http://p9zd0n0di.bkt.clouddn.com/template/%E7%95%99%E5%AD%A6%E6%96%87%E4%B9%A6%E4%B8%AA%E4%BA%BA%E9%99%88%E8%BF%B0%E8%8C%83%E6%96%87%EF%BC%9A%E5%8E%86%E5%8F%B2%E5%AD%A6.pdf',
         isshowpdf:true,
         contentIndex:1,
         tabs: ["申请文书", "简历模板","推荐信","套磁信"],
@@ -536,7 +536,7 @@
           },
 
           ],
-        num: 1
+        num: 0
       }
     },
     components: {

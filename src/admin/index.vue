@@ -4,24 +4,6 @@
       <Header>
         <Menu mode="horizontal" theme="dark" active-name="1">
           <div class="layout-logo">天行者后台管理</div>
-          <!--  <div class="layout-nav">
-              <MenuItem name="1">
-                <Icon type="ios-navigate"></Icon>
-                Item 1
-              </MenuItem>
-              <MenuItem name="2">
-                <Icon type="ios-keypad"></Icon>
-                Item 2
-              </MenuItem>
-              <MenuItem name="3">
-                <Icon type="ios-analytics"></Icon>
-                Item 3
-              </MenuItem>
-              <MenuItem name="4">
-                <Icon type="ios-paper"></Icon>
-                Item 4
-              </MenuItem>
-            </div>-->
         </Menu>
       </Header>
       <Layout>
@@ -63,6 +45,8 @@
           <Content v-show='itemShow == "2-1"' :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
             列表22
           </Content>
+
+
           <Modal v-model="modal" width="420"
                  class-name="vertical-center-modal"
                  :closable="false">
@@ -363,6 +347,7 @@
 
       },
       getUserInfo(info) {
+        console.log(info.row.userid)
         this.currentId = info.row.userid;
         this.getUserinfoList(info.row.userid)
         this.modal2 = true;
@@ -370,8 +355,7 @@
       getUserList() {
         this.$http.get("http://112.74.25.26/user/list").then(
           (res) => {
-            console.log('res');debugger;
-
+            console.log('res');
             this.data1 = res.data.userList;
           }
         ).catch((err) => {
@@ -380,17 +364,14 @@
       addUserInfo() {
         this.modal3 = true;
       },
-      confirmAddRes() {
+      confirmAddRes(params) {
         let a = document.cookie;
         var param = {
-          "userid": "",
+          "userid": this.currentId,
           "title": this.userinfoTitle,
           "url": this.userinfoUrl
         };
-        if (a && a != "") {
-          let b = a.split(',')[0];
-          param.userid = b.split('=')[1];
-        }
+        console.log(this.currentId);
         this.$Modal.confirm({
           title: '消息提示',
           content: '<p>是否确认添加当前资源</p>',
@@ -430,7 +411,7 @@
           onOk: () => {
             this.$http.delete("http://112.74.25.26/user/infoList", {params: param}).then((res) => {
                 console.log(res);
-              this.$Message.info('删除成功');
+                this.$Message.info('删除成功');
                 this.modal2 = false;
               }
             ).catch((err) => {

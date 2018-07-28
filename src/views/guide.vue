@@ -68,7 +68,7 @@
             </div>
             <div> <Radio  v-model="single2">我已经阅读并同意<a>体验中心用户使用协议</a></Radio></div>
             <!--<div class="other_login_tit"><div><i>社交账号登录</i></div></div>-->
-            <div  class="forgetPass"><a @click="forgetPass"> 忘记密码</a></div>
+            <!--<div  class="forgetPass"><a @click="forgetPass"> 忘记密码</a></div>-->
           </div>
         </div>
         <div slot="footer"></div>

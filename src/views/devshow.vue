@@ -1,46 +1,87 @@
 <template>
   <div class="showWrap">
-    <count></count>
-    <img v-for="(img,index) in imgurl"
-         v-preview="img.url"
-         :src="img.url"
-         :key="index"
-         preview-title-enable="true"
-         preview-nav-enable="true">
-    <div class="btn_back"><a @click="back">返回</a></div>
+    <div class="showcont">
+      <count></count>
+      <div class="showcont-title">作品集</div>
+      <ul class="cont-list" ref="images">
+        <li v-for="item in imgurl"><img :src="item.url"></li>
+      </ul>
+      <div class="btn_back"><a @click="back">返回</a></div>
+    </div>
+
   </div>
 
 </template>
 <script>
-  import imageCont from '@/components/imageCont';
   import count from '../components/count';
+  import Viewer from 'viewerjs';
+  import 'viewerjs/dist/viewer.css';
   export default {
     data(){
       return{
         imglist:{},
         imgurl:[],
+        pictureList: []
       }
     },
-    components:{imageCont,count},
+    components:{count},
     methods:{
       back(){
         history.go(-1);
+      },
+      getImg(){
+        var el = this.$refs.images;
+        var viewer = new Viewer(el, {
+          // 相关配置项,详情参考官网
+          show:{immediate:true}
+        });
       }
     },
+    created(){
+      let b = JSON.parse(this.$route.query.children);
+      this.imgurl= b;
+    },
     mounted(){
-      let res = this.$route.query;
-      for(let i in res){
-        this.imgurl.push({"url":res[i]});
-      }
-     //this.imglist=this.$route.query;
+      //console.log(this.imgurl)
+      //console.log(this.imgurl)
+      this.getImg();
     }
   }
 </script>
 <style lang="less">
   .showWrap{
-    width:100%;height:100%;
+    position: absolute;
+    top:0;bottom:0;left:0;right:0;
+    background: #f2f2f2;
+    .showcont{
+      width:800px;
+      position: relative;
+      height:100%;
+      top:0;bottom:0;
+      background-color: #fff;
+      margin: 0 auto;
+      text-align: center;
+      .showcont-title{
+        padding: 50px 0 30px;
+        border-bottom-style: dotted;
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .cont-list{
+        list-style: none;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-pack: center;
+        justify-content: center;
+        padding: 40px 120px;
+        li{
+          cursor:pointer;
+        }
+      }
+    }
     img{
-      width:100%;height:100%;
+      width:100px;height:100px;
     }
     .btn_back{
       z-index: 10;

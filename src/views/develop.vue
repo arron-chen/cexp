@@ -12,7 +12,15 @@
           <div class="devcont_r_l">
             <ul v-show="num1 == 0">
               <li v-for="(item,index) in content0" @click="handleClickTo(item.children)">
-                <div class="item_img"><img :src="item.imgSrc"></div>
+                <div class="item_img">
+                  <img :src="item.imgSrc">
+                  <!--<img v-for="(img,ind) in item.children"-->
+                       <!--v-preview="img.url"-->
+                       <!--:src="img.url"-->
+                       <!--:key="ind"-->
+                       <!--preview-title-enable="true"-->
+                       <!--preview-nav-enable="true">-->
+                </div>
                 <div class="item_text">
                   <h3>{{item.name}}</h3>
                   <p>录取院校:{{item.school}}<br>专业:{{item.major}}</p></div>
@@ -99,6 +107,8 @@
 </template>
 <script>
   import count from '../components/count';
+  import Viewer from 'viewerjs';
+  import 'viewerjs/dist/viewer.css';
   export default {
     data () {
       return {
@@ -124,13 +134,13 @@
             "name":"F同学",
             "school":"科廷大学",
             "major":"插画",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img119.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img123.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img129.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img144.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img147.jpg",
-            ]
+            "children": [
+              {"url": "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img119.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img123.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img129.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img144.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img147.jpg"},
+    ]
           },
           {
             "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img108.jpg",
@@ -138,11 +148,11 @@
             "school":"澳大利亚国立大学",
             "major":"插画",
             "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img108.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img110.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img116.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img160.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img87.jpg",
+              {"url": "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img108.jpg"},
+              {"url": "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img110.jpg"},
+              {"url": "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img116.jpg"},
+              {"url": "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img160.jpg"},
+              {"url": "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img87.jpg"},
             ]
           },
           {
@@ -151,11 +161,11 @@
             "school":"奥克兰大学",
             "major":"插画",
             "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img218.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img235.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img238.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img240.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img247.jpg",
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img218.jpg"},
+              {"url": "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img235.jpg"},
+              {"url": "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img238.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img240.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img247.jpg"},
             ]
           },
           {
@@ -164,11 +174,11 @@
             "school":"阿德莱德大学",
             "major":"插画",
             "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img153.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img175.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img190.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img194.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img196.jpg",
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img153.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img175.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img190.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img194.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img196.jpg"},
             ]
           },
           {
@@ -177,11 +187,11 @@
             "school":"堪培拉大学",
             "major":"插画",
             "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img162.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img173.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img208.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img211.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img212.jpg",
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img162.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img173.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img208.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img211.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img212.jpg"},
             ]
           },
           {
@@ -190,11 +200,11 @@
             "school":"南澳大学",
             "major":"插画",
             "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img156.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img181.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img184.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img187.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img243.jpg",
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img156.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img181.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img184.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img187.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img243.jpg"},
             ]
           },
         ],
@@ -205,10 +215,10 @@
             "school":"科尔丁设计学院",
             "major":"服装设计",
             "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/c/img111.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/c/img113.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/c/img116.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/c/img118.jpg",
+              {"url": "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/c/img111.jpg"},
+              {"url":   "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/c/img113.jpg"},
+              {"url":   "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/c/img116.jpg"},
+              {"url":  "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/c/img118.jpg"},
             ]
           },
           {
@@ -217,11 +227,11 @@
             "school":"蒙特利尔大学",
             "major":"服装设计",
             "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/n/img40.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/n/img42.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/n/img45.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/n/img48.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/n/img50.jpg",
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/n/img40.jpg"},
+              {"url":  "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/n/img42.jpg"},
+              {"url":  "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/n/img45.jpg"},
+              {"url": "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/n/img48.jpg"},
+              {"url": "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/n/img50.jpg"},
             ]
           },
           {
@@ -230,12 +240,12 @@
             "school":"爱丁堡艺术学院",
             "major":"服装设计",
             "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/q/img85.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/q/img88.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/q/img90.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/q/img95.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/q/img90.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/q/img93.jpg"
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/q/img85.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/q/img88.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/q/img90.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/q/img95.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/q/img90.jpg"},
+              {"url":"http://p}zd0n0di.bkt.clouddn.com/develop/cloths/q/img93.jpg"}
             ]
           },
           {
@@ -244,11 +254,11 @@
             "school":"约克大学",
             "major":"服装设计",
             "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/w/img98.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/w/img100.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/w/img103.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/w/img105.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/w/img108.jpg",
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/w/img98.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/w/img100.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/w/img103.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/w/img105.jpg"},
+              {"url": "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/w/img108.jpg"},
             ]
           },
           {
@@ -257,12 +267,12 @@
             "school":"维也纳应用艺术学院",
             "major":"服装设计",
             "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/s/img53.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/s/img55.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/s/img58.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/s/img61.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/s/img64.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/s/img66.jpg"
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/s/img53.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/s/img55.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/s/img58.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/s/img61.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/s/img64.jpg"},
+              {"url":"http://p}zd0n0di.bkt.clouddn.com/develop/cloths/s/img66.jpg"}
             ]
           },
           {
@@ -271,11 +281,11 @@
             "school":"兰考斯特大学",
             "major":"服装设计",
             "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/z/img469jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/z/img72.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/z/img75.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/z/img77.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/z/img83.jpg",
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/z/img469jpg"},
+              {"url": "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/z/img72.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/cloths/z/img75.jpg"},
+              {"url": "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/z/img77.jpg"},
+              {"url": "http://p9zd0n0di.bkt.clouddn.com/develop/cloths/z/img83.jpg"},
             ]
           },
         ],
@@ -285,12 +295,12 @@
             "name":"H同学",
             "school":"宾夕法尼亚大学",
             "major":"平面设计",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/h/img158.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/h/img160.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/h/img171.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/h/img184.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/h/img195.jpg",
+            "children": [
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/h/img158.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/h/img160.jpg"},
+              {"url": "http://p9zd0n0di.bkt.clouddn.com/develop/plane/h/img171.jpg"},
+              {"url": "http://p9zd0n0di.bkt.clouddn.com/develop/plane/h/img184.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/h/img195.jpg"},
             ]
           },
           {
@@ -298,12 +308,12 @@
             "name":"L同学",
             "school":"杜克大学",
             "major":"平面设计",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/l/img103.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/l/img109.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/l/img111.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/l/img113.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/l/img293.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/l/img103.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/l/img109.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/l/img111.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/l/img113.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/l/img293.jpg"},
             ]
           },
           {
@@ -311,12 +321,12 @@
             "name":"L同学",
             "school":"康耐尔大学",
             "major":"平面设计",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/l/img335.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/l/img346.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/l/img377.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/l/img391.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/l/img91.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/l/img335.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/l/img346.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/l/img377.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/l/img391.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/l/img91.jpg"},
             ]
           },
           {
@@ -324,12 +334,12 @@
             "name":"X同学",
             "school":"多伦多大学",
             "major":"平面设计",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/x/img472.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/x/img482.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/x/img491.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/x/img495.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/x/img505.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/x/img472.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/x/img482.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/x/img491.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/x/img495.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/x/img505.jpg"},
             ]
           },
           {
@@ -337,12 +347,12 @@
             "name":"Y同学",
             "school":"学-萨凡纳艺术与设计学院",
             "major":"平面设计",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/y/img129.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/y/img135.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/y/img147.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/y/img151.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/y/img155.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/y/img129.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/y/img135.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/y/img147.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/y/img151.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/y/img155.jpg"},
             ]
           },
 
@@ -351,12 +361,12 @@
             "name":"Z同学",
             "school":"耶鲁大学",
             "major":"平面设计",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/z/img70.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/z/img72.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/z/img74.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/z/img76.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/plane/z/img79.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/z/img70.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/z/img72.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/z/img74.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/z/img76.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/plane/z/img79.jpg"},
             ]
           },
 
@@ -367,12 +377,12 @@
             "name":"C同学",
             "school":"包斯豪大学",
             "major":"工业设计",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/c/img177.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/c/img181.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/c/img188.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/c/img190.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/c/img192.jpg",
+            "children": [
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/c/img177.jpg"},
+              {"url": "http://p9zd0n0di.bkt.clouddn.com/develop/industry/c/img181.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/c/img188.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/c/img190.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/c/img192.jpg"},
             ]
           },
           {
@@ -380,12 +390,12 @@
             "name":"D同学",
             "school":"巴黎国家高等工业设计学院",
             "major":"工业设计",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/d/img100.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/d/img103.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/d/img109.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/d/img153.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/d/img97.jpg",
+            "children": [
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/d/img100.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/d/img103.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/d/img109.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/d/img153.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/d/img97.jp}g"},
             ]
           },
           {
@@ -393,12 +403,12 @@
             "name":"F同学",
             "school":"瑞典皇家美术学院",
             "major":"工业设计",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/f/img414.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/f/img415.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/f/img426.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/f/img439.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/f/img440.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/f/img414.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/f/img415.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/f/img426.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/f/img439.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/f/img440.jpg"},
             ]
           },
           {
@@ -406,12 +416,12 @@
             "name":"Q同学",
             "school":"都灵理工学院",
             "major":"工业设计",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/q/img239.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/q/img241.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/q/img262.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/q/img268.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/q/img319.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/q/img239.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/q/img241.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/q/img262.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/q/img268.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/q/img319.jpg"},
             ]
           },
           {
@@ -419,12 +429,12 @@
             "name":"W同学",
             "school":"罗马第一大学",
             "major":"工业设计",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/w/img348.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/w/img352.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/w/img354.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/w/img355.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/w/img356.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/w/img348.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/w/img352.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/w/img354.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/w/img355.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/w/img356.jpg"},
             ]
           },
           {
@@ -432,12 +442,12 @@
             "name":"X同学",
             "school":"巴萨罗纳大学",
             "major":"工业设计",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/x/img385.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/x/img387.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/x/img389.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/x/img391.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/industry/x/img393.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/x/img385.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/x/img387.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/x/img389.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/x/img391.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/industry/x/img393.jpg"},
             ]
           },
         ],
@@ -447,25 +457,25 @@
             "name":"C同学",
             "school":"皇家墨尔本大学",
             "major":"建筑设计",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/cEL%20CAMINO%20DEL%20VINO.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/cENTRELAZAMIENTOS.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/cENTRELAZAMIENTOS.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/cEUtopia%20Ankara.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/cExperimental%20Explosion.jpg",
-            ]
+            "children": [
+          {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/cEL%20CAMINO%20DEL%20VINO.jpg"},
+              {"url": "http://p9zd0n0di.bkt.clouddn.com/develop/build/cENTRELAZAMIENTOS.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/cENTRELAZAMIENTOS.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/cEUtopia%20Ankara.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/cExperimental%20Explosion.jpg"},
+                ]
           },
           {
             "imgSrc":"http://p9zd0n0di.bkt.clouddn.com/develop/build/dfichero-11461_11461.jpg",
             "name":"D同学",
             "school":"悉尼科技大学",
             "major":"建筑设计",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/dfichero-11461_11461.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/dfichero-12142_12142.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/dfichero-18501_18501.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/dfile-44771_44771.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/dflesh_tanbul.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/dfichero-11461_11461.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/dfichero-12142_12142.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/dfichero-18501_18501.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/dfile-44771_44771.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/dflesh_tanbul.jpg"},
             ]
           },
           {
@@ -473,12 +483,12 @@
             "name":"F同学",
             "school":"瑞典国立艺术设计学院",
             "major":"建筑设计",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/fARTISTIC%20AGORA.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/fArquitectura%20de%20la%20lluvia%252C%20Galer%C3%ADa%20multiprogram%C3%A1tica2.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/fBeirut%20Data%20Platform%20-%20The%20New%20Library%20in%20Dialogue%20with%20the%20City.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/fBotany%20and%20Gardening%20Center%20at%20Montjuic%20mountain.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/fBrotebruto.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/fARTISTIC%20AGORA.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/fArquitectura%20de%20la%20lluvia%252C%20Galer%C3%ADa%20multiprogram%C3%A1tica2.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/fBeirut%20Dat}a%20Platform%20-%20The%20New%20Library%20in%20Dialogue%20with%20the%20City.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/fBotany%20and}%20Gardening%20Center%20at%20Montjuic%20mountain.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/fBrotebruto.jpg"},
             ]
           },
           {
@@ -486,12 +496,12 @@
             "name":"L同学",
             "school":"昆士兰科技大学",
             "major":"建筑设计",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/lCIAC_integreated%20center%20for%20cultural%20action.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/lCURATIVE%20PARASITE%20_%20Urban%20Experiments.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/lChoreographed%20Venetian%20Epic.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/lDESERT%20AIR%20WELL.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/ldepth-of-line_11755.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/lCIAC_integreated%20center%20for%20cultural%20action.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/lCURATIVE%20PARASITE%20_%20Urban%20Experiments.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/lChoreographed%20Venetian%20Epic.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/lDESERT%20AIR%20WELL.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/ldepth-of-line_11755.jpg"},
             ]
           },
           {
@@ -499,12 +509,12 @@
             "name":"W同学",
             "school":"莫纳什大学",
             "major":"建筑设计",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/wfichero-11556_11556.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/wfichero-11617_11617.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/wfichero-11671_11671.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/wfichero-11698_11698.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/wfichero-11707_11707.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/wfichero-1155}6_11556.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/wfichero-1161}7_11617.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/wfichero-1167}1_11671.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/wfichero-1169}8_11698.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/wfichero-1170}7_11707.jpg"},
             ]
           },
           {
@@ -512,12 +522,12 @@
             "name":"X同学",
             "school":"苏黎世造型与艺术学院",
             "major":"建筑设计",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/xCENTER%20FOR%20MARINE%20RESEARCH%20AND%20DIFFUSION%20-%20PERU.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/xCENTRO%20DE%20ARTE,%20CULTURA%20E%20IDENTIDAD%20WAYUU,%20LUIS%20ALBERTO%20MEN%C3%89NDEZ%20S%C3%81NCHEZ..jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/xCarlos%20A.%20Bolanos%20A..jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/xCentro%20Enol%C2%A2gico%20en%20La%20Portera.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/build/xbuilt_earth.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/xCENTER%20FOR%20MARINE%20RESEARCH%20AND%20DIFFUSION%20-%20PERU.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/xCENTRO%20DE%20ARTE,%20CULTURA%20E%20IDENTIDAD%20WAYUU,%20LUIS%20ALBERTO%20MEN%C3%89NDEZ%20S%C3%81NCHEZ..jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/xCarlos%20A.%20Bolanos%20A..jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/xCentro%20Enol%C2%A2gico%20en%20La%20Portera.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/build/xbuilt_earth.jpg"},
             ]
           },
         ],
@@ -527,12 +537,12 @@
             "name":"F同学",
             "school":"科廷大学",
             "major":"插画",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img119.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img123.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img129.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img144.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img147.jpg",
+            "children": [
+          {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img119.jpg"},
+              {"url": "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img123.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img129.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img144.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/f/img147.jpg"},
             ]
           },
           {
@@ -540,12 +550,12 @@
             "name":"L同学",
             "school":"澳大利亚国立大学",
             "major":"插画",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img108.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img110.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img116.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img160.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img87.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img108.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img110.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img116.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img160.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/l/img87.jpg"},
             ]
           },
           {
@@ -553,12 +563,12 @@
             "name":"S同学",
             "school":"奥克兰大学",
             "major":"插画",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img218.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img235.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img238.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img240.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img247.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img218.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img235.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img238.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img240.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/s/img247.jpg"},
             ]
           },
           {
@@ -566,12 +576,12 @@
             "name":"W同学",
             "school":"阿德莱德大学",
             "major":"插画",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img153.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img175.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img190.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img194.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img196.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img153.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img175.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img190.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img194.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/w/img196.jpg"},
             ]
           },
           {
@@ -579,12 +589,12 @@
             "name":"Y同学",
             "school":"堪培拉大学",
             "major":"插画",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img162.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img173.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img208.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img211.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img212.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img162.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img173.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img208.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img211.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/y/img212.jpg"},
             ]
           },
           {
@@ -592,12 +602,12 @@
             "name":"Z同学",
             "school":"南澳大学",
             "major":"插画",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img156.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img181.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img184.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img187.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img243.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img156.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img181.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img184.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img187.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/chahua/z/img243.jpg"},
             ]
           },
         ],
@@ -607,12 +617,12 @@
             "name":"C同学",
             "school":"普瑞特艺术学院",
             "major":"纯艺术",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/c/img139.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/c/img145.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/c/img148.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/c/img151.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/c/img158.jpg",
+            "children": [
+          {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/c/img139.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/c/img145.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/c/img148.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/c/img151.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/c/img158.jpg"},
             ]
           },
           {
@@ -620,12 +630,12 @@
             "name":"H同学",
             "school":"斯坦福大学",
             "major":"纯艺术",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/h/img192.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/h/img195.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/h/img198.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/h/img200.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/h/img203.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/h/img192.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/h/img195.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/h/img198.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/h/img200.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/h/img203.jpg"},
             ]
           },
           {
@@ -633,12 +643,12 @@
             "name":"W同学",
             "school":"麻省理工学院",
             "major":"纯艺术",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/w/img100.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/w/img102.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/w/img104.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/w/img91.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/w/img94.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/w/img100.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/w/img102.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/w/img104.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/w/img91.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/w/img94.jpg"},
             ]
           },
           {
@@ -646,12 +656,12 @@
             "name":"X同学",
             "school":"帕森设计学院",
             "major":"纯艺术",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/x/img53.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/x/img71.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/x/img74.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/x/img84.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/x/img86.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/x/img53.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/x/img71.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/x/img74.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/x/img84.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/x/img86.jpg"},
             ]
           },
           {
@@ -659,12 +669,12 @@
             "name":"Y同学",
             "school":"米兰理工大学",
             "major":"纯艺术",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/y/img164.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/y/img167.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/y/img170.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/y/img173.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/y/img179.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/y/img164.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/y/img167.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/y/img170.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/y/img173.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/y/img179.jpg"},
             ]
           },
           {
@@ -672,12 +682,12 @@
             "name":"Z同学",
             "school":"加州艺术学院",
             "major":"纯艺术",
-            "children":[
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/z/img106.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/z/img107.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/z/img110.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/z/img117.jpg",
-              "http://p9zd0n0di.bkt.clouddn.com/develop/yishu/z/img123.jpg",
+            "children": [
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/z/img106.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/z/img107.jpg"},
+            {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/z/img110.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/z/img117.jpg"},
+              {"url":"http://p9zd0n0di.bkt.clouddn.com/develop/yishu/z/img123.jpg"},
             ]
           },
         ],
@@ -726,9 +736,10 @@
         this.num1=index;
       },
       handleClickTo(children){
+       let a =  JSON.stringify(children);
         this.$router.push({
           path:'/devshow',
-          query:children
+          query:{"children":a}
         })
       },
       handleClickToVideo(children){
@@ -789,8 +800,9 @@
           line-height: 50px;
           background-color: #b3b3b3;
           color:#000;
-          text-align: center;
+          text-align:center;
           cursor: pointer;
+          font-size:18px;
 
         }
         .active{
@@ -822,6 +834,7 @@
             .item_img{
               width:100%;
               height:60%;
+              overflow: hidden;
               img{width:100%;height:100%;}
             }
             .item_text{

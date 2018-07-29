@@ -1,12 +1,13 @@
 <template>
     <div class="countWrap">
-      <timec v-on:rescall="rescall" :endTime="endTime" :endText="endText" :callback="callback"></timec>
+      <timec  :endTime="time" :endText="endText" ></timec>
       <popc :isShow="isShow"></popc>
     </div>
 </template>
 <script>
   import timec from '../components/countDown.vue';
   import popc from '../components/pop.vue';
+  import {mapState,mapGetters} from 'vuex';
   export default {
     name:'count',
     data() {
@@ -17,12 +18,16 @@
       }
     },
     components:{timec,popc},
-    mounted(){
+    created(){
         this.$store.dispatch('gettime');
-        this.timmer = setInterval(()=>{
-          this.$store.commit('countdown');
-          this.$store.dispatch('settime');
-        },60000)
+        this.$nextTick(() => {
+          this.timmer = setInterval(()=>{
+            this.$store.dispatch('settime');
+          },60000)
+        })
+    },
+    updated(){
+      //clearInterval(this.timmer);
     },
     destory(){
       clearInterval(this.timmer);
@@ -33,13 +38,15 @@
       }
     },
     computed:{
-      endTime(){
+    /*  endTime(){
         let timestamp;
         let count = this.$store.state.countime;
         console.log("endTime -- "+ count);
         timestamp = new Date().getTime() + count *60*1000;
         return timestamp;
-      }
+      },*/
+      ...mapState(['countime']),
+      ...mapGetters(['time']),
     },
     methods:{
       callback(){

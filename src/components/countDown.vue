@@ -1,5 +1,5 @@
 <template>
-  <span  :endTime="endTime" :callback="callback" :endText="endText">
+  <span  :endTime="endTime"  :endText="endText">
     <slot>
       {{content}}
     </slot>
@@ -18,13 +18,14 @@
         type : String,
         default:'体验时间结束'
       },
-      endTime:{
+     endTime:{
         type:Number,
         default:0
       },
-      callback : {
-        type : Function,
-      },
+      /*
+     callback : {
+       type : Function,
+     },*/
     },
     watch:{
       endTime(val){
@@ -32,12 +33,15 @@
       }
     },
     mounted () {
-      //this.countdown(this.endTime)
+      this.countdown(this.endTime)
+    },
+    updated(){
+      this.countdown(this.endTime)
     },
     methods: {
       countdown(timestamp){
         let self = this;
-        let timer = setInterval(function(){
+        let timer11 = setInterval(function(){
           let nowTime = new Date();
           let endTime = new Date(timestamp);
           let t = endTime.getTime() - nowTime.getTime();
@@ -60,9 +64,9 @@
               format =`${min}分${sec}秒`;
             }
             self.content = format;
-            self.$emit('rescall');
+            /*self.$emit('rescall');*/
           }else{
-            clearInterval(timer);
+            clearInterval(timer11);
             self.content = self.endText;
             self._callback();
           }

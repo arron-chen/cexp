@@ -1,6 +1,6 @@
 <template>
     <div class="countWrap">
-      <timec  :endTime="time" :endText="endText" ></timec>
+      <timec :callback="callback" v-on:rescall="rescall" :endTime="time" :endText="endText" ></timec>
       <popc :isShow="isShow"></popc>
     </div>
 </template>
@@ -14,7 +14,7 @@
       return {
         isShow:false,
         timmer:'',
-        endText:'活动已经结束',
+        endText:'体验时间结束',
       }
     },
     components:{timec,popc},
@@ -50,7 +50,7 @@
     },
     methods:{
       callback(){
-        console.log("倒计时回调");
+        //console.log("倒计时回调");
         this.isShow= true;
       },
       rescall(){

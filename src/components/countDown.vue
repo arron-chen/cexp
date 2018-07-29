@@ -1,5 +1,5 @@
 <template>
-  <span  :endTime="endTime"  :endText="endText">
+  <span  :endTime="endTime" :callback="callback"  :endText="endText">
     <slot>
       {{content}}
     </slot>
@@ -22,10 +22,9 @@
         type:Number,
         default:0
       },
-      /*
      callback : {
        type : Function,
-     },*/
+     },
     },
     watch:{
       endTime(val){
@@ -64,7 +63,7 @@
               format =`${min}分${sec}秒`;
             }
             self.content = format;
-            /*self.$emit('rescall');*/
+            self.$emit('rescall');
           }else{
             clearInterval(timer11);
             self.content = self.endText;

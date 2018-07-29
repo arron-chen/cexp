@@ -62,11 +62,16 @@ export default new Vuex.Store({
       var param = {
         "userid": b,
       };
-      axios.get('http://112.74.25.26/user/timeout', {params: param}).then((res) => {
-        context.commit('settime', parseInt(res.data.msg));
-      }).catch((err) => {
-        console.log(err);
-      });
+      try{
+        axios.get('http://112.74.25.26/user/timeout', {params: param}).then((res) => {
+          context.commit('settime', parseInt(res.data.msg));
+        }).catch((err) => {
+          console.log(err);
+        });
+      }catch (e) {
+        console.log("获取时间出错"+e)
+      }
+
     },
     settime(context) {
       let a = document.cookie.split(',')[0];
@@ -81,11 +86,16 @@ export default new Vuex.Store({
         "userid": b,
         "time": context.state.countime
       };
-      axios.put('http://112.74.25.26/user/timeout', param).then((res) => {
-        console.log(res);
-      }).catch((err) => {
-        console.log(err);
-      });
+      try{
+        axios.put('http://112.74.25.26/user/timeout', param).then((res) => {
+          console.log(res);
+        }).catch((err) => {
+          console.log(err);
+        });
+      }catch (e) {
+        console.log("减少时间出错"+e)
+      }
+
     }
 
   },

@@ -32,7 +32,7 @@
 <style lang="less">
   .resultwrap{
     width:100%;height:100%;
-    background: url("http://p9zd0n0di.bkt.clouddn.com/test/result_bg.png")no-repeat center center;
+    background: url("http://media.tianxingzhe.vip/test/result_bg.png")no-repeat center center;
     background-size: 100% 100%;
     padding:10% 10% 6% 10%;
     .btn_back{
@@ -75,7 +75,7 @@
       img{
         width:100%;height:100%;
       }
-      /*background: url("http://p9zd0n0di.bkt.clouddn.com/test/echart1.png") no-repeat center center;
+      /*background: url("http://media.tianxingzhe.vip/test/echart1.png") no-repeat center center;
       background-size: 100% 100%;*/
     }
   }

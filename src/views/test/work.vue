@@ -1,7 +1,7 @@
 <template>
   <div class="testworkwrap">
     <count></count>
-    <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/test/backto.png" @click="backto"></div>
+    <div class="backto"><img src="http://media.tianxingzhe.vip/test/backto.png" @click="backto"></div>
     <div class="navwrap">
       <ul>
         <router-link to="/test/campus" tag="li">MACL测试</router-link>
@@ -207,10 +207,10 @@
       },
       handleSubmit(){
         let  imglist=[
-          "http://p9zd0n0di.bkt.clouddn.com/test/%E5%86%85-18.png",
-          "http://p9zd0n0di.bkt.clouddn.com/test/%E5%86%85-19.png",
-          "http://p9zd0n0di.bkt.clouddn.com/test/%E5%86%85-21.png",
-          "http://p9zd0n0di.bkt.clouddn.com/test/%E5%86%85-22.png"
+          "http://media.tianxingzhe.vip/test/%E5%86%85-18.png",
+          "http://media.tianxingzhe.vip/test/%E5%86%85-19.png",
+          "http://media.tianxingzhe.vip/test/%E5%86%85-21.png",
+          "http://media.tianxingzhe.vip/test/%E5%86%85-22.png"
         ]
         let a= document.cookie;
         var param={"userId":"","userForm":{}};
@@ -236,7 +236,7 @@
   .testworkwrap{
     width:100%;
     height:100%;
-    background: url('http://p9zd0n0di.bkt.clouddn.com/test/test_bg.jpg') no-repeat center center;
+    background: url('http://media.tianxingzhe.vip/test/test_bg.jpg') no-repeat center center;
     background-size: 100% 100%;
     position:relative;
     .backto{

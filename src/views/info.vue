@@ -1,7 +1,7 @@
 <template>
   <div class="infowrap">
     <count></count>
-    <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/video/backto.png" @click="backto"></div>
+    <div class="backto"><img src="http://media.tianxingzhe.vip/video/backto.png" @click="backto"></div>
     <Modal v-model="modal" width="90%"
            class-name="vertical-center-modal"
            :closable="false">
@@ -10,14 +10,14 @@
     <div class="videoBox">
       <div class="cvideocont_l">
         <ul class="r_list">
-          <li class="r_list_li" v-for="(item,index) in resultList1"><img src="http://p9zd0n0di.bkt.clouddn.com/network/word.png"><h3 >{{item.title}}</h3></li>
+          <li class="r_list_li" v-for="(item,index) in resultList1"><img src="http://media.tianxingzhe.vip/network/word.png"><h3 >{{item.title}}</h3></li>
 
-          <li v-for="(item,index) in resultList"><img src="http://p9zd0n0di.bkt.clouddn.com/network/word.png" @click="showItem(item)"><h3 >{{item.title}}</h3></li>
+          <li v-for="(item,index) in resultList"><img src="http://media.tianxingzhe.vip/network/word.png" @click="showItem(item)"><h3 >{{item.title}}</h3></li>
         </ul>
       </div>
       <div class="cvideocont_r">
         <div>
-          <div><img src="http://p9zd0n0di.bkt.clouddn.com/network/network_icon.png"></div>
+          <div><img src="http://media.tianxingzhe.vip/network/network_icon.png"></div>
           <h4>{{username}}用户</h4>
         </div>
       </div>
@@ -130,7 +130,7 @@
   .infowrap{
     width:100%;
     height:100%;
-    background: url('http://p9zd0n0di.bkt.clouddn.com/network/net_bg.jpg')no-repeat center center;
+    background: url('http://media.tianxingzhe.vip/network/net_bg.jpg')no-repeat center center;
     background-size: 100% 100%;
     min-width: 860px;
     min-height: 650px;

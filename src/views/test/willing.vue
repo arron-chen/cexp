@@ -1,6 +1,6 @@
 <template>
   <div class="testwillwrap">
-    <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/test/backto.png" @click="backto"></div>
+    <div class="backto"><img src="http://media.tianxingzhe.vip/test/backto.png" @click="backto"></div>
     <div class="navwrap">
       <ul>
         <router-link to="/test/campus" tag="li">MACL测试</router-link>
@@ -195,7 +195,7 @@
     width:100%;
     height:100%;
     overflow: auto;
-    /*background: url('http://p9zd0n0di.bkt.clouddn.com/test/test_bg.jpg') no-repeat center center;*/
+    /*background: url('http://media.tianxingzhe.vip/test/test_bg.jpg') no-repeat center center;*/
     background: #fff;
     background-size: 100% 100%;
     position:relative;

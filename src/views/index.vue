@@ -4,7 +4,7 @@
       <div class="module_wrap">
         <div class="module module1">
           <div class="module_box">
-            <img src="http://p9zd0n0di.bkt.clouddn.com/module/01.png">
+            <img src="http://media.tianxingzhe.vip/module/01.png">
             <h3>MACL智能评估</h3>
             <div class="box_btn"><router-link  to="/test/campus" tag="a">进入</router-link></div>
           </div>
@@ -12,35 +12,35 @@
         </div>
         <div class="module module2">
           <div class="module_box">
-          <img src="http://p9zd0n0di.bkt.clouddn.com/module/02.png">
+          <img src="http://media.tianxingzhe.vip/module/02.png">
           <h3>360环球名校直播</h3>
             <div class="box_btn"><router-link  to="/video" tag="a">进入</router-link></div>
           </div>
         </div>
         <div class="module module3">
           <div class="module_box">
-          <img src="http://p9zd0n0di.bkt.clouddn.com/module/03.png">
+          <img src="http://media.tianxingzhe.vip/module/03.png">
           <h3>优能线上课堂</h3>
             <div class="box_btn"><router-link  to="/course" tag="a">进入</router-link></div>
           </div>
         </div>
         <div class="module module4">
           <div class="module_box">
-          <img src="http://p9zd0n0di.bkt.clouddn.com/module/04.png">
+          <img src="http://media.tianxingzhe.vip/module/04.png">
           <h3>个人背景突破</h3>
             <div class="box_btn"><router-link  to="/develop" tag="a">进入</router-link></div>
           </div>
         </div>
         <div class="module module5">
           <div class="module_box">
-          <img src="http://p9zd0n0di.bkt.clouddn.com/module/05.png">
+          <img src="http://media.tianxingzhe.vip/module/05.png">
           <h3>留学智能模板</h3>
             <div class="box_btn"><router-link  to="/template" tag="a">进入</router-link></div>
           </div>
         </div>
         <div class="module module6">
           <div class="module_box">
-          <img src="http://p9zd0n0di.bkt.clouddn.com/module/06.png">
+          <img src="http://media.tianxingzhe.vip/module/06.png">
           <h3>SPI留学信息芯片</h3>
             <div class="box_btn"><router-link  to="/info" tag="a">进入</router-link></div>
           </div>

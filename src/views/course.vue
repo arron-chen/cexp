@@ -1,7 +1,7 @@
 <template>
   <div class="coursewrap">
     <count></count>
-    <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/test/backto.png" @click="backto"></div>
+    <div class="backto"><img src="http://media.tianxingzhe.vip/test/backto.png" @click="backto"></div>
     <div class="videoBox">
       <div class="cvideocont_l">
         <video :src="viedoSrc" controls="controls" autoplay>
@@ -23,8 +23,8 @@
   export default {
     data(){
       return{
-        viedoSrc:"http://7xnt3p.com1.z0.glb.clouddn.com/%E5%A4%A9%E8%A1%8C%E8%80%85%E7%95%99%E5%AD%A6%E4%BD%93%E9%AA%8C%E4%B8%AD%E5%BF%83_01.mp4",
-        preimages:'http://p9zd0n0di.bkt.clouddn.com/video/playicon.png',
+        viedoSrc:"http://media.tianxingzhe.vip/video/AP.mp4",
+        preimages:'http://media.tianxingzhe.vip/video/playicon.png',
         lists:[
           {"text":"雅思","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%A0%BC%E5%BC%8F%E5%B7%A5%E5%8E%82%E8%8B%B1%E8%AF%AD%E9%9B%85%E6%80%9D.mp4"},
           {"text":"托福","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%A0%BC%E5%BC%8F%E5%B7%A5%E5%8E%82%E8%8B%B1%E8%AF%AD%E6%89%98%E7%A6%8F.mp4"},
@@ -32,9 +32,9 @@
           {"text":"德语","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E5%BE%B7%E8%AF%AD"},
           {"text":"意大利","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%84%8F%E5%A4%A7%E5%88%A9%E8%AF%AD"},
           {"text":"日文","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%97%A5%E8%AF%AD"},
-          {"text":"A P","src":"http://7xnt3p.com1.z0.glb.clouddn.com/AP.mp4"},
-          {"text":"A L","src":"http://7xnt3p.com1.z0.glb.clouddn.com/A_Level.mp4"},
-          {"text":"O L","src":"http://7xnt3p.com1.z0.glb.clouddn.com/O_A%20Level.mp4"},
+          {"text":"A P","src":"http://media.tianxingzhe.vip/video/AP.mp4"},
+          {"text":"A L","src":"http://media.tianxingzhe.vip/video/A_Level.mp4"},
+          {"text":"O L","src":"http://media.tianxingzhe.vip/video/O_A%20Level.mp4"},
 
         ]
 
@@ -63,7 +63,7 @@
   .coursewrap{
     width:100%;
     height:100%;
-    background: url('http://p9zd0n0di.bkt.clouddn.com/nation/nation_bg.jpg')no-repeat center center;
+    background: url('http://media.tianxingzhe.vip/nation/nation_bg.jpg')no-repeat center center;
     background-size: 100% 100%;
     min-width: 860px;
     min-height: 650px;
@@ -91,7 +91,7 @@
         width:66%;
         height:100%;
         border:1px solid #000;margin-right:10px;
-        background:url("http://p9zd0n0di.bkt.clouddn.com/video/playicon.png") no-repeat center center #000;
+        background:url("http://media.tianxingzhe.vip/video/playicon.png") no-repeat center center #000;
         background-size:70px 70px;
         cursor: pointer;
         video{

@@ -69,19 +69,19 @@
       }
       .cont-list{
         list-style: none;
-        display: flex;
-        -ms-flex-direction: column;
-        flex-direction: column;
+
         -ms-flex-pack: center;
         justify-content: center;
         padding: 40px 120px;
+        overflow: scroll;
+        height:600px;
         li{
           cursor:pointer;
         }
       }
     }
     img{
-      width:100px;height:100px;
+      width:200px;height:200px;
     }
     .btn_back{
       z-index: 10;

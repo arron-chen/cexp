@@ -58,7 +58,7 @@
 <style lang="less">
   .pop{
     width:100%;height:420px;
-    background: url("http://p9zd0n0di.bkt.clouddn.com/ahead.png")no-repeat center center;
+    background: url("http://media.tianxingzhe.vip/ahead.png")no-repeat center center;
     background-size: 100% 100%;
     border-radius: 10px;
   }

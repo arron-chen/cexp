@@ -1,7 +1,7 @@
 <template>
   <div class="testwrap">
     <count></count>
-    <div class="backto"><img src="http://p9zd0n0di.bkt.clouddn.com/test/backto.png" @click="backto"></div>
+    <div class="backto"><img src="http://media.tianxingzhe.vip/test/backto.png" @click="backto"></div>
     <div class="navwrap">
       <ul>
         <router-link to="/test/campus" tag="li">MACL测试</router-link>
@@ -208,9 +208,9 @@
       },
       handleSubmit(){
         let  imglist=[
-            "http://p9zd0n0di.bkt.clouddn.com/test/result1.jpg",
-            "http://p9zd0n0di.bkt.clouddn.com/test/result2.jpg",
-            "http://p9zd0n0di.bkt.clouddn.com/test/result3.jpg"
+            "http://media.tianxingzhe.vip/test/result1.jpg",
+            "http://media.tianxingzhe.vip/test/result2.jpg",
+            "http://media.tianxingzhe.vip/test/result3.jpg"
             ]
         let a= document.cookie;
         var param={"userId":"","userForm":{}};
@@ -242,7 +242,7 @@
   .testwrap{
     width:100%;
     height:100%;
-    background: url('http://p9zd0n0di.bkt.clouddn.com/test/test_bg.jpg') no-repeat center center;
+    background: url('http://media.tianxingzhe.vip/test/test_bg.jpg') no-repeat center center;
     background-size: 100% 100%;
     position:relative;
     .backto{

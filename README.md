@@ -1,6 +1,6 @@
-# cexp
+# 天行者留学体验中心系统
 
-> A Vue.js project
+> www.tianxingzhe.vip/#
 
 ## Build Setup
 

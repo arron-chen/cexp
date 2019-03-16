@@ -10,9 +10,9 @@
     <div class="videoBox">
       <div class="cvideocont_l">
         <ul class="r_list">
-          <li class="r_list_li" v-for="(item,index) in resultList1"><img src="http://media.tianxingzhe.vip/network/word.png"><h3 >{{item.title}}</h3></li>
+          <li class="r_list_li" v-for="(item,index) in localData.info.resultList1" :key="index"><img src="http://media.tianxingzhe.vip/network/word.png"><h3 >{{item.title}}</h3></li>
 
-          <li v-for="(item,index) in resultList"><img src="http://media.tianxingzhe.vip/network/word.png" @click="showItem(item)"><h3 >{{item.title}}</h3></li>
+          <li v-for="(item,index) in resultList" :key="index"><img src="http://media.tianxingzhe.vip/network/word.png" @click="showItem(item)"><h3 >{{item.title}}</h3></li>
         </ul>
       </div>
       <div class="cvideocont_r">
@@ -27,25 +27,21 @@
 </template>
 <script>
   import count from '../components/count';
+  import localData from '@/util/localData.js'
   export default {
     data(){
       return {
         resultList:[],
-        resultList1:[
-          {"title":"推荐信"},{"title":"学习计划"},{"title":"个人简历"},{"title":"成绩单"},
-          {"title":"选校报告"},{"title":"语言证明"},{"title":"面试辅导"},{"title":"在读证明"},
-          {"title":"获奖证明"},{"title":"作品集"},{"title":"毕业证书"},{"title":"录取信"},
-          {"title":"签证清单"},{"title":"资金证明"},{"title":"签证信息表"},{"title":"签证方案"},
-          {"title":"工作收入证明"},{"title":"面签辅导"},{"title":"照片"},{"title":"翻译件"},
-          {"title":"不动产证明"},{"title":"护照"},{"title":"户口本"},{"title":"身份证"},
-          {"title":"出国保单"},{"title":"行前辅导"},
-        ],
         username:"",
         resultUrl:"",
-        modal:false
+        modal:false,
+        localData: undefined
       }
     },
     components:{count},
+    created(){
+      this.localData = localData
+    },
     methods:{
       backto(){
         this.$router.push({
@@ -96,24 +92,6 @@
               }
             ).catch((err)=>{
             })
-           /* if(result.infoList && result.infoList !== ""){
-
-              let res = result.infoList.spilt(',')
-              if(res.length > 0){
-                for(var i =0;i<res.length; i++){
-                  this.resultList.push({
-                    "title":res[i].title,
-                    "url":res[i].url
-                  })
-                }
-              }else{
-                this.resultList.push({
-                  "title":result.title,
-                  "url":result.url
-                })
-              }
-
-            }*/
           }
 
         }).catch((err)=>{

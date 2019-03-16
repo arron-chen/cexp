@@ -1,10 +1,8 @@
 <template>
     <div class="guidewrap">
       <div class="login_btn">
-        <!--<router-link to="/login" tab="button">注册</router-link>-->
         <a @click="register">注册</a>
         <a @click="login">登录</a>
-       <!-- <router-link to="/login" tab="button">登录</router-link>-->
       </div>
       <Modal
         v-model="modal1" width="420"
@@ -28,17 +26,12 @@
                   <i-input type="password"  v-model="formCustom1.vcode1" icon="compose" placeholder="确认密码"><i-input></i-input>
                   </i-input>
                 </Form-item>
-               <!-- <Form-item  prop="age">
-                  <i-input type="text" :value.sync="formCustom.vcode" icon="chatbox-working" placeholder="验证码"><i-input></i-input>
-                  </i-input>
-                </Form-item>-->
                 <Form-item>
                   <i-button class="form_submit"  @click="handleSubmit1('formCustom1')">注册</i-button>
                 </Form-item>
               </i-form>
             </div>
             <div> <Radio  v-model="single1">我已经阅读并同意<a>体验中心用户使用协议</a></Radio></div>
-            <!--<div class="other_login_tit"><div><i>社交账号登录</i></div></div>-->
           </div>
         </div>
         <div slot="footer"></div>
@@ -67,8 +60,6 @@
               </i-form>
             </div>
             <div> <Radio  v-model="single2">我已经阅读并同意<a>体验中心用户使用协议</a></Radio></div>
-            <!--<div class="other_login_tit"><div><i>社交账号登录</i></div></div>-->
-            <!--<div  class="forgetPass"><a @click="forgetPass"> 忘记密码</a></div>-->
           </div>
         </div>
         <div slot="footer"></div>

@@ -1,7 +1,6 @@
 <template>
   <div class="imgWrap">
     <div class="btn_back"><a @click="back">返回</a></div>
-   <!-- <img-box :src="imglist"></img-box>-->
     <iframe id="resId" :src="resUrl" ></iframe>
   </div>
 
@@ -22,19 +21,7 @@
     },
     components:{imgBox},
     created(){
-    /*  this.imglist=this.$route.query.url;*/
       this.resUrl=this.$route.query.url;
-    },
-    mounted(){
-     /* var iframe = document.getElementById("resId");
-      var iwindow = iframe.contentWindow;
-      var idoc = iwindow.document;
-      idoc.body.className= "bodyClass"
-      console.log("window",iwindow);//获取iframe的window对象
-      console.log("document",idoc); //获取iframe的document
-      console.log("html",idoc.documentElement);//获取iframe的html
-      console.log("head",idoc.head); //获取head
-      console.log("body",idoc.body); //获取body*/
     }
   }
 </script>

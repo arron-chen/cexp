@@ -19,7 +19,6 @@ export default {
   },
   watch:{
       $route(to , from ){
-        //this.$store.dispatch('gettime');
       }
   }
 }

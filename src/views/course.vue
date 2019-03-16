@@ -11,7 +11,7 @@
       <div class="cvideocont_r">
         <div class="teste" @click="handleClickTo">英语测试</div>
         <ul class="r_list">
-          <li v-for="item in lists" @click="handleClickItem(item.src)"><span>{{item.text}}</span></li>
+          <li v-for="(item,index) in localData.course.lists" :key="index" @click="handleClickItem(item.src)"><span>{{item.text}}</span></li>
         </ul>
       </div>
     </div>
@@ -20,27 +20,19 @@
 </template>
 <script>
   import count from '../components/count';
+  import localData from '@/util/localData.js'
   export default {
     data(){
       return{
         viedoSrc:"http://media.tianxingzhe.vip/video/AP.mp4",
         preimages:'http://media.tianxingzhe.vip/video/playicon.png',
-        lists:[
-          {"text":"雅思","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%A0%BC%E5%BC%8F%E5%B7%A5%E5%8E%82%E8%8B%B1%E8%AF%AD%E9%9B%85%E6%80%9D.mp4"},
-          {"text":"托福","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%A0%BC%E5%BC%8F%E5%B7%A5%E5%8E%82%E8%8B%B1%E8%AF%AD%E6%89%98%E7%A6%8F.mp4"},
-          {"text":"法语","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%B3%95%E8%AF%AD"},
-          {"text":"德语","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E5%BE%B7%E8%AF%AD"},
-          {"text":"意大利","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%84%8F%E5%A4%A7%E5%88%A9%E8%AF%AD"},
-          {"text":"日文","src":"http://7xnt3p.com1.z0.glb.clouddn.com/%E6%97%A5%E8%AF%AD"},
-          {"text":"A P","src":"http://media.tianxingzhe.vip/video/AP.mp4"},
-          {"text":"A L","src":"http://media.tianxingzhe.vip/video/A_Level.mp4"},
-          {"text":"O L","src":"http://media.tianxingzhe.vip/video/O_A%20Level.mp4"},
-
-        ]
-
+        localData: undefined
       }
     },
-    components:{count},
+    beforeMount() {
+      this.localData = localData;
+    },
+    components:{ count },
     methods:{
       backto(){
         this.$router.push({
@@ -54,8 +46,6 @@
         window.location.href="TPO:";
         console.log("diayogjn1");
       }
-    },
-    mounted(){
     }
   }
 </script>

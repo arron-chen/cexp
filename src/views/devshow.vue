@@ -4,7 +4,7 @@
       <count></count>
       <div class="showcont-title">作品集</div>
       <ul class="cont-list" ref="images">
-        <li v-for="item in imgurl"><img :src="item.url"></li>
+        <li v-for="(item,index) in imgurl" :key="index"><img :src="item.url"></li>
       </ul>
       <div class="btn_back"><a @click="back">返回</a></div>
     </div>
@@ -42,8 +42,6 @@
       this.imgurl= b;
     },
     mounted(){
-      //console.log(this.imgurl)
-      //console.log(this.imgurl)
       this.getImg();
     }
   }

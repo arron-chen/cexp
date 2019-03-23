@@ -43,6 +43,7 @@
 </template>
 <script>
 import count from "../../components/count";
+import localData from "@/util/localData.js";
 export default {
   data() {
     return {
@@ -64,236 +65,14 @@ export default {
       enableBtn: true,
       showSubmitBtn: false,
       radioE: "",
-      questions: [
-        {
-          id: 1,
-          prop: "gender",
-          model: "formValidate.gender1'",
-          question: "Q1. 是否喜欢上数学课",
-          answerA: "A 喜欢",
-          answerB: " B 不喜欢"
-        },
-        {
-          id: 2,
-          prop: "gender",
-          model: "formValidate.gender2",
-          question: "Q2. 是否喜欢看世界名著",
-          answerA: "A 喜欢",
-          answerB: "B 不喜欢"
-        },
-        {
-          id: 3,
-          prop: "gender",
-          model: "formValidate.gender3",
-          question: "Q3 是否爱看新闻类节目",
-          answerA: "A 喜欢",
-          answerB: " B 不喜欢"
-        },
-        {
-          id: 4,
-          prop: "gender",
-          model: "formValidate.gender4",
-          question: "Q4 是否爱看世界经济、文化类书籍",
-          answerA: "A 喜欢",
-          answerB: "B 不喜欢"
-        },
-        {
-          id: 5,
-          prop: "gender",
-          model: "formValidate.gender5",
-          question: "Q5 喜欢看艺术展览或音乐会等",
-          answerA: " A 喜欢",
-          answerB: "B 不喜欢"
-        },
-        {
-          id: 6,
-          prop: "gender",
-          model: "formValidate.gender6",
-          question: "Q6 喜欢与小孩玩耍",
-          answerA: " A 喜欢 ",
-          answerB: " B 不喜欢 "
-        },
-        {
-          id: 7,
-          prop: "gender",
-          model: "formValidate.gender7",
-          question: "Q7 喜欢模型、建筑等",
-          answerA: "A 喜欢 ",
-          answerB: " B 不喜欢"
-        },
-        {
-          id: 8,
-          prop: "gender",
-          model: "formValidate.gender8",
-          question: "Q8 经常写日记记录生活",
-          answerA: "A 是 ",
-          answerB: "B 否"
-        },
-        {
-          id: 9,
-          prop: "gender",
-          model: "formValidate.gender9",
-          question: "Q9 善于查阅字典、索引等",
-          answerA: "A 是",
-          answerB: "B 否"
-        },
-        {
-          id: 10,
-          prop: "gender",
-          model: "formValidate.gender10",
-          question: "Q10 是否主动遵守组织的纪律",
-          answerA: "A 是    ",
-          answerB: "B 否"
-        },
-        {
-          id: 11,
-          prop: "gender",
-          model: "formValidate.gender11",
-          question: "Q11 喜欢观察自然景物",
-          answerA: "A 是",
-          answerB: "B 否"
-        },
-        {
-          id: 12,
-          prop: "gender",
-          model: "formValidate.gender12",
-          question: "Q12 是否乐于花费业余时间参加公益活动",
-          answerA: "A 是",
-          answerB: "B 否"
-        },
-        {
-          id: 13,
-          prop: "gender",
-          model: "formValidate.gender13",
-          question: "Q13 是否爱做实验",
-          answerA: "A 是  ",
-          answerB: " B 否"
-        },
-        {
-          id: 14,
-          prop: "gender",
-          model: "formValidate.gender14",
-          question: "Q14 喜欢骑车、坐车",
-          answerA: "A 是 ",
-          answerB: "B 否。  "
-        },
-        {
-          id: 15,
-          prop: "gender",
-          model: "formValidate.gender15",
-          question: "Q15 乐意安排活动、规划路线",
-          answerA: "A 是 ",
-          answerB: "B 否"
-        },
-        {
-          id: 16,
-          prop: "gender",
-          model: "formValidate.gender16",
-          question: "Q16 乐于了解新科技、新产品的原理",
-          answerA: " A 是",
-          answerB: "B 否 "
-        },
-        {
-          id: 17,
-          prop: "gender",
-          model: "formValidate.gender17",
-          question: "Q17  喜欢看综艺节目",
-          answerA: " A 是",
-          answerB: " B 否"
-        },
-        {
-          id: 18,
-          prop: "gender",
-          model: "formValidate.gender18",
-          question: "Q18 对电子产品感兴趣",
-          answerA: "A 是 ",
-          answerB: "B 否 "
-        },
-        {
-          id: 19,
-          prop: "gender",
-          model: "formValidate.gender19",
-          question: "Q19 乐于参加集体活动",
-          answerA: " A 是 ",
-          answerB: " B 否 "
-        },
-        {
-          id: 20,
-          prop: "gender",
-          model: "formValidate.gender20",
-          question: "Q20 向往探险",
-          answerA: " A 是 ",
-          answerB: "B 否"
-        },
-        {
-          id: 21,
-          prop: "gender",
-          model: "formValidate.gender21",
-          question: "Q21 对图表、分析感兴趣",
-          answerA: " A 是",
-          answerB: " B 否 "
-        },
-        {
-          id: 22,
-          prop: "gender",
-          model: "formValidate.gender22",
-          question: "Q22 喜欢看动物世界",
-          answerA: "A 是",
-          answerB: "B 否"
-        },
-        {
-          id: 23,
-          prop: "gender",
-          model: "formValidate.gender23",
-          question: "Q23 喜欢表现自己",
-          answerA: " A 是",
-          answerB: "B 否"
-        },
-        {
-          id: 24,
-          prop: "gender",
-          model: "formValidate.gender24",
-          question: "Q24 喜欢钻研课题",
-          answerA: "A 是 ",
-          answerB: "B 否"
-        },
-        {
-          id: 25,
-          prop: "gender",
-          model: "formValidate.gender25",
-          question: "Q25 学习成绩乐于与人竞争",
-          answerA: "A 是",
-          answerB: "B 否"
-        },
-        {
-          id: 26,
-          prop: "gender",
-          model: "formValidate.gender26",
-          question: "Q26 行动前是否考虑细致",
-          answerA: "A 是",
-          answerB: "B 否"
-        },
-        {
-          id: 27,
-          prop: "gender",
-          model: "formValidate.gender27",
-          question: "Q27 是否动手能力强",
-          answerA: " A 是",
-          answerB: "B 否 "
-        },
-        {
-          id: 28,
-          prop: "gender",
-          model: "formValidate.gender28",
-          question: "Q28 是否主动向别人提出建议",
-          answerA: "A 是",
-          answerB: "B 否"
-        }
-      ],
+      questions: [],
       resultArray: []
     };
   },
   components: { count },
+  created(){
+    this.questions = localData.test.test2;
+  },
   methods: {
     backto() {
       this.$router.push({
@@ -301,7 +80,6 @@ export default {
       });
     },
     changeRadio(e) {
-      //console.log(e);
       this.itemIndex =
         e.id + 1 > this.questions.length ? this.questions.length : e.id + 1;
       if (e) {
@@ -347,13 +125,7 @@ export default {
         })
         .catch(err => {
           console.log(err);
-        });
-      /*   this.$router.push({
-          path:'/test/result2',
-          query:{
-            imgSrc:imglist[0]
-          }
-        })*/
+        })
     }
   }
 };

@@ -26,9 +26,6 @@ export default {
       }, 60000);
     });
   },
-  updated() {
-    //clearInterval(this.timmer);
-  },
   destory() {
     clearInterval(this.timmer);
   },
@@ -38,19 +35,11 @@ export default {
     }
   },
   computed: {
-    /*  endTime(){
-        let timestamp;
-        let count = this.$store.state.countime;
-        console.log("endTime -- "+ count);
-        timestamp = new Date().getTime() + count *60*1000;
-        return timestamp;
-      },*/
     ...mapState(["countime"]),
     ...mapGetters(["time"])
   },
   methods: {
     callback() {
-      //console.log("倒计时回调");
       this.isShow = true;
     },
     rescall() {

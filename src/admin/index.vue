@@ -36,21 +36,21 @@
             <BreadcrumbItem>用户管理</BreadcrumbItem>
           </Breadcrumb>
           <Content
-            v-show="itemShow == "1-1""
+            v-show="itemShow == '1-1'"
             :style="{padding: '24px', minHeight: '280px', background: '#fff'}"
           >
             <Table :columns="columns1" :data="data1"></Table>
           </Content>
           <Content
-            v-show="itemShow == "1-2""
+            v-show="itemShow == '1-2' "
             :style="{padding: '24px', minHeight: '280px', background: '#fff'}"
           >
-            <Input v-model="search" icon="ios-search" placeholder="请输入用户名" style="width: 200px"></Input>
+            <Input v-model="search" icon="ios-search" placeholder="请输入用户名" style="width: 200px" />
             <Button @click="searchUser">搜索</Button>
             <Table :columns="columns1" :data="data2"></Table>
           </Content>
           <Content
-            v-show="itemShow == "2-1""
+            v-show="itemShow == '2-1' "
             :style="{padding: '24px', minHeight: '280px', background: '#fff'}"
           >列表22</Content>
 
@@ -68,12 +68,12 @@
             </div>
             <div class="userLine">
               <span>体验时长</span>
-              <Input v-model="userTime" style="width:200px;"></Input>
+              <Input v-model="userTime" style="width:200px;" />
               <a class="modify_btn" @click="modifyT">修改</a>
             </div>
             <div class="userLine">
               <span>修改密码</span>
-              <Input placeholder="请输入要重置的密码" v-model="userPassword" style="width:200px;"></Input>
+              <Input placeholder="请输入要重置的密码" v-model="userPassword" style="width:200px;" />
               <a class="modify_btn" @click="modifyPass">修改</a>
             </div>
           </Modal>
@@ -86,11 +86,11 @@
           <Modal v-model="modal3" width="420" class-name="vertical-center-modal" :closable="false">
             <div class="userLine">
               <span>资源标题</span>
-              <Input v-model="userinfoTitle" style="width:200px;"></Input>
+              <Input v-model="userinfoTitle" style="width:200px;" />
             </div>
             <div class="userLine">
               <span>资源路径</span>
-              <Input v-model="userinfoUrl" style="width:200px;"></Input>
+              <Input v-model="userinfoUrl" style="width:200px;" />
             </div>
             <div class="userLine">
               <button @click="confirmAddRes">添加</button>

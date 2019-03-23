@@ -26,10 +26,10 @@
           </CheckboxGroup>
         </FormItem>
         <FormItem label="选择国家原因">
-          <Input v-model="form.reason"></Input>
+          <Input v-model="form.reason" />
         </FormItem>
         <FormItem label="出国预算">
-          <Input v-model="form.reason" style="width: 200px"></Input>
+          <Input v-model="form.reason" style="width: 200px" />
         </FormItem>
         <FormItem label="在国外完成">
           <CheckboxGroup v-model="form.checkbox">
@@ -54,7 +54,7 @@
           <DatePicker type="date" placeholder="选择入学时间" style="width: 200px"></DatePicker>
         </FormItem>
         <FormItem label="姓名">
-          <Input v-model="form.reason" style="width: 200px"></Input>
+          <Input v-model="form.reason" style="width: 200px" />
         </FormItem>
         <FormItem label="性别">
           <RadioGroup v-model="form.radio">
@@ -66,13 +66,13 @@
           <DatePicker type="date" placeholder="选择你的出生日期" style="width: 200px"></DatePicker>
         </FormItem>
         <FormItem label="手机号">
-          <Input v-model="form.reason" style="width: 200px"></Input>
+          <Input v-model="form.reason" style="width: 200px" />
         </FormItem>
         <FormItem label="邮箱">
-          <Input v-model="form.reason" style="width: 200px"></Input>
+          <Input v-model="form.reason" style="width: 200px" />
         </FormItem>
         <FormItem label="父母职业">
-          <Input v-model="form.reason" style="width: 200px"></Input>
+          <Input v-model="form.reason" style="width: 200px" />
         </FormItem>
         <FormItem label="最方便联系的时间段">
           <CheckboxGroup v-model="form.checkbox">
@@ -85,19 +85,19 @@
           </CheckboxGroup>
         </FormItem>
         <FormItem label="在读／毕业院校">
-          <Input v-model="form.reason" style="width: 200px"></Input>
+          <Input v-model="form.reason" style="width: 200px" />
         </FormItem>
         <FormItem label="年级">
-          <Input v-model="form.reason" style="width: 200px"></Input>
+          <Input v-model="form.reason" style="width: 200px" />
         </FormItem>
         <FormItem label="就读专业">
-          <Input v-model="form.reason" style="width: 200px"></Input>
+          <Input v-model="form.reason" style="width: 200px" />
         </FormItem>
         <FormItem label="留学期望就读专业">
-          <Input v-model="form.reason" style="width: 200px"></Input>
+          <Input v-model="form.reason" style="width: 200px" />
         </FormItem>
         <FormItem label="平均分">
-          <Input v-model="form.reason" style="width: 200px"></Input>
+          <Input v-model="form.reason" style="width: 200px" />
         </FormItem>
         <FormItem label="外语情况">
           <CheckboxGroup v-model="form.checkbox">
@@ -108,18 +108,18 @@
             <Checkbox label="GMAT"></Checkbox>
           </CheckboxGroup>
           <span>考试时间</span>
-          <Input v-model="form.reason" style="width: 200px"></Input>
+          <Input v-model="form.reason" style="width: 200px" />
           <span>成绩</span>
-          <Input v-model="form.reason" style="width: 200px"></Input>
+          <Input v-model="form.reason" style="width: 200px" />
         </FormItem>
         <FormItem label="实习／工作经验">
-          <Input v-model="form.reason"></Input>
+          <Input v-model="form.reason" />
         </FormItem>
         <FormItem label="申请人签证历史（护照／获签／拒签／国家等）">
-          <Input v-model="form.reason"></Input>
+          <Input v-model="form.reason" />
         </FormItem>
         <FormItem label="对留学的期望（环境、住宿、工作、移民等）">
-          <Input v-model="form.reason"></Input>
+          <Input v-model="form.reason" />
         </FormItem>
 
         <div>
@@ -171,7 +171,6 @@ export default {
       this.radioE = e;
     },
     nextQuestion(ind) {
-      //console.log(ind);
       this.resultArray.push(this.radioE);
       console.log(this.resultArray);
       if (ind == this.questions.length) {
@@ -194,7 +193,6 @@ export default {
   width: 100%;
   height: 100%;
   overflow: auto;
-  /*background: url('http://media.tianxingzhe.vip/test/test_bg.jpg') no-repeat center center;*/
   background: #fff;
   background-size: 100% 100%;
   position: relative;

@@ -10,7 +10,6 @@ import character from '@/views/test/character';
 import work from '@/views/test/work';
 import willing from '@/views/test/willing';
 import result1 from '@/views/test/result1';
-import result2 from '@/views/test/result2';
 import video from '@/views/video';
 import course from '@/views/course';
 import videoshow from '@/views/videoshow';
@@ -91,14 +90,6 @@ export default new Router({
       path: '/test/result1',
       name: 'result1',
       component: result1,
-      meta: {
-        requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
-      },
-    },
-    {
-      path: '/test/result2',
-      name: 'result2',
-      component: result2,
       meta: {
         requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
       },

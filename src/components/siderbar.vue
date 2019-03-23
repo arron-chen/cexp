@@ -1,21 +1,10 @@
 <template>
   <div>
     <ul class="sidebar">
-      <!-- <li style="width:35px;height:120px;">
-        <img src=".././../static/images/sidebar/phone-d8843c5a10.gif">
-        <span>立即咨询</span>
-      </li>
-      <li style="width:35px;height:120px;">
-        <img src=".././../static/images/sidebar/yijian-312c17668d.png">
-        <span>在线评估</span>
-      </li>-->
       <li style="width:25px;height:100px;" @click="login">
         <img src=".././../static/images/sidebar/login_person.png">
         <span>用户登陆</span>
       </li>
-      <!-- <li style="width:25px;height:40px;" @click="toTop">
-        <img src=".././../static/images/sidebar/top-424820e783.png">
-      </li>-->
     </ul>
     <Modal v-model="modal1" width="420" class-name="vertical-center-modal" :closable="false">
       <div class="loginCont">
@@ -34,11 +23,6 @@
                   placeholder="手机号码"
                 ></i-input>
               </Form-item>
-              <!-- <Form-item  prop="passwdCheck">
-
-                <i-input type="password" :value.sync="formCustom.passwdCheck" icon="compose" placeholder="请填写图形验证码"><i-input></i-input>
-                </i-input>
-              </Form-item>-->
               <Form-item prop="age">
                 <i-input
                   type="text"
@@ -60,7 +44,6 @@
               <a>体验中心用户使用协议</a>
             </Radio>
           </div>
-          <!--<div class="other_login_tit"><div><i>社交账号登录</i></div></div>-->
         </div>
       </div>
       <div slot="footer"></div>

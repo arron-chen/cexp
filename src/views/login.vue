@@ -1,6 +1,5 @@
 <template>
   <div class="clogin">
-    <c-header class="lheader"></c-header>
     <div class="loginCont">
       <div class="loginWrap">
         <div class="login_code">
@@ -49,12 +48,9 @@
         </div>
       </div>
     </div>
-    <c-footer class="lfooter"></c-footer>
   </div>
 </template>
 <script>
-import cHeader from "../components/header";
-import cFooter from "../components/footer";
 export default {
   data() {
     const validatePass = (rule, value, callback) => {
@@ -107,8 +103,7 @@ export default {
         age: [{ validator: validateAge, trigger: "blur" }]
       }
     };
-  },
-  components: { cHeader, cFooter }
+  }
 };
 </script>
 <style lang="less">

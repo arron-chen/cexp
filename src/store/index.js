@@ -10,8 +10,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    token: '12',      //请求头的token
-    menuList: '',     //一级菜单
+    token: '12', //请求头的token
+    menuList: '', //一级菜单
     countime: 0, //默认体验时间
   },
   getters: {
@@ -37,7 +37,9 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    [types.FETCT_TOKEN]({commit}, params) {
+    [types.FETCT_TOKEN]({
+      commit
+    }, params) {
       return new Promise((resolve, reject) => {
         api.login(params)
           .then((res) => {
@@ -62,14 +64,16 @@ export default new Vuex.Store({
       var param = {
         "userid": b,
       };
-      try{
-        axios.get('http://112.74.25.26/user/timeout', {params: param}).then((res) => {
+      try {
+        axios.get('http://112.74.25.26/user/timeout', {
+          params: param
+        }).then((res) => {
           context.commit('settime', parseInt(res.data.msg));
         }).catch((err) => {
           console.log(err);
         });
-      }catch (e) {
-        console.log("获取时间出错"+e)
+      } catch (e) {
+        console.log("获取时间出错" + e)
       }
 
     },
@@ -86,14 +90,14 @@ export default new Vuex.Store({
         "userid": b,
         "time": context.state.countime
       };
-      try{
+      try {
         axios.put('http://112.74.25.26/user/timeout', param).then((res) => {
           console.log(res);
         }).catch((err) => {
           console.log(err);
         });
-      }catch (e) {
-        console.log("减少时间出错"+e)
+      } catch (e) {
+        console.log("减少时间出错" + e)
       }
 
     }

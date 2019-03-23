@@ -1,11 +1,11 @@
 import * as types from '../../type'
 
 const state = {
-	activeHeaderNav:'',
-	openNewReport: '',
-	openNewReportForm:'',
+  activeHeaderNav: '',
+  openNewReport: '',
+  openNewReportForm: '',
 }
 
- export default {
-    state,
+export default {
+  state,
 }

@@ -26,17 +26,16 @@ axios.interceptors.request.use((config) => {
  * 返回拦截，可以做些什么
  */
 axios.interceptors.response.use((res) => {
-    return res
-    document.cookie='userid'+res.data.msg;
-  }, (error) => {
-    if (error.response.status == 500) {
-      window.localStorage.removeItem("token")
-      store.commit('SET_TOKEN', '')
-      router.replace('/login')
-    }
-    return Promise.reject(error)
+  return res
+  document.cookie = 'userid' + res.data.msg;
+}, (error) => {
+  if (error.response.status == 500) {
+    window.localStorage.removeItem("token")
+    store.commit('SET_TOKEN', '')
+    router.replace('/login')
   }
-)
+  return Promise.reject(error)
+})
 
 
 export default {
@@ -52,17 +51,17 @@ export default {
   fetchHomePageReports: data => axios.get('/mainWeb/ReportTable/HomePageReports', data),
 
   //注册登录
-  register:data=>axios.post('111.230.235.200:8011/user/signup',data),
-  login:data=>axios.post('111.230.235.200:8011/user/login',data),
+  register: data => axios.post('111.230.235.200:8011/user/signup', data),
+  login: data => axios.post('111.230.235.200:8011/user/login', data),
 
-  getTime:data =>axios.get('111.230.235.200:8011/user/timeout',data),
-  modifyTime:data =>axios.put('111.230.235.200:8011/user/timeout',data),
+  getTime: data => axios.get('111.230.235.200:8011/user/timeout', data),
+  modifyTime: data => axios.put('111.230.235.200:8011/user/timeout', data),
 
-  getUserlist:data=>axios.get('111.230.235.200:8011/user/list',data),
+  getUserlist: data => axios.get('111.230.235.200:8011/user/list', data),
 
-  deleteUser:data=>axios.delete('111.230.235.200:8011/user/',data),
-  modifyPassword:data=>axios.put('111.230.235.200:8011/user/password',data),
-  modifyPrivilege:data=>axios.put('111.230.235.200:8011/user',data),
+  deleteUser: data => axios.delete('111.230.235.200:8011/user/', data),
+  modifyPassword: data => axios.put('111.230.235.200:8011/user/password', data),
+  modifyPrivilege: data => axios.put('111.230.235.200:8011/user', data),
 
 
 
@@ -91,14 +90,14 @@ export default {
   fetchDeleteRole: data => axios.get('/mainWeb/roleManager/deleteRole', data),
 
 
-//###查询管理
-//获取所有查询配置项
+  //###查询管理
+  //获取所有查询配置项
   fetchGetGlobalsearchAll: data => axios.get('/webgisWebService/globalsearch/all'),
-//获取子图层的字段信息接口
+  //获取子图层的字段信息接口
   fetchGetGlobalsearchLayerfields: data => axios.get('/webgisWebService/globalsearch/layerfields', data),
-//保存查询信息接口
+  //保存查询信息接口
   fetchGetGlobalsearchSave: data => axios.get('/webgisWebService/globalsearch/save', data),
-//删除选中的记录
+  //删除选中的记录
   fetchGetGlobalsearchDelete: data => axios.get('/webgisWebService/globalsearch/delete', data),
 
 

@@ -1,6 +1,8 @@
 <template>
   <div class="testwillwrap">
-    <div class="backto"><img src="http://media.tianxingzhe.vip/test/backto.png" @click="backto"></div>
+    <div class="backto">
+      <img src="http://media.tianxingzhe.vip/test/backto.png" @click="backto">
+    </div>
     <div class="navwrap">
       <ul>
         <router-link to="/test/campus" tag="li">MACL测试</router-link>
@@ -24,7 +26,7 @@
           </CheckboxGroup>
         </FormItem>
         <FormItem label="选择国家原因">
-         <Input v-model="form.reason"></Input>
+          <Input v-model="form.reason"></Input>
         </FormItem>
         <FormItem label="出国预算">
           <Input v-model="form.reason" style="width: 200px"></Input>
@@ -73,15 +75,15 @@
           <Input v-model="form.reason" style="width: 200px"></Input>
         </FormItem>
         <FormItem label="最方便联系的时间段">
-        <CheckboxGroup v-model="form.checkbox">
-          <Checkbox label="工作日"></Checkbox>
-          <Checkbox label="周末"></Checkbox>
-          <Checkbox label="上午"></Checkbox>
-          <Checkbox label="下午"></Checkbox>
-          <Checkbox label="晚上"></Checkbox>
-          <Checkbox label="任何时候"></Checkbox>
-        </CheckboxGroup>
-      </FormItem>
+          <CheckboxGroup v-model="form.checkbox">
+            <Checkbox label="工作日"></Checkbox>
+            <Checkbox label="周末"></Checkbox>
+            <Checkbox label="上午"></Checkbox>
+            <Checkbox label="下午"></Checkbox>
+            <Checkbox label="晚上"></Checkbox>
+            <Checkbox label="任何时候"></Checkbox>
+          </CheckboxGroup>
+        </FormItem>
         <FormItem label="在读／毕业院校">
           <Input v-model="form.reason" style="width: 200px"></Input>
         </FormItem>
@@ -105,161 +107,158 @@
             <Checkbox label="GRE"></Checkbox>
             <Checkbox label="GMAT"></Checkbox>
           </CheckboxGroup>
-          <span>考试时间</span> <Input v-model="form.reason" style="width: 200px"></Input>
-          <span>成绩</span> <Input v-model="form.reason" style="width: 200px"></Input>
+          <span>考试时间</span>
+          <Input v-model="form.reason" style="width: 200px"></Input>
+          <span>成绩</span>
+          <Input v-model="form.reason" style="width: 200px"></Input>
         </FormItem>
         <FormItem label="实习／工作经验">
-          <Input v-model="form.reason" ></Input>
+          <Input v-model="form.reason"></Input>
         </FormItem>
         <FormItem label="申请人签证历史（护照／获签／拒签／国家等）">
-          <Input v-model="form.reason" ></Input>
+          <Input v-model="form.reason"></Input>
         </FormItem>
         <FormItem label="对留学的期望（环境、住宿、工作、移民等）">
-          <Input v-model="form.reason" ></Input>
+          <Input v-model="form.reason"></Input>
         </FormItem>
 
-         <div>
-            <Button  @click="handleSubmit('formValidate')">提交</Button>
-          </div>
-
+        <div>
+          <Button @click="handleSubmit('formValidate')">提交</Button>
+        </div>
       </Form>
     </div>
-
   </div>
 </template>
 <script>
-  export default {
-    data() {
-      return {
-        form:{
-          checkbox: [],
-          reason:'',
-        },
-        formValidate: {
-          name: '',
-          mail: '',
-          city: '',
-          gender: '',
-          interest: [],
-          date: '',
-          time: '',
-          desc: '',
-          item1:true
-        },
-        ruleValidate: {},
-        showItem:true,
-        itemIndex:1,
-        enableBtn:true,
-        showSubmitBtn:false,
-        radioE:'',
-        resultArray:[]
-
+export default {
+  data() {
+    return {
+      form: {
+        checkbox: [],
+        reason: ""
+      },
+      formValidate: {
+        name: "",
+        mail: "",
+        city: "",
+        gender: "",
+        interest: [],
+        date: "",
+        time: "",
+        desc: "",
+        item1: true
+      },
+      ruleValidate: {},
+      showItem: true,
+      itemIndex: 1,
+      enableBtn: true,
+      showSubmitBtn: false,
+      radioE: "",
+      resultArray: []
+    };
+  },
+  methods: {
+    backto() {
+      this.$router.push({
+        path: "/index"
+      });
+    },
+    changeRadio(e) {
+      console.log(e);
+      if (e) {
+        this.enableBtn = false;
+      }
+      this.radioE = e;
+    },
+    nextQuestion(ind) {
+      //console.log(ind);
+      this.resultArray.push(this.radioE);
+      console.log(this.resultArray);
+      if (ind == this.questions.length) {
+        this.showSubmitBtn = true;
+        this.itemIndex = ind;
+      } else {
+        this.itemIndex = ind + 1;
+        this.enableBtn = true;
       }
     },
-    methods:{
-      backto(){
-        this.$router.push({
-          path:'/index'
-        })
-      },
-      changeRadio(e){
-        console.log(e);
-        if(e){
-          this.enableBtn=false;
-        }
-        this.radioE=e;
-      },
-      nextQuestion(ind){
-        //console.log(ind);
-        this.resultArray.push(this.radioE);
-        console.log(this.resultArray);
-        if(ind == this.questions.length){
-          this.showSubmitBtn=true;
-          this.itemIndex=ind;
-        }else{
-          this.itemIndex=ind+1;
-          this.enableBtn=true;
-        }
-      },
-      handleSubmit(){
-
-      }
-    }
+    handleSubmit() {}
   }
+};
 </script>
 <style lang="less">
-  .showItem{
-    display:block!important;
+.showItem {
+  display: block !important;
+}
+.testwillwrap {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  /*background: url('http://media.tianxingzhe.vip/test/test_bg.jpg') no-repeat center center;*/
+  background: #fff;
+  background-size: 100% 100%;
+  position: relative;
+  .backto {
+    position: fixed;
+    left: 40px;
+    top: 20px;
+    width: 80px;
+    height: 35px;
+    cursor: pointer;
+    img {
+      width: 80px;
+      height: 35px;
+    }
   }
-  .testwillwrap{
-    width:100%;
-    height:100%;
-    overflow: auto;
-    /*background: url('http://media.tianxingzhe.vip/test/test_bg.jpg') no-repeat center center;*/
-    background: #fff;
-    background-size: 100% 100%;
-    position:relative;
-    .backto{
-      position:fixed;
-      left:40px;
-      top:20px;
-      width:80px;height:35px;
-      cursor: pointer;
-      img{
-        width:80px;height:35px;
-      }
-    }
-    .navwrap{
-      position: fixed;
-      left:50px;
-      top:40%;
-      width:100px;
-      height:180px;
-      z-index: 10;
-      ul{
-        list-style: none;
-        width:100%;height:100%;
-
-        li{
-          width:100%;
-          height:40px;
-          line-height: 40px;
-          border:1px solid #efefef;
-          text-align: center;
-          cursor: pointer;
-          &:hover{
-            box-shadow: 5px 5px 10px rgba(0,0,0,.2);
-          }
-          &:visited{
-            box-shadow: 5px 5px 10px rgba(0,0,0,.2) ;
-          }
-          &:active{
-            box-shadow: 5px 5px 10px rgba(0,0,0,.2);
-          }
-
-        }
-      }
-    }
-    .question_wrap{
-      width: 80%;
+  .navwrap {
+    position: fixed;
+    left: 50px;
+    top: 40%;
+    width: 100px;
+    height: 180px;
+    z-index: 10;
+    ul {
+      list-style: none;
+      width: 100%;
       height: 100%;
-      position: absolute;
-      top: 10%;
-      left: 10%;
-      text-align: left;
-      padding-left: 10%;
-      .question_tit{
-        font-size:30px;
-        font-weight:bold;
-      }
-      .answer_cont{
-        margin-top:50px;
-        .ivu-radio-wrapper{
-          font-size:20px;
+
+      li {
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        border: 1px solid #efefef;
+        text-align: center;
+        cursor: pointer;
+        &:hover {
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        &:visited {
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        &:active {
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
         }
       }
     }
-
   }
-
+  .question_wrap {
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    text-align: left;
+    padding-left: 10%;
+    .question_tit {
+      font-size: 30px;
+      font-weight: bold;
+    }
+    .answer_cont {
+      margin-top: 50px;
+      .ivu-radio-wrapper {
+        font-size: 20px;
+      }
+    }
+  }
+}
 </style>

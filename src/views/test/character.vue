@@ -92,7 +92,6 @@ export default {
       }
       this.radioE = e.model;
       this.resultArray.push(this.radioE);
-      console.log(this.resultArray);
     },
     preQuestion(ind) {
       if (ind == 1) {
@@ -101,7 +100,6 @@ export default {
       } else {
         this.itemIndex = ind - 1;
         this.resultArray.pop();
-        console.log(this.resultArray);
       }
     },
     handleSubmit() {

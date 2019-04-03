@@ -76,11 +76,9 @@ export default {
       this.num = index;
     },
     changePdf(url, event, index1, index2) {
-      console.log(url);
       this.pdfurls = url;
     },
     onErr(err) {
-      console.log("pdf加载失败，请重试");
       console.log("错误信息：", err);
     }
   }

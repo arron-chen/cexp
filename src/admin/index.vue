@@ -3,7 +3,7 @@
     <Layout>
       <Header>
         <Menu mode="horizontal" theme="dark" active-name="1">
-          <div class="layout-logo">天行者后台管理</div>
+          <div class="layout-logo">天行者管理后台</div>
         </Menu>
       </Header>
       <Layout>
@@ -260,7 +260,6 @@ export default {
       this.itemShow = name;
     },
     showdetail(params) {
-      debugger;
       this.modal = true;
       if (params.row) {
         let a = params.row;
@@ -298,7 +297,6 @@ export default {
               break;
             case "vip":
               level = 2;
-              debugger;
               break;
           }
           this.$http
@@ -396,7 +394,6 @@ export default {
       });
     },
     getUserInfo(info) {
-      console.log(info.row.userid);
       this.currentId = info.row.userid;
       this.getUserinfoList(info.row.userid);
       this.modal2 = true;
@@ -420,7 +417,6 @@ export default {
         title: this.userinfoTitle,
         url: this.userinfoUrl
       };
-      console.log(this.currentId);
       this.$Modal.confirm({
         title: "消息提示",
         content: "<p>是否确认添加当前资源</p>",

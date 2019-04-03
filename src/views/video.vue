@@ -67,7 +67,6 @@ export default {
       });
     },
     handleClickItem(item) {
-      console.log(item);
       let _dom = document.getElementById("videoDom");
       _dom.src = item.videoSrc;
       _dom.autoplay = true;

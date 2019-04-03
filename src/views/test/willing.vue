@@ -172,7 +172,6 @@ export default {
     },
     nextQuestion(ind) {
       this.resultArray.push(this.radioE);
-      console.log(this.resultArray);
       if (ind == this.questions.length) {
         this.showSubmitBtn = true;
         this.itemIndex = ind;

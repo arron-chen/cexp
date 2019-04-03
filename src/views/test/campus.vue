@@ -87,7 +87,6 @@ export default {
       }
       this.radioE = e.model;
       this.resultArray.push(this.radioE);
-      console.log(this.resultArray);
     },
     preQuestion(ind) {
       this.clickPre = true;
@@ -97,7 +96,6 @@ export default {
       } else {
         this.itemIndex = ind - 1;
         this.resultArray.pop();
-        console.log(this.resultArray);
       }
     },
     nextQuestion(ind) {
@@ -108,7 +106,6 @@ export default {
         this.itemIndex = ind + 1;
         this.resultArray.push(this.radioE);
       }
-      console.log(this.resultArray);
     },
     handleSubmit() {
       let result = [

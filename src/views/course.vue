@@ -49,7 +49,6 @@ export default {
     },
     handleClickTo() {
       window.location.href = "TPO:";
-      console.log("diayogjn1");
     }
   }
 };

@@ -132,6 +132,8 @@
   </div>
 </template>
 <script>
+import api from "../fetch/index.js";
+import * as types from "../store/type";
 export default {
   data() {
     const validatePass1 = (rule, value, callback) => {
@@ -139,8 +141,6 @@ export default {
         callback(new Error("请输入密码"));
       } else {
         if (this.formCustom1.passwdCheck !== "") {
-          // 对第二个密码框单独验证
-          //this.$refs.formCustom.validateField('passwdCheck');
         }
         callback();
       }
@@ -181,8 +181,6 @@ export default {
         callback(new Error("请输入密码"));
       } else {
         if (this.formCustom1.passwdCheck !== "") {
-          // 对第二个密码框单独验证
-          //this.$refs.formCustom.validateField('passwdCheck');
         }
         callback();
       }
@@ -270,10 +268,9 @@ export default {
             return;
           }
           if (_this.single1) {
-            this.$http
-              .post("http://112.74.25.26/user/signup", user)
+            this.$store
+              .dispatch(types.LOGIN, user)
               .then(res => {
-                console.log(res);
                 if (res.data.code == 0) {
                   this.$Message.success("注册成功,请登录!");
                   this.modal1 = false;
@@ -286,14 +283,13 @@ export default {
                 this.$Message.error("注册失败!");
                 console.log(err);
               });
-            this.$router.push({ path: "/" });
+              this.$router.push({ path: "/" });
           }
         }
       });
     },
     handleSubmit2(name) {
       let _this = this;
-      debugger;
       this.$refs[name].validate(valid => {
         if (valid) {
           let user = {
@@ -307,12 +303,12 @@ export default {
             return;
           }
           if (_this.single2) {
-            this.$http
-              .post("http://112.74.25.26/user/login", user)
-              .then(res => {
+              _this.$store.dispatch(types.LOGIN, user)
+            // this.$http
+            //   .post("http://112.74.25.26/user/login", user)
+              .then((res) => {
                 console.log(res);
                 if (res.data.code === 0) {
-                  debugger;
                   let id = res.data.msg;
                   let user = "";
                   if (res.data.extPrperties.level) {
@@ -331,12 +327,10 @@ export default {
                   this.$Message.success("欢迎体验!");
                   this.$router.push({ path: "/index" });
                 } else {
-                  debugger;
                   this.$Message.error(res.data.msg);
                 }
               })
-              .catch(err => {
-                debugger;
+              .catch((err) => {
                 this.$Message.error(err);
                 console.log(err);
               });

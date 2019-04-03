@@ -1,24 +1,24 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import guide from '@/views/guide';
-import index from '@/views/index';
-import admin from '@/admin/index';
-import login from '@/views/login';
 
-import campus from '@/views/test/campus';
-import character from '@/views/test/character';
-import work from '@/views/test/work';
-import willing from '@/views/test/willing';
-import result1 from '@/views/test/result1';
-import video from '@/views/video';
-import course from '@/views/course';
-import videoshow from '@/views/videoshow';
-import develop from '@/views/develop';
-import devshow from '@/views/devshow';
-import template from '@/views/template';
-import info from '@/views/info';
-import imgShow from '@/views/imgShow';
+const Guide = () => import ('@/views/guide');
+const Index = () => import ('@/views/index');
+const Admin = () => import ('@/admin/index');
 
+const Campus = () => import ('@/views/test/campus');
+const Character = () => import ('@/views/test/character');
+const Work = () => import ('@/views/test/work');
+const Willing = () => import ('@/views/test/willing');
+const Result1 = () => import ('@/views/test/result1');
+
+const Video = () => import ('@/views/video');
+const Course = () => import ('@/views/course');
+const Videoshow = () => import ('@/views/videoshow');
+const Develop = () => import ('@/views/develop');
+const Devshow = () => import ('@/views/devshow');
+const Template = () => import ('@/views/template');
+const Info = () => import ('@/views/info');
+const Imgshow = () => import ('@/views/imgShow');
 
 Vue.use(Router)
 
@@ -26,7 +26,7 @@ export default new Router({
   routes: [{
       path: '/',
       name: 'guide',
-      component: guide,
+      component: Guide,
       meta: {
         requireLogin: true
       }
@@ -34,7 +34,7 @@ export default new Router({
     {
       path: '/index',
       name: 'index',
-      component: index,
+      component: Index,
       meta: {
         requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
       },
@@ -42,21 +42,16 @@ export default new Router({
     {
       path: '/admin',
       name: 'admin',
-      component: admin,
+      component: Admin,
       meta: {
         requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
         requireAdmin: true,
       },
     },
     {
-      path: '/login',
-      name: 'login',
-      component: login
-    },
-    {
       path: '/test/campus',
       name: 'campus',
-      component: campus,
+      component: Campus,
       meta: {
         requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
       },
@@ -65,7 +60,7 @@ export default new Router({
     {
       path: '/test/character',
       name: 'character',
-      component: character,
+      component: Character,
       meta: {
         requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
       },
@@ -73,7 +68,7 @@ export default new Router({
     {
       path: '/test/work',
       name: 'work',
-      component: work,
+      component: Work,
       meta: {
         requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
       },
@@ -81,7 +76,7 @@ export default new Router({
     {
       path: '/test/willing',
       name: 'willing',
-      component: willing,
+      component: Willing,
       meta: {
         requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
       },
@@ -89,7 +84,7 @@ export default new Router({
     {
       path: '/test/result1',
       name: 'result1',
-      component: result1,
+      component: Result1,
       meta: {
         requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
       },
@@ -97,7 +92,7 @@ export default new Router({
     {
       path: '/video',
       name: 'video',
-      component: video,
+      component: Video,
       meta: {
         requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
       },
@@ -105,7 +100,7 @@ export default new Router({
     {
       path: '/course',
       name: 'course',
-      component: course,
+      component: Course,
       meta: {
         requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
       },
@@ -113,7 +108,7 @@ export default new Router({
     {
       path: '/videoshow',
       name: 'videoshow',
-      component: videoshow,
+      component: Videoshow,
       meta: {
         requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
       },
@@ -121,7 +116,7 @@ export default new Router({
     {
       path: '/develop',
       name: 'develop',
-      component: develop,
+      component: Develop,
       meta: {
         requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
       },
@@ -129,7 +124,7 @@ export default new Router({
     {
       path: '/devshow',
       name: 'devshow',
-      component: devshow,
+      component: Devshow,
       meta: {
         requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
       },
@@ -137,7 +132,7 @@ export default new Router({
     {
       path: '/template',
       name: 'template',
-      component: template,
+      component: Template,
       meta: {
         requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
       },
@@ -146,7 +141,7 @@ export default new Router({
     {
       path: '/info',
       name: 'info',
-      component: info,
+      component: Info,
       meta: {
         requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
       },
@@ -154,7 +149,7 @@ export default new Router({
     {
       path: '/imgShow',
       name: 'imgShow',
-      component: imgShow,
+      component: Imgshow,
       meta: {
         requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
       },

@@ -40,65 +40,96 @@ axios.interceptors.response.use((res) => {
 
 export default {
 
-  //###首页
-  //获取菜单接口
-  fetchNavMenu: data => axios.post('/mainWeb/home/getMenu', data),
-  //获取二级菜单接口
-  fetchLeftNav: data => axios.get('/mainWeb/home/getMenu/other', data),
-  //获取首页趋势分析模块
-  fetchHomePageTrendChart: data => axios.get('/mainWeb/TrendChart/HomePageTrendChart', data),
-  //获取首页趋势报表模块
-  fetchHomePageReports: data => axios.get('/mainWeb/ReportTable/HomePageReports', data),
 
   //注册登录
-  register: data => axios.post('111.230.235.200:8011/user/signup', data),
-  login: data => axios.post('111.230.235.200:8011/user/login', data),
+  /**
+   * 用户注册
+   * @param {string} username 用户账号
+   * @param {string} password 用户密码  
+   */
+  register: data => axios.post('http://112.74.25.26/user/signup', data),
 
-  getTime: data => axios.get('111.230.235.200:8011/user/timeout', data),
-  modifyTime: data => axios.put('111.230.235.200:8011/user/timeout', data),
+  /**
+   * 用户登录
+   * @param {string} username 用户账号
+   * @param {string} password 用户密码  
+   */
+  login: data => axios.post('http://112.74.25.26/user/login', data),
 
-  getUserlist: data => axios.get('111.230.235.200:8011/user/list', data),
-
-  deleteUser: data => axios.delete('111.230.235.200:8011/user/', data),
-  modifyPassword: data => axios.put('111.230.235.200:8011/user/password', data),
-  modifyPrivilege: data => axios.put('111.230.235.200:8011/user', data),
-
-
-
-
-
-  //###系统管理
-  //登录接口
-  fetchToken: data => axios.post('/mainWeb/login', data),
-  //获取用户列表，用户管理userManager
-  fetchUsers: data => axios.get('/mainWeb/userManager/users', data),
-  //用户角色分配userManager
-  saveUserRole: data => axios.post('/mainWeb/userManager/saveUserRole', data),
-  //获取所有角色信息rolemanager
-  fetchRoleList: data => axios.get('/mainWeb/roleManager/getRoleList', data),
-  //获取所有角色信息（角色列表）rolemanager
-  fetchRoleListFindAllByPage: data => axios.get('/mainWeb/roleManager/findAllByPage', data),
-  //获取资源列表rolemanager
-  fetchPremission: data => axios.get('/mainWeb/roleManager/getPremission', data),
-  //角色信息授权rolemanager
-  savePremission: data => axios.post('/mainWeb/roleManager/savePremission', data),
-  //日志管理，获取日志列表logManager
-  fetchFindAllByPage: data => axios.get('/mainWeb/logManager/findAllByPage', data),
-  //保存角色
-  fetchSaveRole: data => axios.get('/mainWeb/roleManager/saveRole', data),
-  //删除角色
-  fetchDeleteRole: data => axios.get('/mainWeb/roleManager/deleteRole', data),
+    /**
+   * 注销登录
+   */
+  logout: data => axios.delete('http://112.74.25.26/user/logout', data),
 
 
-  //###查询管理
-  //获取所有查询配置项
-  fetchGetGlobalsearchAll: data => axios.get('/webgisWebService/globalsearch/all'),
-  //获取子图层的字段信息接口
-  fetchGetGlobalsearchLayerfields: data => axios.get('/webgisWebService/globalsearch/layerfields', data),
-  //保存查询信息接口
-  fetchGetGlobalsearchSave: data => axios.get('/webgisWebService/globalsearch/save', data),
-  //删除选中的记录
-  fetchGetGlobalsearchDelete: data => axios.get('/webgisWebService/globalsearch/delete', data),
+  //### 管理页
+  /**
+   * 修改用户信息
+   * @param {number} userid 用户id
+   * @param {number} level 用户分级  0.普通用户 1.管理员 2.vip  
+   */
+  modifyUser: data => axios.put('http://112.74.25.26/user', data),
 
+/**
+   * 修改用户密码
+   * @param {number} userid 用户id
+   * @param {string} password 用户密码  
+   */
+  modifyUserPwd: data => axios.put('http://112.74.25.26/user/password', data),
+
+  /**
+   * 用户信息查找
+   * @param {string} param 用户输入的查找信息 
+   * @return {array} 对应查找的用户信息，无则空
+   */
+  searchUser: data => axios.get('http://112.74.25.26/user/search', data),
+
+  /**
+   * 删除用户信息
+   * @param {number} userid 用户id 
+   */
+  deleteUser: data => axios.delete('112.73.25.26/user', data),
+
+  /**
+   * 获取用户列表
+   * @return {array} 用户列表  
+   */
+  getUserList: data => axios.get('http://112.74.25.26/user/list', data),
+
+
+/**
+   * 添加对应用户资源
+   * @param {number} userid 用户id
+   * @param {strign} title 资源标题
+   * @param {string} url 资源url  
+   */
+  addUserInfo: data => axios.post('http://112.74.25.26/user/infoList', data),
+
+  /**
+   * 删除对应用户资源
+   * @param {number} userid 用户id
+   * @param {number} infoid 资源id
+   */
+  deleteUserInfo: data => axios.delete('http://112.74.25.26/user/infoList', data),
+
+   /**
+   * 获取对应用户资源列表
+   * @param {number} userid 用户id
+   * @return {array} 资源列表数组
+   */
+  getUserInfoList: data => axios.get('http://112.74.25.26/user/infoList', data),
+
+  /**
+   * 获取对应用户时长
+   * @param {number} userid 用户id
+   */
+  getTime: data => axios.get('http://112.74.25.26/user/timeout', {params: data}),
+
+  /**
+   * 修改对应用户时长
+   * @param {number} userid 用户id
+   * @param {number} time  时长
+   */
+  modifyTime: data => axios.put('http://112.74.25.26/user/timeout', data)
 
 }

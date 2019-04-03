@@ -72,9 +72,6 @@ export default {
   },
   components: { count },
   methods: {
-    response() {
-      console.log("----");
-    },
     turntoCampus() {
       this.$router.push({ path: "/test/campus" });
     },

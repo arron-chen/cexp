@@ -8,7 +8,6 @@ const Admin = () => import ('@/admin/index');
 const Campus = () => import ('@/views/test/campus');
 const Character = () => import ('@/views/test/character');
 const Work = () => import ('@/views/test/work');
-const Willing = () => import ('@/views/test/willing');
 const Result1 = () => import ('@/views/test/result1');
 
 const Video = () => import ('@/views/video');
@@ -69,14 +68,6 @@ export default new Router({
       path: '/test/work',
       name: 'work',
       component: Work,
-      meta: {
-        requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
-      },
-    },
-    {
-      path: '/test/willing',
-      name: 'willing',
-      component: Willing,
       meta: {
         requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
       },

@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <component :is="currentComponent"></component>
     <div class="copyright">
       备案号：
       <a href="http://www.miitbeian.gov.cn">粤ICP备18071075号</a>
@@ -9,14 +10,48 @@
 </template>
 
 <script>
+const count = () => import("./components/count.vue");
 export default {
   name: "App",
   data() {
-    return {};
+    return {
+      currentComponent: ""
+    };
   },
-  methods: {},
+  components: { count },
+  methods: {
+    isContainedInRoute(to) {
+      let allowRoute = [
+        "/index",
+        "/test/campus",
+        "/test/character",
+        "/test/work",
+        "/test/willing",
+        "/test/result1",
+        "/video",
+        "/course",
+        "/videoshow",
+        "/develop",
+        "/devshow",
+        "/template",
+        "/info",
+        "/imgShow"
+      ];
+      if(allowRoute.indexOf(to.path) !== -1){
+        return true;
+      }else{
+        return false
+      }
+    }
+  },
   watch: {
-    $route(to, from) {}
+    $route(to, from) {
+      if (this.isContainedInRoute(to)) {
+        this.currentComponent = count;
+      } else {
+        this.currentComponent = "";
+      }
+    }
   }
 };
 </script>

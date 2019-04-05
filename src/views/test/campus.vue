@@ -1,6 +1,5 @@
 <template>
   <div class="testwrap">
-    <count></count>
     <div class="backto">
       <img src="http://media.tianxingzhe.vip/test/backto.png" @click="backto">
     </div>
@@ -42,8 +41,8 @@
   </div>
 </template>
 <script>
-import count from "../../components/count";
 import localData from "@/util/localData.js";
+import * as types from "../../store/type.js";
 export default {
   data() {
     return {
@@ -64,8 +63,7 @@ export default {
       resultArray: []
     };
   },
-  components: { count },
-  created(){
+  created() {
     this.questions = localData.test.test1;
   },
   methods: {
@@ -123,8 +121,8 @@ export default {
       }
       let index = parseInt(Math.random() * 4);
       param.userForm = result[index];
-      this.$http
-        .post("http://112.74.25.26/user/test1", param)
+      this.$store
+        .dispatch(types.SUBMIT_TEST1, param)
         .then(res => {
           console.log(res);
           this.$Message.info("提交成功，留学芯片中查看结果");

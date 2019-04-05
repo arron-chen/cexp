@@ -13,6 +13,8 @@
   </Modal>
 </template>
 <script>
+import { clearAllCookie } from '../util/cookie.js' 
+import * as types from '../store/type.js'
 export default {
   name: "popc",
   data() {
@@ -27,29 +29,20 @@ export default {
         title: "注销登陆",
         content: "<p>是否注销当前用户</p>",
         onOk: () => {
-          this.clearAllCookie();
+          clearAllCookie();
           var userid;
           let a = document.cookie;
           let b = a.split(",")[0];
           userid = b.split("=")[1];
           this.$Message.info("退出登陆成功");
-          //clearInterval(this.timmer);
           this.$router.push({ path: "/" });
-          this.$http
-            .delete("http://112.74.25.26/logout")
-            .then(res => {})
+          this.$store.dispatch(types.LOGOUT)
+            .then(res => { console.log('注销成功',res)})
             .catch(err => {
               console.log(err);
             });
         }
       });
-    },
-    clearAllCookie() {
-      var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
-      if (keys) {
-        for (var i = keys.length; i--; )
-          document.cookie = keys[i] + "=0;expires=" + new Date(0).toUTCString();
-      }
     }
   },
   props: {

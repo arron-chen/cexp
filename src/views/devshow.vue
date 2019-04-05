@@ -1,7 +1,6 @@
 <template>
   <div class="showWrap">
     <div class="showcont">
-      <count></count>
       <div class="showcont-title">作品集</div>
       <ul class="cont-list" ref="images">
         <li v-for="(item,index) in imgurl" :key="index">
@@ -15,7 +14,6 @@
   </div>
 </template>
 <script>
-import count from "../components/count";
 import Viewer from "viewerjs";
 import "viewerjs/dist/viewer.css";
 export default {
@@ -26,7 +24,6 @@ export default {
       pictureList: []
     };
   },
-  components: { count },
   methods: {
     back() {
       history.go(-1);

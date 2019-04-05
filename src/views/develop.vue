@@ -1,6 +1,5 @@
 <template>
   <div class="devewrap">
-    <count></count>
     <div class="backto">
       <img src="http://media.tianxingzhe.vip/video/backto.png" @click="backto">
     </div>
@@ -189,7 +188,6 @@
   </div>
 </template>
 <script>
-import count from "../components/count";
 import Viewer from "viewerjs";
 import "viewerjs/dist/viewer.css";
 import localData from "@/util/localData.js";
@@ -204,7 +202,6 @@ export default {
   beforeMount() {
     this.localData = localData;
   },
-  components: { count },
   methods: {
     handleTabsAdd() {
       this.tabs++;
@@ -240,16 +237,6 @@ export default {
 .devewrap {
   width: 100%;
   height: 100%;
-  .countStyle {
-    display: block;
-    position: fixed;
-    width: 120px;
-    height: 30px;
-    bottom: 10px;
-    right: 10px;
-    color: #000;
-    font-size: 12px;
-  }
   .backto {
     position: absolute;
     left: 30px;

@@ -1,6 +1,5 @@
 <template>
   <div class="templatewrap">
-    <count></count>
     <div class="backto">
       <img src="http://media.tianxingzhe.vip/video/backto.png" @click="backto">
     </div>
@@ -43,7 +42,6 @@
 </template>
 <script>
 import pdf from "vue-pdf";
-import count from "../components/count";
 import localData from "@/util/localData.js";
 export default {
   data() {
@@ -57,8 +55,7 @@ export default {
     };
   },
   components: {
-    pdf,
-    count
+    pdf
   },
   created() {
     this.localData = localData;

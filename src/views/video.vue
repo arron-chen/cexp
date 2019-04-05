@@ -1,6 +1,5 @@
 <template>
   <div class="videowrap">
-    <count></count>
     <div class="backto">
       <img src="http://media.tianxingzhe.vip/video/backto.png" @click="backto">
     </div>
@@ -29,7 +28,6 @@
   </div>
 </template>
 <script>
-import count from "../components/count";
 import localData from "@/util/localData.js";
 export default {
   data() {
@@ -42,7 +40,6 @@ export default {
       localData: undefined
     };
   },
-  components: { count },
   computed: {
     listU: {
       get: function() {

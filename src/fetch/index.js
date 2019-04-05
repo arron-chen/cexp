@@ -3,39 +3,40 @@ import qs from 'qs'
 import store from '../store'
 import router from "../router"
 
-// axios 配置
-axios.defaults.timeout = 100000;
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
-axios.defaults.headers.get['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
+// // axios 配置
+// axios.defaults.timeout = 100000;
+// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
+// axios.defaults.headers.get['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 
-/**
- * 请求之前可以做什么
- */
-axios.interceptors.request.use((config) => {
-  config.data = qs.stringify(config.data);
-  if (window.localStorage.getItem("token")) {
-    var lstoken = window.localStorage.getItem("token");
-    config.headers.common['Authorization'] = "Bearer " + lstoken
-  }
-  return config;
-}, (error) => {
-  return Promise.reject(error);
-});
+// /**
+//  * 请求之前可以做什么
+//  */
+// axios.interceptors.request.use((config) => {
+//   config.data = qs.stringify(config.data);
+//   if (window.localStorage.getItem("token")) {
+//     var lstoken = window.localStorage.getItem("token");
+//     config.headers.common['Authorization'] = "Bearer " + lstoken
+//   }
+//   return config;
+// }, (error) => {
+//   return Promise.reject(error);
+// });
 
-/**
- * 返回拦截，可以做些什么
- */
-axios.interceptors.response.use((res) => {
-  return res
-  document.cookie = 'userid' + res.data.msg;
-}, (error) => {
-  if (error.response.status == 500) {
-    window.localStorage.removeItem("token")
-    store.commit('SET_TOKEN', '')
-    router.replace('/login')
-  }
-  return Promise.reject(error)
-})
+// /**
+//  * 返回拦截，可以做些什么
+//  */
+// axios.interceptors.response.use((res) => {
+//   return res
+//   document.cookie = 'userid' + res.data.msg;
+// }, (error) => {
+//   if (error.response.status == 500) {
+//     window.localStorage.removeItem("token")
+//     store.commit('SET_TOKEN', '')
+//     router.replace('/login')
+//   }
+//   return Promise.reject(error)
+// })
+
 
 
 export default {
@@ -59,12 +60,12 @@ export default {
     /**
    * 注销登录
    */
-  logout: data => axios.delete('http://112.74.25.26/user/logout', data),
+  logout: data => axios.get('http://112.74.25.26/user/logout', { params: data}),
 
 
   //### 管理页
   /**
-   * 修改用户信息
+   * 修改用户权限
    * @param {number} userid 用户id
    * @param {number} level 用户分级  0.普通用户 1.管理员 2.vip  
    */
@@ -82,19 +83,25 @@ export default {
    * @param {string} param 用户输入的查找信息 
    * @return {array} 对应查找的用户信息，无则空
    */
-  searchUser: data => axios.get('http://112.74.25.26/user/search', data),
+  searchUser: data => axios.get('http://112.74.25.26/user/search', { params: data}),
+
+   /**
+   * 获取用户信息
+   * @param {number} userid 用户id 
+   */
+  getUser: data => axios.get('http://112.74.25.26/user', { params: data}),
 
   /**
    * 删除用户信息
    * @param {number} userid 用户id 
    */
-  deleteUser: data => axios.delete('112.73.25.26/user', data),
+  deleteUser: data => axios.delete('http://112.74.25.26/user', {params: data}),
 
   /**
    * 获取用户列表
    * @return {array} 用户列表  
    */
-  getUserList: data => axios.get('http://112.74.25.26/user/list', data),
+  getUserList: data => axios.get('http://112.74.25.26/user/list', { params: data}),
 
 
 /**
@@ -110,14 +117,42 @@ export default {
    * @param {number} userid 用户id
    * @param {number} infoid 资源id
    */
-  deleteUserInfo: data => axios.delete('http://112.74.25.26/user/infoList', data),
+  deleteUserInfo: data => axios.delete('http://112.74.25.26/user/infoList', { params: data}),
 
    /**
    * 获取对应用户资源列表
    * @param {number} userid 用户id
    * @return {array} 资源列表数组
    */
-  getUserInfoList: data => axios.get('http://112.74.25.26/user/infoList', data),
+  getUserInfo: data => axios.get('http://112.74.25.26/user/infoList', { params: data}),
+
+
+  // ### 前台页面接口
+
+  /**
+   * 提交测试1结果
+   * @param {number} userId 用户id
+   * @param {String} userForm 资源Url 
+   */
+  submitTest1: data => axios.post('http://112.74.25.26/user/test1', data),
+  /**
+   * 提交测试2结果
+   * @param {number} userId 用户id
+   * @param {String} userForm 资源Url 
+   */
+  submitTest2: data => axios.post('http://112.74.25.26/user/test2', data),
+  /**
+   * 提交测试3结果
+   * @param {number} userId 用户id
+   * @param {String} userForm 资源Url 
+   */
+  submitTest3: data => axios.post('http://112.74.25.26/user/test3', data),
+  /**
+   * 提交测试4结果
+   * @param {number} userId 用户id
+   * @param {String} userForm 资源Url 
+   */
+  submitTest4: data => axios.post('http://112.74.25.26/user/test4', data),
 
   /**
    * 获取对应用户时长

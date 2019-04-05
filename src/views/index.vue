@@ -1,6 +1,5 @@
 <template>
   <div class="wrap">
-    <count></count>
     <div class="module_wrap">
       <div class="module module1">
         <div class="module_box">
@@ -65,29 +64,22 @@
   </div>
 </template>
 <script>
-import count from "../components/count";
+import { clearAllCookie } from '../util/cookie.js'
+import * as types from '../store/type.js'
 export default {
   data() {
     return {};
   },
-  components: { count },
   methods: {
     turntoCampus() {
       this.$router.push({ path: "/test/campus" });
-    },
-    clearAllCookie() {
-      var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
-      if (keys) {
-        for (var i = keys.length; i--; )
-          document.cookie = keys[i] + "=0;expires=" + new Date(0).toUTCString();
-      }
     },
     exitSys() {
       this.$Modal.confirm({
         title: "注销登陆",
         content: "<p>是否注销当前用户</p>",
         onOk: () => {
-          this.clearAllCookie();
+          clearAllCookie();
           var userid;
           let a = document.cookie;
           let b = a.split(",")[0];
@@ -95,9 +87,10 @@ export default {
           this.$Message.info("退出登陆成功");
           clearInterval(this.timmer);
           this.$router.push({ path: "/" });
-          this.$http
-            .delete("http://112.74.25.26/user/logout")
-            .then(res => {})
+          this.$store.dispatch(types.LOGOUT)
+            .then(res => {
+              console.log('注销成功',res)
+            })
             .catch(err => {
               console.log(err);
             });

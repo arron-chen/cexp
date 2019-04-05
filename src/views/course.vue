@@ -1,6 +1,5 @@
 <template>
   <div class="coursewrap">
-    <count></count>
     <div class="backto">
       <img src="http://media.tianxingzhe.vip/test/backto.png" @click="backto">
     </div>
@@ -24,7 +23,6 @@
   </div>
 </template>
 <script>
-import count from "../components/count";
 import localData from "@/util/localData.js";
 export default {
   data() {
@@ -37,7 +35,6 @@ export default {
   beforeMount() {
     this.localData = localData;
   },
-  components: { count },
   methods: {
     backto() {
       this.$router.push({

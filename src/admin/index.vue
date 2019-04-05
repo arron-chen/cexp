@@ -45,7 +45,7 @@
             v-show="itemShow == '1-2' "
             :style="{padding: '24px', minHeight: '280px', background: '#fff'}"
           >
-            <Input v-model="search" icon="ios-search" placeholder="请输入用户名" style="width: 200px" />
+            <Input v-model="search" icon="ios-search" placeholder="请输入用户名" style="width: 200px"/>
             <Button @click="searchUser">搜索</Button>
             <Table :columns="columns1" :data="data2"></Table>
           </Content>
@@ -68,12 +68,12 @@
             </div>
             <div class="userLine">
               <span>体验时长</span>
-              <Input v-model="userTime" style="width:200px;" />
+              <Input v-model="userTime" style="width:200px;"/>
               <a class="modify_btn" @click="modifyT">修改</a>
             </div>
             <div class="userLine">
               <span>修改密码</span>
-              <Input placeholder="请输入要重置的密码" v-model="userPassword" style="width:200px;" />
+              <Input placeholder="请输入要重置的密码" v-model="userPassword" style="width:200px;"/>
               <a class="modify_btn" @click="modifyPass">修改</a>
             </div>
           </Modal>
@@ -86,11 +86,11 @@
           <Modal v-model="modal3" width="420" class-name="vertical-center-modal" :closable="false">
             <div class="userLine">
               <span>资源标题</span>
-              <Input v-model="userinfoTitle" style="width:200px;" />
+              <Input v-model="userinfoTitle" style="width:200px;"/>
             </div>
             <div class="userLine">
               <span>资源路径</span>
-              <Input v-model="userinfoUrl" style="width:200px;" />
+              <Input v-model="userinfoUrl" style="width:200px;"/>
             </div>
             <div class="userLine">
               <button @click="confirmAddRes">添加</button>
@@ -102,8 +102,7 @@
   </div>
 </template>
 <script>
-import axios from "axios";
-
+import * as types from "../store/type.js";
 export default {
   data() {
     return {
@@ -299,8 +298,8 @@ export default {
               level = 2;
               break;
           }
-          this.$http
-            .put("http://112.74.25.26/user", {
+          this.$store
+            .dispatch(types.MODIFY_USER, {
               userid: this.userId,
               level: level
             })
@@ -321,14 +320,13 @@ export default {
         content: "<p>是否修改当前用户体验时长</p>",
         onOk: () => {
           var time = this.userTime;
-          this.$http
-            .put("http://112.74.25.26/user/timeout", {
+          this.$store
+            .dispatch(types.MODIFY_TIME, {
               userid: this.userId,
               time: time
             })
             .then(res => {
               this.$Message.info("修改用户时长成功");
-
               this.modal = false;
             })
             .catch(err => {
@@ -343,8 +341,8 @@ export default {
         content: "<p>是否修改当前用户密码</p>",
         onOk: () => {
           var pass = this.userPassword;
-          this.$http
-            .put("http://112.74.25.26/user/password", {
+          this.$store
+            .dispatch(types.MODIGY_USER_PWD, {
               userid: this.userId,
               password: pass
             })
@@ -364,10 +362,8 @@ export default {
         this.$Message.warning("搜索条件不可为空");
         return;
       }
-      this.$http
-        .get("http://112.74.25.26/user/search", {
-          params: { param: this.search }
-        })
+      this.$store
+        .dispatch(types.SEARCH_USER, { param: this.search })
         .then(res => {
           this.data2 = res.data;
         })
@@ -380,10 +376,8 @@ export default {
         title: "消息提示",
         content: "<p>是否删除当前用户</p>",
         onOk: () => {
-          this.$http
-            .delete("http://112.74.25.26/user", {
-              params: { userid: info.row.userid }
-            })
+          this.$store
+            .dispatch(types.DELETE_USER, { userid: info.row.userid })
             .then(res => {
               this.$Message.info("删除成功");
             })
@@ -399,8 +393,8 @@ export default {
       this.modal2 = true;
     },
     getUserList() {
-      this.$http
-        .get("http://112.74.25.26/user/list")
+      this.$store
+        .dispatch(types.GET_USER_LIST)
         .then(res => {
           console.log("res");
           this.data1 = res.data.userList;
@@ -421,8 +415,8 @@ export default {
         title: "消息提示",
         content: "<p>是否确认添加当前资源</p>",
         onOk: () => {
-          this.$http
-            .post("http://112.74.25.26/user/infoList", param)
+          this.$store
+            .dispatch(types.ADD_USER_INFO, param)
             .then(res => {
               this.modal3 = false;
               this.modal2 = false;
@@ -435,8 +429,8 @@ export default {
     },
     getUserinfoList(userid) {
       var param = { userid: userid };
-      this.$http
-        .get("http://112.74.25.26/user/infoList", { params: param })
+      this.$store
+        .dispatch(types.GET_USER_INFO, param)
         .then(res => {
           this.data3 = [];
           for (var i in res.data.msg) {
@@ -454,8 +448,8 @@ export default {
         title: "消息提示",
         content: "<p>是否删除本条资源</p>",
         onOk: () => {
-          this.$http
-            .delete("http://112.74.25.26/user/infoList", { params: param })
+          this.$store
+            .dispatch(types.DELETE_USER_INFO, param)
             .then(res => {
               console.log(res);
               this.$Message.info("删除成功");

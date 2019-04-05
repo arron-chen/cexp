@@ -269,7 +269,7 @@ export default {
           }
           if (_this.single1) {
             this.$store
-              .dispatch(types.LOGIN, user)
+              .dispatch(types.SIGNIN, user)
               .then(res => {
                 if (res.data.code == 0) {
                   this.$Message.success("注册成功,请登录!");
@@ -304,8 +304,6 @@ export default {
           }
           if (_this.single2) {
               _this.$store.dispatch(types.LOGIN, user)
-            // this.$http
-            //   .post("http://112.74.25.26/user/login", user)
               .then((res) => {
                 console.log(res);
                 if (res.data.code === 0) {

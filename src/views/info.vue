@@ -1,6 +1,5 @@
 <template>
   <div class="infowrap">
-    <count></count>
     <div class="backto">
       <img src="http://media.tianxingzhe.vip/video/backto.png" @click="backto">
     </div>
@@ -32,8 +31,8 @@
   </div>
 </template>
 <script>
-import count from "../components/count";
 import localData from "@/util/localData.js";
+import * as types from '../store/type.js'
 export default {
   data() {
     return {
@@ -44,7 +43,6 @@ export default {
       localData: undefined
     };
   },
-  components: { count },
   created() {
     this.localData = localData;
   },
@@ -67,8 +65,7 @@ export default {
         let b = a.split(",")[0];
         param.userid = b.split("=")[1];
       }
-      this.$http
-        .get("http://112.74.25.26/user", { params: param })
+        this.$store.dispatch(types.GET_USER, param)
         .then(res => {
           if (res.data.code !== 2) {
             let result = res.data.msg[0];
@@ -92,8 +89,7 @@ export default {
               });
             }
             let par = { userid: param.userid };
-            this.$http
-              .get("http://112.74.25.26/user/infoList", { params: par })
+              this.$store.dispatch(types.GET_USER_INFOLIST, par)
               .then(res => {
                 for (var i in res.data.msg) {
                   this.resultList.push(res.data.msg[i]);

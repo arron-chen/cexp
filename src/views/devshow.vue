@@ -14,8 +14,6 @@
   </div>
 </template>
 <script>
-import Viewer from "viewerjs";
-import "viewerjs/dist/viewer.css";
 export default {
   data() {
     return {
@@ -27,21 +25,11 @@ export default {
   methods: {
     back() {
       history.go(-1);
-    },
-    getImg() {
-      var el = this.$refs.images;
-      var viewer = new Viewer(el, {
-        // 相关配置项,详情参考官网
-        show: { immediate: true }
-      });
     }
   },
   created() {
     let b = JSON.parse(this.$route.query.children);
     this.imgurl = b;
-  },
-  mounted() {
-    this.getImg();
   }
 };
 </script>

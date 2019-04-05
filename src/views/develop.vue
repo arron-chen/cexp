@@ -188,8 +188,6 @@
   </div>
 </template>
 <script>
-import Viewer from "viewerjs";
-import "viewerjs/dist/viewer.css";
 import localData from "@/util/localData.js";
 export default {
   data() {
